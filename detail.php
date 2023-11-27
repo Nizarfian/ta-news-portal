@@ -57,9 +57,9 @@
         <div class="topbar">
           <div class="content-topbar container h-100">
             <div class="left-topbar">
-              <a href="#" class="left-topbar-item"> About </a>
+              <a href="#" class="left-topbar-item"> Home </a>
 
-              <a href="#" class="left-topbar-item"> Contact </a>
+              <a href="#" class="left-topbar-item"> About </a>
 
               <a href="#" class="left-topbar-item"> Sing up </a>
 
@@ -319,27 +319,26 @@
                   <input
                     class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20"
                     type="text"
-                    name="name"
-                    placeholder="Name*"
+                    name=""
+                    placeholder="Nama"
                   />
 
                   <input
                     class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20"
-                    type="text"
-                    name="email"
-                    placeholder="Email*"
+                    type="date"
+                    name=""
                   />
 
                   <textarea
                     class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20"
-                    name="msg"
-                    placeholder="Comment..."
+                    name=""
+                    placeholder="Komentar..."
                   ></textarea>
 
                   <button
                     class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10"
                   >
-                    Post Comment
+                    Kirim Komentar
                   </button>
                 </form>
               </div>

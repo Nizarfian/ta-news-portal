@@ -946,11 +946,13 @@ li.respon-sub-menu > .sub-menu .sub-menu {
 
 /*---------------------------------------------*/
 .tab01-link {
+  margin-left: 700px;
   padding-left: 10px;
   white-space: nowrap;
 }
 
 .tab01-title {
+  width: 200px;
   padding-right: 25px;
 }
 
