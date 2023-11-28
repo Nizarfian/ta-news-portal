@@ -2,228 +2,202 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin | Home</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofxP+Y8L5fLEuPvNf1cN7uP6EHAJ2zQ3S" crossorigin="anonymous">
-
-    <!-- AdminLTE Styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1.0/dist/css/adminlte.min.css">
-
-    <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap5.min.css">
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
-    </script>
-
-    <!-- DataTables JS -->
-    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap5.min.js"></script>
-    <!-- Custom CSS -->
-    <style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 20px 0;
-        background-color: #fff;
-    }
-
-    table,
-    th,
-    td {
-        border: 1px solid #ccc;
-    }
-
-    th,
-    td {
-        padding: 10px;
-        text-align: left;
-    }
-
-    th {
-        background-color: #333;
-        color: white;
-    }
-
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    tr:hover {
-        background-color: #ccc;
-    }
-    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Admin | Dashboard</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- End layout styles -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" />
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
-    <div class="wrapper">
-        <!-- Navbar -->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+<body>
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+            <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
+        </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+                <span class="mdi mdi-menu"></span>
+            </button>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item d-none d-lg-block full-screen-link">
+                    <a class="nav-link">
+                        <i class="mdi mdi-fullscreen" id="fullscreen-button"></i>
+                    </a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" target="_blank" class="nav-link">Website</a>
+                <li class="nav-item nav-logout d-none d-lg-block">
+                    <a class="nav-link" href="#">
+                        <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
+                    </a>
                 </li>
             </ul>
-
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+                <span class="mdi mdi-menu"></span>
+            </button>
+        </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <ul class="nav">
+                <li class="nav-item nav-profile">
+                    <a href="index.php" class="nav-link">
+                        <div class="nav-profile-image">
+                            <img src="assets/images/faces/profile.png" alt="profile">
+                            <span class="login-status online"></span>
+                            <!--change to offline or busy as needed-->
+                        </div>
+                        <div class="nav-profile-text d-flex flex-column">
+                            <span class="font-weight-bold mb-2">KELOMPOK 3</span>
+                            <span class="text-secondary text-small">Admin</span>
+                        </div>
+                        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                    </a>
+                </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-                        <i class="fas fa-expand-arrows-alt"></i>
+                    <a class="nav-link" href="index.php">
+                        <span class="menu-title">Dashboard</span>
+                        <i class="mdi mdi-home menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="berita.php">
+                        <span class="menu-title">Berita</span>
+                        <i class="mdi mdi-table-large menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="kategori.php">
+                        <span class="menu-title">Kategori</span>
+                        <i class="mdi mdi-table-large menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="komentar.php">
+                        <span class="menu-title">Komentar</span>
+                        <i class="mdi mdi-table-large menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="saran.php">
+                        <span class="menu-title">Saran Berita</span>
+                        <i class="mdi mdi-table-large menu-icon"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="user.php">
+                        <span class="menu-title">User</span>
+                        <i class="mdi mdi-account-circle menu-icon"></i>
                     </a>
                 </li>
             </ul>
         </nav>
-        <!-- /.navbar -->
-
-
-        <!-- Sidebar -->
-        <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="#" class="brand-link">
-                <span class="brand-text font-weight-light">Admin</span>
-            </a>
-
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar Menu -->
-                <nav class="mt-2">
-                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                        data-accordion="false">
-                        <!-- Menu Item -->
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>Dashboard</p>
-                            </a>
-                        </li>
-
-                        <!-- Menu Item with Submenu -->
-                        <li class="nav-item has-treeview">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-cogs"></i>
-                                <p>
-                                    Semua Data <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="index.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Berita</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../admin/kategori/kategori.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Kategori</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="../admin/agency/agency.php" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Agency</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <!-- Add more menu items as needed -->
-
-                    </ul>
-                </nav>
-                <!-- /.sidebar-menu -->
-            </div>
-            <!-- /.sidebar -->
-        </aside>
-
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-
-            <!-- Main content -->
-            <section class="content">
-                <!-- Your content goes here -->
-                <div class="container-fluid">
-                    <h1 class="text-center">Data Berita</h1>
-                    <a href="tambah_berita.php" class="btn btn-success btn-sm mb-3">+ Tambah Data Berita</a>
-                    <table class="table table-hover" id="myTable">
-                        <thead>
-                            <tr class="text-center align-middle">
-                                <th class="text-center" scope="col">No. </th>
-                                <th class="text-center" scope="col">ID Berita</th>
-                                <th class="text-center" scope="col">ID Kategori</th>
-                                <th class="text-center" scope="col">Judul</th>
-                                <th class="text-center" scope="col">Tanggal Rilis</th>
-                                <th class="text-center" scope="col">Isi Berita</th>
-                                <th class="text-center" scope="col">Gambar</th>
-                                <th class="text-center" scope="col" width="120px">Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            include "koneksi.php";
-                            $no = 1;
-                            $berita = mysqli_query($koneksi, "SELECT * FROM berita");
-                            if (mysqli_num_rows($berita) > 0) {
-                                while ($berita_data = mysqli_fetch_array($berita)) {
-                            ?>
-                            <tr>
-                                <th class="text-center align-middle"><?php echo $no ?></th>
-                                <td class="text-center align-middle"><?php echo $berita_data["id_berita"] ?></td>
-                                <td class="text-center align-middle"><?php echo $berita_data["id_kategori"] ?></td>
-                                <td class="text-center align-middle"><?php echo $berita_data["judul"] ?></td>
-                                <td class="text-center align-middle">
-                                    <?php echo date("d F Y", strtotime($berita_data["tgl_rilis"])) ?></td>
-                                <td class="text-center align-middle"><?php echo $berita_data["isi_berita"] ?></td>
-                                <td class="text-center align-middle"><img
-                                        src="gambar/<?php echo $berita_data["gambar"] ?>" width="100px"></td>
-                                <td>
-                                    <a href="edit_berita.php?id_berita=<?php echo $berita_data['id_berita']; ?>"
-                                        class="btn btn-warning">Edit</a>
-                                    <a href="delete_berita.php?id_berita=<?php echo $berita_data['id_berita']; ?>"
-                                        class="btn btn-danger"
-                                        onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');">Delete</a>
-                                </td>
-                            </tr>
-                            <?php $no++;
-                                }; ?>
-                            <?php } ?>
-                        </tbody>
-                    </table>
+        <!-- partial -->
+        <div class="main-panel">
+            <div class="content-wrapper">
+                <div class="page-header">
+                    <h3 class="page-title">
+                        <span class="page-title-icon bg-gradient-primary text-white me-2">
+                            <i class="mdi mdi-home"></i>
+                        </span> Dashboard
+                    </h3>
                 </div>
-            </section>
+                <div class="row">
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-danger card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">List Kategori</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-info card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">List Berita</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-warning card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">List Komentar</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-dark card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">Saran Berita</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-success card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">List User</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- content-wrapper ends -->
+                <!-- partial:partials/_footer.html -->
+                <footer class="footer">
+                    <div class="container-fluid d-flex justify-content-center">
+                        <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright 2023 ©
+                            KELOMPOK 3</span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+            <!-- main-panel ends -->
         </div>
+        <!-- page-body-wrapper ends -->
     </div>
-
-    <!-- AdminLTE App -->
-    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1.0/dist/js/adminlte.min.js"></script>
-
-    <!-- Your custom scripts go here -->
-
-    <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-    });
-    </script>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="assets/vendors/chart.js/Chart.min.js"></script>
+    <script src="assets/js/jquery.cookie.js" type="text/javascript"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="assets/js/off-canvas.js"></script>
+    <script src="assets/js/hoverable-collapse.js"></script>
+    <script src="assets/js/misc.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/todolist.js"></script>
+    <!-- End custom js for this page -->
 </body>
 
 </html>
