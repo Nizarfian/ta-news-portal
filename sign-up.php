@@ -34,20 +34,20 @@
 			<div class="topbar">
 				<div class="content-topbar container h-100">
 					<div class="left-topbar">
-						<a href="index.html" class="left-topbar-item">
-							Home
+						<a href="index.php" class="left-topbar-item">
+							Beranda
 						</a>
 
 						<a href="#" class="left-topbar-item">
-							About
+							Daftar
 						</a>
 
 						<a href="#" class="left-topbar-item">
-							Sign up
+							Masuk
 						</a>
 
 						<a href="#" class="left-topbar-item">
-							Log in
+							Saran Berita
 						</a>
 					</div>
 
@@ -91,19 +91,19 @@
 				<ul class="topbar-mobile">
 					<li class="left-topbar">
 						<a href="index.html" class="left-topbar-item">
-							Home
+							Beranda
 						</a>
 
 						<a href="#" class="left-topbar-item">
-							About
+							Daftar
 						</a>
 
 						<a href="#" class="left-topbar-item">
-							Sign up
+							Masuk
 						</a>
 
 						<a href="#" class="left-topbar-item">
-							Log in
+							Saran Berita
 						</a>
 					</li>
 

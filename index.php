@@ -34,19 +34,19 @@
 				<div class="content-topbar container h-100">
 					<div class="left-topbar">
 						<a href="index.php" class="left-topbar-item">
-							Home
+							Beranda
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							About
+						<a href="sign-up.php" class="left-topbar-item">
+							Daftar
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							Sing up
+						<a href="login.php" class="left-topbar-item">
+							Masuk
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							Log in
+						<a href="req-news.php" class="left-topbar-item">
+							Saran Berita
 						</a>
 					</div>
 
@@ -90,19 +90,19 @@
 				<ul class="topbar-mobile">
 					<li class="left-topbar">
 						<a href="index.php" class="left-topbar-item">
-							Home
+							Beranda
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							About
+						<a href="sign-up.php" class="left-topbar-item">
+							Daftar
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							Sing up
+						<a href="login.php" class="left-topbar-item">
+							Masuk
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							Log in
+						<a href="login.php" class="left-topbar-item">
+							Saran Berita
 						</a>
 					</li>
 
