@@ -75,7 +75,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-					<a href="index.php"><img src="images/logo-k3l2.png" alt="IMG-LOGO"></a>
+					<a href="index.html"><img src="images/logo-k3l2.png" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -128,27 +128,27 @@
 
 				<ul class="main-menu-m">
 					<li>
-						<a href="menu.php">Berita Terbaru</a>
+						<a href="menu.html">Berita Terbaru</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Entertaiment </a>
+						<a href="menu.html">Entertaiment </a>
 					</li>
 
 					<li>
-						<a href="menu.php">Otomotif</a>
+						<a href="menu.html">Otomotif</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Olahraga</a>
+						<a href="menu.html">Olahraga</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Edukasi</a>
+						<a href="menu.html">Edukasi</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Kesehatan</a>
+						<a href="menu.html">Kesehatan</a>
 					</li>
 				</ul>
 			</div>
@@ -157,7 +157,7 @@
 			<div class="wrap-logo container">
 				<!-- Logo desktop -->
 				<div class="logo">
-					<a href="index.php"><img src="images/logo-k3l2.png" alt="LOGO"></a>
+					<a href="index.html"><img src="images/logo-k3l2.png" alt="LOGO"></a>
 				</div>	
 
 				<!-- Search -->
@@ -176,33 +176,33 @@
 				<div class="main-nav">
 					<!-- Menu desktop -->
 					<nav class="menu-desktop">
-						<a class="logo-stick" href="index.php">
+						<a class="logo-stick" href="index.html">
 							<img src="images/logo-k3l2.png" alt="LOGO">
 						</a>
 
 						<ul class="main-menu">
 							<li class="">
-								<a href="menu.php">Berita Terbaru</a>
+								<a href="menu.html">Berita Terbaru</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Entertaiment</a>
+								<a href="menu.html">Entertaiment</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Otomotif</a>
+								<a href="menu.html">Otomotif</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Olahraga</a>
+								<a href="menu.html">Olahraga</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Edukasi</a>
+								<a href="menu.html">Edukasi</a>
 							</li>
 							
 							<li class="mega-menu-item">
-								<a href="menu.php">Kesehatan</a>
+								<a href="menu.html">Kesehatan</a>
 							</li>
 						</ul>
 					</nav>
@@ -213,9 +213,9 @@
 
 	<!-- Breadcrumb -->
 	<div class="container">
-		<div class="bg0 flex-wr-sb-c p-r-20 p-tb-8">
+		<div class="bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
-				<a href="index.php" class="breadcrumb-item f1-s-3 cl9">
+				<a href="index.html" class="breadcrumb-item f1-s-3 cl9">
 					Home 
 				</a>
 
@@ -239,7 +239,7 @@
 			<div class="row m-rl--1">
 				<div class="col-md-6 p-rl-1 p-b-2">
 					<div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url(images/entertaiment-01.jpg);">
-						<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
+						<a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
 						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 							<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -247,7 +247,7 @@
 							</a>
 
 							<h3 class="how1-child2 m-t-14 m-b-10">
-								<a href="detail.php" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
+								<a href="detail.html" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
 									Judul
 								</a>
 							</h3>
@@ -273,7 +273,7 @@
 					<div class="row m-rl--1">
 						<div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-02.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
+								<a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -281,7 +281,7 @@
 									</a>
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+										<a href="detail.html" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 											judul
 										</a>
 									</h3>
@@ -291,7 +291,7 @@
 
 						<div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-03.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
+								<a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -299,7 +299,7 @@
 									</a>
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+										<a href="detail.html" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 											judul
 										</a>
 									</h3>
@@ -309,7 +309,7 @@
 
 						<div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-04.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
+								<a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -317,7 +317,7 @@
 									</a>
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+										<a href="detail.html" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 											judul
 										</a>
 									</h3>
@@ -327,7 +327,7 @@
 
 						<div class="col-sm-6 p-rl-1 p-b-2">
 							<div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-05.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
+								<a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
 								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
 									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -335,7 +335,7 @@
 									</a>
 
 									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+										<a href="detail.html" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
 											judul
 										</a>
 									</h3>
@@ -357,13 +357,13 @@
 						<div class="col-sm-4 p-r-25 p-r-15-sr991">
 							<!-- Item latest -->	
 							<div class="m-b-45">
-								<a href="detail.php" class="wrap-pic-w hov1 trans-03">
+								<a href="detail.html" class="wrap-pic-w hov1 trans-03">
 									<img src="images/entertaiment-06.jpg" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="detail.php" class="f1-m-3 cl2 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-3 cl2 hov-cl10 trans-03">
 											judul
 										</a>
 									</h5>
@@ -388,13 +388,13 @@
 						<div class="col-sm-4 p-r-25 p-r-15-sr991">
 							<!-- Item latest -->	
 							<div class="m-b-45">
-								<a href="detail.php" class="wrap-pic-w hov1 trans-03">
+								<a href="detail.html" class="wrap-pic-w hov1 trans-03">
 									<img src="images/entertaiment-06.jpg" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="detail.php" class="f1-m-3 cl2 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-3 cl2 hov-cl10 trans-03">
 											judul
 										</a>
 									</h5>
@@ -419,13 +419,13 @@
 						<div class="col-sm-4 p-r-25 p-r-15-sr991">
 							<!-- Item latest -->	
 							<div class="m-b-45">
-								<a href="detail.php" class="wrap-pic-w hov1 trans-03">
+								<a href="detail.html" class="wrap-pic-w hov1 trans-03">
 									<img src="images/entertaiment-06.jpg" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="detail.php" class="f1-m-3 cl2 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-3 cl2 hov-cl10 trans-03">
 											judul
 										</a>
 									</h5>
@@ -450,13 +450,13 @@
 						<div class="col-sm-4 p-r-25 p-r-15-sr991">
 							<!-- Item latest -->	
 							<div class="m-b-45">
-								<a href="detail.php" class="wrap-pic-w hov1 trans-03">
+								<a href="detail.html" class="wrap-pic-w hov1 trans-03">
 									<img src="images/entertaiment-06.jpg" alt="IMG">
 								</a>
 
 								<div class="p-t-16">
 									<h5 class="p-b-5">
-										<a href="detail.php" class="f1-m-3 cl2 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-3 cl2 hov-cl10 trans-03">
 											judul
 										</a>
 									</h5>
@@ -505,7 +505,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -513,7 +513,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -521,7 +521,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -529,7 +529,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -537,7 +537,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -545,7 +545,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="detail.html" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -565,7 +565,7 @@
 				<div class="row">
 					<div class="col-sm-6 col-lg-6 p-b-20">
 						<div class="size-h-3 flex-s-c">
-							<a href="index.php">
+							<a href="index.html">
 								<img class="max-s-full" src="images/logo-k3l.png" alt="LOGO">
 							</a>
 						</div>
