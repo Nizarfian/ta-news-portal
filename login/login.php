@@ -5,24 +5,24 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
+	<link rel="icon" type="image/png" href="../images/icons/favicon.png"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="fonts/fontawesome-5.0.8/css/fontawesome-all.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/fontawesome-5.0.8/css/fontawesome-all.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="css/util.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/util.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="../css/main.css">
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -34,7 +34,7 @@
 			<div class="topbar">
 				<div class="content-topbar container h-100">
 					<div class="left-topbar">
-						<a href="index.php" class="left-topbar-item">
+						<a href="../index.php" class="left-topbar-item">
 							Beranda
 						</a>
 
@@ -46,7 +46,7 @@
 							Masuk
 						</a>
 
-						<a href="req-news.php" class="left-topbar-item">
+						<a href="../saran-berita/req-news.php" class="left-topbar-item">
 							Saran Berita
 						</a>
 					</div>
@@ -75,7 +75,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+					<a href="../index.html"><img src="../images/logo-k3l2.png" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -90,7 +90,7 @@
 			<div class="menu-mobile">
 				<ul class="topbar-mobile">
 					<li class="left-topbar">
-						<a href="index.html" class="left-topbar-item">
+						<a href="../index.html" class="left-topbar-item">
 							Beranda
 						</a>
 
@@ -102,7 +102,7 @@
 							Masuk
 						</a>
 
-						<a href="req-news.php" class="left-topbar-item">
+						<a href="../saran-berita/req-news.php" class="left-topbar-item">
 							Saran Berita
 						</a>
 					</li>
@@ -177,7 +177,7 @@
                           
                             <!-- Register buttons -->
                             <div class="text-center">
-                              <p>Tidak Punya Akun? <a href="#!">Daftar</a></p>
+                              <p>Tidak Punya Akun? <a href="sign-up.php">Daftar</a></p>
                               
                             </div>
                           </form>
@@ -195,8 +195,8 @@
 				<div class="row">
 					<div class="col-sm-6 col-lg-6 p-b-20">
 						<div class="size-h-3 flex-s-c">
-							<a href="index.html">
-								<img class="max-s-full" src="images/logo-k3l.png" alt="LOGO">
+							<a href="../index.html">
+								<img class="max-s-full" src="../images/logo-k3l.png" alt="LOGO">
 							</a>
 						</div>
 
@@ -250,14 +250,14 @@
 
 
 <!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="../vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="vendor/bootstrap/js/popper.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../vendor/bootstrap/js/popper.js"></script>
+	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="js/main.js"></script>
+	<script src="../js/main.js"></script>
 
 </body>
 </html>

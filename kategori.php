@@ -38,15 +38,15 @@
 							Beranda
 						</a>
 
-						<a href="sign-up.php" class="left-topbar-item">
+						<a href="login/sign-up.php" class="left-topbar-item">
 							Daftar
 						</a>
 
-						<a href="login.php" class="left-topbar-item">
+						<a href="login/login.php" class="left-topbar-item">
 							Masuk
 						</a>
 
-						<a href="req-news.php" class="left-topbar-item">
+						<a href="saran-berita/req-news.php" class="left-topbar-item">
 							Saran Berita
 						</a>
 					</div>
@@ -128,27 +128,27 @@
 
 				<ul class="main-menu-m">
 					<li>
-						<a href="menu.php">Berita Terbaru</a>
+						<a href="menu/berita-terbaru.php">Berita Terbaru</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Entertaiment </a>
+						<a href="menu/entertaiment.php">Entertaiment </a>
 					</li>
 
 					<li>
-						<a href="menu.php">Otomotif</a>
+						<a href="menu/otomotif.php">Otomotif</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Olahraga</a>
+						<a href="menu/olahraga.php">Olahraga</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Edukasi</a>
+						<a href="menu/edukasi.php">Edukasi</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Kesehatan</a>
+						<a href="menu/kesehatan.php">Kesehatan</a>
 					</li>
 				</ul>
 			</div>
@@ -181,28 +181,28 @@
 						</a>
 
 						<ul class="main-menu">
-							<li class="">
-								<a href="menu.php">Berita Terbaru</a>
+							<li class="mega-menu-item">
+								<a href="menu/berita-terbaru.php">Berita Terbaru</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Entertaiment</a>
+								<a href="menu/entertaiment.php">Entertaiment</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Otomotif</a>
+								<a href="menu/otomotif.php">Otomotif</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Olahraga</a>
+								<a href="menu/olahraga.php">Olahraga</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Edukasi</a>
+								<a href="menu/edukasi.php">Edukasi</a>
 							</li>
 							
 							<li class="mega-menu-item">
-								<a href="menu.php">Kesehatan</a>
+								<a href="menu/kesehatan.php">Kesehatan</a>
 							</li>
 						</ul>
 					</nav>
@@ -213,7 +213,7 @@
 
 	<!-- Breadcrumb -->
 	<div class="container">
-		<div class="bg0 flex-wr-sb-c p-r-20 p-tb-8">
+		<div class="bg0 flex-wr-sb-c p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
 				<a href="index.php" class="breadcrumb-item f1-s-3 cl9">
 					Home 
@@ -229,7 +229,7 @@
 	<!-- Page heading -->
 	<div class="container p-t-4 p-b-40">
 		<h2 class="f1-l-1 cl2">
-			Nama Menu
+			Nama Kategori
 		</h2>
 	</div>
 		

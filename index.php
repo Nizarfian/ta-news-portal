@@ -37,15 +37,15 @@
 							Beranda
 						</a>
 
-						<a href="sign-up.php" class="left-topbar-item">
+						<a href="login/sign-up.php" class="left-topbar-item">
 							Daftar
 						</a>
 
-						<a href="login.php" class="left-topbar-item">
+						<a href="login/login.php" class="left-topbar-item">
 							Masuk
 						</a>
 
-						<a href="req-news.php" class="left-topbar-item">
+						<a href="saran-berita/req-news.php" class="left-topbar-item">
 							Saran Berita
 						</a>
 					</div>
@@ -74,7 +74,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-					<a href="index.php"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+					<a href="index.php"><img src="images/logo-k3l2.png" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->
@@ -127,27 +127,27 @@
 
 				<ul class="main-menu-m">
 					<li>
-						<a href="menu.php">Berita Terbaru</a>
+						<a href="menu/berita-terbaru.php">Berita Terbaru</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Entertaiment </a>
+						<a href="menu/entertaiment.php">Entertaiment </a>
 					</li>
 
 					<li>
-						<a href="menu.php">Otomotif</a>
+						<a href="menu/otomotif.php">Otomotif</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Olahraga</a>
+						<a href="menu/olahraga.php">Olahraga</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Edukasi</a>
+						<a href="menu/edukasi.php">Edukasi</a>
 					</li>
 
 					<li>
-						<a href="menu.php">Kesehatan</a>
+						<a href="menu/kesehatan.php">Kesehatan</a>
 					</li>
 				</ul>
 			</div>
@@ -176,32 +176,32 @@
 					<!-- Menu desktop -->
 					<nav class="menu-desktop">
 						<a class="logo-stick" href="index.php">
-							<img src="images/icons/logo-01.png" alt="LOGO">
+							<img src="images/logo-k3l2.png" alt="LOGO">
 						</a>
 
 						<ul class="main-menu">
 							<li class="">
-								<a href="menu.php">Berita Terbaru</a>
+								<a href="menu/berita-terbaru.php">Berita Terbaru</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Entertaiment</a>
+								<a href="menu/entertaiment.php">Entertaiment</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Otomotif</a>
+								<a href="menu/otomotif.php">Otomotif</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Olahraga</a>
+								<a href="menu/olahraga.php">Olahraga</a>
 							</li>
 
 							<li class="mega-menu-item">
-								<a href="menu.php">Edukasi</a>
+								<a href="menu/edukasi.php">Edukasi</a>
 							</li>
 							
 							<li class="mega-menu-item">
-								<a href="menu.php">Kesehatan</a>
+								<a href="menu/kesehatan.php">Kesehatan</a>
 							</li>
 						</ul>
 					</nav>
@@ -532,7 +532,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="kategori.php" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -540,7 +540,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="kategori.php" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -548,7 +548,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="kategori.php" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -556,7 +556,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="kategori.php" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -564,7 +564,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="kategori.php" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>
@@ -572,7 +572,7 @@
 								<div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
 									<!-- Item latest -->	
 									<h5>
-										<a href="detail.php" class="f1-m-2 cl5 hov-cl10 trans-03">
+										<a href="kategori.php" class="f1-m-2 cl5 hov-cl10 trans-03">
 											kategori
 										</a>
 									</h5>

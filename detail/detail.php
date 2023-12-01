@@ -99,7 +99,7 @@
           <!-- Logo moblie -->
           <div class="logo-mobile">
             <a href="../index.php"
-              ><img src="../images/icons/logo-01.png" alt="IMG-LOGO"
+              ><img src="../images/logo-k3l2.png" alt="IMG-LOGO"
             /></a>
           </div>
 

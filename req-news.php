@@ -38,11 +38,11 @@
 							Beranda
 						</a>
 
-						<a href="sign-up.php" class="left-topbar-item">
+						<a href="login/sign-up.php" class="left-topbar-item">
 							Daftar
 						</a>
 
-						<a href="login.php" class="left-topbar-item">
+						<a href="login/login.php" class="left-topbar-item">
 							Masuk
 						</a>
 
@@ -75,7 +75,7 @@
 			<div class="wrap-header-mobile">
 				<!-- Logo moblie -->		
 				<div class="logo-mobile">
-					<a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a>
+					<a href="index.html"><img src="images/logo-k3l2.png" alt="IMG-LOGO"></a>
 				</div>
 
 				<!-- Button show menu -->

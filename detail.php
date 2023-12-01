@@ -61,15 +61,15 @@
                 Beranda
               </a>
 
-              <a href="sign-up.php" class="left-topbar-item">
+              <a href="login/sign-up.php" class="left-topbar-item">
                 Daftar
               </a>
 
-              <a href="login.php" class="left-topbar-item">
+              <a href="login/login.php" class="left-topbar-item">
                 Masuk
               </a>
 
-              <a href="req-news.php" class="left-topbar-item">
+              <a href="saran-berita/req-news.php" class="left-topbar-item">
                 Saran Berita
               </a>
             </div>
@@ -99,7 +99,7 @@
           <!-- Logo moblie -->
           <div class="logo-mobile">
             <a href="index.php"
-              ><img src="images/icons/logo-01.png" alt="IMG-LOGO"
+              ><img src="images/logo-k3l2.png" alt="IMG-LOGO"
             /></a>
           </div>
 
@@ -249,7 +249,7 @@
 
     <!-- Breadcrumb -->
     <div class="container">
-      <div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8 ">
+      <div class="headline bg0 flex-wr-sb-c p-tb-8">
         <div class="f2-s-1 p-r-30 m-tb-6">
           <a href="index.php" class="breadcrumb-item f1-s-3 cl9"> Home </a>
 
@@ -264,7 +264,7 @@
     <section class="bg0 p-b-100 p-t-10">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-8 p-b-30">
+          <div class="col-md-10 col-lg-9 p-b-30">
             <div class="p-r-10 p-r-0-sr991">
               <!-- Blog Detail -->
               <div class="p-b-30">
