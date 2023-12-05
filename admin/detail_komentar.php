@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
+}
+
+//query sql
 include("../connection.php");
 
 $id = $_GET["idKomentar"];
@@ -41,7 +50,7 @@ foreach ($query as $data) {
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="assets/images/k.ico" />
 </head>
 
 <body>

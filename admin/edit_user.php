@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
+}
+
+//query sql
 
 include("../connection.php");
 
@@ -33,7 +42,10 @@ foreach ($query as $data) {
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <<<<<<< HEAD <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  =======
+  <link rel="shortcut icon" href="assets/images/k.ico" />
+  >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
 </head>
 
 <body>
@@ -41,7 +53,10 @@ foreach ($query as $data) {
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
+        <<<<<<< HEAD <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
+          =======
+          <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
+          >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">

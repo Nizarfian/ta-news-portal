@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
+}
+
+//query sql
 include_once('../connection.php');
 
 $query = mysqli_query($conn, "SELECT * FROM `user`;");
@@ -17,8 +26,7 @@ $query = mysqli_query($conn, "SELECT * FROM `user`;");
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 
   <!-- DataTables CSS, JS, JQUERY -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
@@ -32,7 +40,10 @@ $query = mysqli_query($conn, "SELECT * FROM `user`;");
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <<<<<<< HEAD <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  =======
+  <link rel="shortcut icon" href="assets/images/k.ico" />
+  >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
 </head>
 
 <body>
@@ -58,8 +69,7 @@ $query = mysqli_query($conn, "SELECT * FROM `user`;");
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -134,28 +144,37 @@ $query = mysqli_query($conn, "SELECT * FROM `user`;");
                   <table class="table table-bordered" id="myTable">
                     <thead>
                       <tr class="text-center align-middle">
-                        <th class="text-center" scope="col" width="50px">No. </th>
-                        <th class="text-center" scope="col">Username</th>
-                        <th class="text-center" scope="col">Role</th>
-                        <th class="text-center" scope="col">Aksi</th>
+                        <<<<<<< HEAD <th class="text-center" scope="col" width="50px">No. </th>
+                          <th class="text-center" scope="col">Username</th>
+                          <th class="text-center" scope="col">Role</th>
+                          <th class="text-center" scope="col">Aksi</th>
+                          =======
+                          <th class="text-center" scope="col" width="10px">No. </th>
+                          <th class="text-center" scope="col">Username</th>
+                          <th class="text-center" scope="col">Role</th>
+                          <th class="text-center" scope="col" width="200px">Aksi</th>
+                          >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
                       </tr>
                     </thead>
                     <tbody>
                       <?php $i = 1 ?>
                       <?php foreach ($query as $data) : ?>
-                      <tr>
-                        <td class="text-center align-middle"><?= $i; ?></td>
-                        <td><?= $data["username"]; ?></td>
-                        <td><?= $data["role"]; ?></td>
-                        <td width="50px" class="text-center align-middle">
-                          <a href="edit_user.php?idUser=<?= $data["id_user"]; ?>" class="btn btn-warning btn-sm"><i
-                              class="bi bi-pencil-square"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_user'] ?>)">
-                            <i class="bi bi-trash"></i>
-                          </a>
-                        </td>
-                      </tr>
-                      <?php $i++; ?>
+                        <tr>
+                          <td class="text-center align-middle"><?= $i; ?></td>
+                          <<<<<<< HEAD <td><?= $data["username"]; ?></td>
+                            <td><?= $data["role"]; ?></td>
+                            =======
+                            <td style="padding-left: 30px;"><?= $data["username"]; ?></td>
+                            <td style="padding-left: 30px;"><?= $data["role"]; ?></td>
+                            >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+                            <td width="50px" class="text-center align-middle">
+                              <a href="edit_user.php?idUser=<?= $data["id_user"]; ?>" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_user'] ?>)">
+                                <i class="bi bi-trash"></i>
+                              </a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
@@ -184,17 +203,17 @@ $query = mysqli_query($conn, "SELECT * FROM `user`;");
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <script>
-  $(document).ready(function() {
-    $('#myTable').DataTable();
-  });
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
 
-  function confirmDelete(idUser) {
-    if (confirm('Yakin ingin menghapus user ini?')) {
-      window.location.href = '../backend/hapus/proses-hapus-user.php?idUser=' + idUser;
-    } else {
-      console.log('Hapus dibatalkan');
+    function confirmDelete(idUser) {
+      if (confirm('Yakin ingin menghapus user ini?')) {
+        window.location.href = '../backend/hapus/proses-hapus-user.php?idUser=' + idUser;
+      } else {
+        console.log('Hapus dibatalkan');
+      }
     }
-  }
   </script>
 
   <!-- endinject -->

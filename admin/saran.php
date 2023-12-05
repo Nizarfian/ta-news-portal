@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
+}
+
+//query sql
 include_once('../connection.php');
 
 $query = mysqli_query($conn, "SELECT * FROM `saran_berita` JOIN kategori ON saran_berita.id_kategori=kategori.id_kategori JOIN user ON saran_berita.id_user=user.id_user;");
@@ -41,7 +50,10 @@ function custom_echo($x, $length)
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <<<<<<< HEAD <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  =======
+  <link rel="shortcut icon" href="assets/images/k.ico" />
+  >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
 </head>
 
 <body>
@@ -142,13 +154,20 @@ function custom_echo($x, $length)
                   <table class="table table-bordered" id="myTable">
                     <thead>
                       <tr class="text-center align-middle">
-                        <th class="text-center" scope="col">No. </th>
-                        <th class="text-center" scope="col">Kategori</th>
-                        <th class="text-center" scope="col">Nama</th>
-                        <th class="text-center" scope="col">Judul</th>
-                        <th class="text-center" scope="col">Isi Berita</th>
-                        <th class="text-center" scope="col">Gambar</th>
-                        <th class="text-center" scope="col">Aksi</th>
+                        <<<<<<< HEAD <th class="text-center" scope="col">No. </th>
+                          <th class="text-center" scope="col">Kategori</th>
+                          <th class="text-center" scope="col">Nama</th>
+                          <th class="text-center" scope="col">Judul</th>
+                          <th class="text-center" scope="col">Isi Berita</th>
+                          =======
+                          <th class="text-center" scope="col" width="10px">No. </th>
+                          <th class="text-center" scope="col">Nama</th>
+                          <th class="text-center" scope="col" width="200px">Judul</th>
+                          <th class="text-center" scope="col">Kategori</th>
+                          <th class="text-center" scope="col" width="200px">Isi Berita</th>
+                          >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+                          <th class="text-center" scope="col">Gambar</th>
+                          <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -156,15 +175,22 @@ function custom_echo($x, $length)
                       <?php foreach ($query as $data) : ?>
                         <tr>
                           <td class="text-center align-middle"><?= $i; ?></td>
-                          <td><?= $data["nama_kategori"]; ?></td>
-                          <td><?= $data["username"]; ?></td>
-                          <td><?= custom_echo($data["judul"], 10) ?></td>
-                          <td><?= custom_echo($data["isi_berita"], 30) ?></td>
-                          <td><img src="../img/<?= $data["gambar"]; ?>"></td>
-                          <td width="50px" class="text-center align-middle">
-                            <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
-                          </td>
+                          <<<<<<< HEAD <td><?= $data["nama_kategori"]; ?></td>
+                            <td><?= $data["username"]; ?></td>
+                            <td><?= custom_echo($data["judul"], 10) ?></td>
+                            <td><?= custom_echo($data["isi_berita"], 30) ?></td>
+                            <td><img src="../img/<?= $data["gambar"]; ?>"></td>
+                            =======
+                            <td><?= $data["username"]; ?></td>
+                            <td><?= custom_echo($data["judul"], 25) ?></td>
+                            <td><?= $data["nama_kategori"]; ?></td>
+                            <td><?= custom_echo($data["isi_berita"], 50) ?></td>
+                            <td style="text-align: center;"><img src="../img/<?= $data["gambar"]; ?>"></td>
+                            >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+                            <td width="50px" class="text-center align-middle">
+                              <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
+                            </td>
                         </tr>
                         <?php $i++; ?>
                       <?php endforeach; ?>

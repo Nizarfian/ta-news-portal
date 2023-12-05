@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
+}
+
+//query sql
 include_once('../connection.php');
 
 $query = mysqli_query($conn, "SELECT * FROM berita JOIN kategori ON berita.id_kategori=kategori.id_kategori;");
@@ -27,8 +36,7 @@ function custom_echo($x, $length)
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 
   <!-- DataTables CSS, JS, JQUERY -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
@@ -42,7 +50,10 @@ function custom_echo($x, $length)
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  <<<<<<< HEAD <link rel="shortcut icon" href="assets/images/favicon.ico" />
+  =======
+  <link rel="shortcut icon" href="assets/images/k.ico" />
+  >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
 </head>
 
 <body>
@@ -68,8 +79,7 @@ function custom_echo($x, $length)
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -148,37 +158,48 @@ function custom_echo($x, $length)
                   <table class="table table-bordered" id="myTable">
                     <thead>
                       <tr class="text-center align-middle">
-                        <th class="text-center" scope="col">No. </th>
-                        <th class="text-center" scope="col">Kategori</th>
-                        <th class="text-center" scope="col">Judul</th>
-                        <th class="text-center" scope="col">Penulis</th>
-                        <th class="text-center" scope="col">Tanggal Rilis</th>
-                        <th class="text-center" scope="col">Isi Berita</th>
-                        <th class="text-center" scope="col">Gambar</th>
-                        <th class="text-center" scope="col">Aksi</th>
+                        <<<<<<< HEAD <th class="text-center" scope="col">No. </th>
+                          <th class="text-center" scope="col">Kategori</th>
+                          <th class="text-center" scope="col">Judul</th>
+                          =======
+                          <th class="text-center" scope="col">No. </th>
+                          <th class="text-center" scope="col">Judul</th>
+                          <th class="text-center" scope="col">Kategori</th>
+                          >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+                          <th class="text-center" scope="col">Penulis</th>
+                          <th class="text-center" scope="col">Tanggal Rilis</th>
+                          <th class="text-center" scope="col">Isi Berita</th>
+                          <th class="text-center" scope="col">Gambar</th>
+                          <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php $i = 1; ?>
                       <?php foreach ($query as $data) : ?>
-                      <tr>
-                        <td class="text-center align-middle"><?= $i; ?></td>
-                        <td><?= $data["nama_kategori"] ?></td>
-                        <td><?php custom_echo($data["judul"], 6) ?></td>
-                        <td><?= $data["penulis"] ?></td>
-                        <td><?= $data["tgl_rilis"] ?></td>
-                        <td><?php custom_echo($data["isi_berita"], 17) ?></td>
-                        <td><img src="../img/<?= $data["gambar"] ?>"></td>
-                        <td width="100px" class="text-center align-middle">
-                          <a href="detail_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-info btn-sm"><i
-                              class="bi bi-eye"></i></a>
-                          <a href="edit_berita.php?idBerita=<?= $data["id_berita"]; ?>"
-                            class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm"
-                            onclick="confirmDelete(<?= $data['id_berita'] ?>)"><i class="bi bi-trash"></i></a>
-                        </td>
-                      </tr>
-                      <?php $i++; ?>
+                        <tr>
+                          <<<<<<< HEAD <td class="text-center align-middle"><?= $i; ?></td>
+                            <td><?= $data["nama_kategori"] ?></td>
+                            <td><?php custom_echo($data["judul"], 6) ?></td>
+                            <td><?= $data["penulis"] ?></td>
+                            <td><?= $data["tgl_rilis"] ?></td>
+                            <td><?php custom_echo($data["isi_berita"], 17) ?></td>
+                            <td><img src="../img/<?= $data["gambar"] ?>"></td>
+                            =======
+                            <td class="text-center align-middle" style="width: 8px;"><?= $i; ?></td>
+                            <td style="width: 150px;"><?php custom_echo($data["judul"], 25) ?></td>
+                            <td><?= $data["nama_kategori"] ?></td>
+                            <td><?= $data["penulis"] ?></td>
+                            <td style="width: 10px;"><?= date("d F Y", strtotime($data["tgl_rilis"])) ?></td>
+                            <td><?php custom_echo($data["isi_berita"], 40) ?></td>
+                            <td style="text-align: center;"><img src="../img/<?= $data["gambar"] ?>"></td>
+                            >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+                            <td width="100px" class="text-center align-middle">
+                              <a href="detail_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                              <a href="edit_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                              <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_berita'] ?>)"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
@@ -207,17 +228,17 @@ function custom_echo($x, $length)
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <script>
-  $(document).ready(function() {
-    $('#myTable').DataTable();
-  });
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
 
-  function confirmDelete(idBerita) {
-    if (confirm('Yakin ingin menghapus berita ini?')) {
-      window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
-    } else {
-      console.log('Hapus dibatalkan');
+    function confirmDelete(idBerita) {
+      if (confirm('Yakin ingin menghapus berita ini?')) {
+        window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
+      } else {
+        console.log('Hapus dibatalkan');
+      }
     }
-  }
   </script>
 
   <!-- endinject -->
