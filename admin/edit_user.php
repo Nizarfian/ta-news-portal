@@ -1,28 +1,3 @@
-<?php
-//session login
-session_start();
-
-if (!isset($_SESSION["submit"])) {
-  header("Location: ../login/login.php");
-  exit;
-}
-
-//query sql
-
-include("../connection.php");
-
-$id = $_GET["idUser"];
-
-$query = mysqli_query($conn, "SELECT * FROM `user` WHERE `id_user` = $id;");
-
-foreach ($query as $data) {
-  $id = $data["id_user"];
-  $username = $data["username"];
-  $role = $data["role"];
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,10 +17,7 @@ foreach ($query as $data) {
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <<<<<<< HEAD <link rel="shortcut icon" href="assets/images/favicon.ico" />
-  =======
-  <link rel="shortcut icon" href="assets/images/k.ico" />
-  >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
 </head>
 
 <body>
@@ -53,10 +25,7 @@ foreach ($query as $data) {
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <<<<<<< HEAD <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
-          =======
-          <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
-          >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+        <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -146,30 +115,25 @@ foreach ($query as $data) {
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <form class="forms-sample" action="../backend/edit/proses-edit-user.php" method="post">
+                  <form class="forms-sample">
                     <div class="form-group">
-                      <label for="editUsername">Username</label>
-                      <input type="text" class="form-control" id="editUsername" name="editUsername" value="<?= $username; ?>" autocomplete="off" required>
+                      <label for="exampleInputName1">Nama</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail3">Username</label>
+                      <input type="text" class="form-control" id="exampleInputName1" placeholder="Username" required>
                     </div>
                     <div class="form-group">
                       <label>Role</label>
                       <div class="form-check">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="role" id="role" value="admin" <?php if ($role == "admin") {
-                                                                                                              echo "checked";
-                                                                                                            } ?>>
-                          admin
-                        </label>
+                          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked> admin </label>
                       </div>
                       <div class="form-check">
                         <label class="form-check-label">
-                          <input type="radio" class="form-check-input" name="role" id="role" value="user" <?php if ($role == "user") {
-                                                                                                            echo "checked";
-                                                                                                          } ?>>
-                          user
-                        </label>
+                          <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked> user </label>
                       </div>
-                      <input type="hidden" name="idUser" value="<?= $id; ?>">
                     </div>
                     <div class="d-flex justify-content-between col-xs-12">
                       <a href="user.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i> Kembali</a>

@@ -1,28 +1,3 @@
-<?php
-//session login
-session_start();
-
-if (!isset($_SESSION["submit"])) {
-  header("Location: ../login/login.php");
-  exit;
-}
-
-//query sql
-include_once('../connection.php');
-
-$query = mysqli_query($conn, "SELECT * FROM berita JOIN kategori ON berita.id_kategori=kategori.id_kategori;");
-
-function custom_echo($x, $length)
-{
-  if (strlen($x) <= $length) {
-    echo $x;
-  } else {
-    $y = substr($x, 0, $length) . '...';
-    echo $y;
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,10 +25,7 @@ function custom_echo($x, $length)
   <!-- Layout styles -->
   <link rel="stylesheet" href="assets/css/style.css">
   <!-- End layout styles -->
-  <<<<<<< HEAD <link rel="shortcut icon" href="assets/images/favicon.ico" />
-  =======
-  <link rel="shortcut icon" href="assets/images/k.ico" />
-  >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
+  <link rel="shortcut icon" href="assets/images/favicon.ico" />
 </head>
 
 <body>
@@ -158,49 +130,100 @@ function custom_echo($x, $length)
                   <table class="table table-bordered" id="myTable">
                     <thead>
                       <tr class="text-center align-middle">
-                        <<<<<<< HEAD <th class="text-center" scope="col">No. </th>
-                          <th class="text-center" scope="col">Kategori</th>
-                          <th class="text-center" scope="col">Judul</th>
-                          =======
-                          <th class="text-center" scope="col">No. </th>
-                          <th class="text-center" scope="col">Judul</th>
-                          <th class="text-center" scope="col">Kategori</th>
-                          >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
-                          <th class="text-center" scope="col">Penulis</th>
-                          <th class="text-center" scope="col">Tanggal Rilis</th>
-                          <th class="text-center" scope="col">Isi Berita</th>
-                          <th class="text-center" scope="col">Gambar</th>
-                          <th class="text-center" scope="col">Aksi</th>
+                        <th class="text-center" scope="col">No. </th>
+                        <th class="text-center" scope="col">Nama Kategori</th>
+                        <th class="text-center" scope="col">Judul</th>
+                        <th class="text-center" scope="col">Tanggal Rilis</th>
+                        <th class="text-center" scope="col">Isi Berita</th>
+                        <th class="text-center" scope="col">Gambar</th>
+                        <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <?php $i = 1; ?>
-                      <?php foreach ($query as $data) : ?>
-                        <tr>
-                          <<<<<<< HEAD <td class="text-center align-middle"><?= $i; ?></td>
-                            <td><?= $data["nama_kategori"] ?></td>
-                            <td><?php custom_echo($data["judul"], 6) ?></td>
-                            <td><?= $data["penulis"] ?></td>
-                            <td><?= $data["tgl_rilis"] ?></td>
-                            <td><?php custom_echo($data["isi_berita"], 17) ?></td>
-                            <td><img src="../img/<?= $data["gambar"] ?>"></td>
-                            =======
-                            <td class="text-center align-middle" style="width: 8px;"><?= $i; ?></td>
-                            <td style="width: 150px;"><?php custom_echo($data["judul"], 25) ?></td>
-                            <td><?= $data["nama_kategori"] ?></td>
-                            <td><?= $data["penulis"] ?></td>
-                            <td style="width: 10px;"><?= date("d F Y", strtotime($data["tgl_rilis"])) ?></td>
-                            <td><?php custom_echo($data["isi_berita"], 40) ?></td>
-                            <td style="text-align: center;"><img src="../img/<?= $data["gambar"] ?>"></td>
-                            >>>>>>> 59e8ad18fb5659f345879c2eefcc32ceef98ea0d
-                            <td width="100px" class="text-center align-middle">
-                              <a href="detail_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                              <a href="edit_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
-                              <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_berita'] ?>)"><i class="bi bi-trash"></i></a>
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                      <?php endforeach; ?>
+                      <tr>
+                        <td class="text-center align-middle"> 1 </td>
+                        <td> Politik </td>
+                        <td> Berita 1 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA POLITIK </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center align-middle"> 2 </td>
+                        <td> Pendidikan </td>
+                        <td> Berita 2 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA PENDIDIKAN </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center align-middle"> 3 </td>
+                        <td> Makanan </td>
+                        <td> Berita 3 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA MAKANAN </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center align-middle"> 4 </td>
+                        <td> Olahraga </td>
+                        <td> Berita 4 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA OLAHRAGA </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center align-middle"> 5 </td>
+                        <td> Kesehatan </td>
+                        <td> Berita 5 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA KESEHATAN </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center align-middle"> 6 </td>
+                        <td> Pendidikan </td>
+                        <td> Berita 6 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA PENDIDIKAN </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center align-middle"> 7 </td>
+                        <td> Politik </td>
+                        <td> Berita 7 </td>
+                        <td> 27 November 2023 </td>
+                        <td> INI BERITA POLITIK </td>
+                        <td> </td>
+                        <td width="100px" class="text-center align-middle">
+                          <a href="edit_berita.php" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
                     </tbody>
                   </table>
                 </div>
@@ -231,14 +254,6 @@ function custom_echo($x, $length)
     $(document).ready(function() {
       $('#myTable').DataTable();
     });
-
-    function confirmDelete(idBerita) {
-      if (confirm('Yakin ingin menghapus berita ini?')) {
-        window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
-      } else {
-        console.log('Hapus dibatalkan');
-      }
-    }
   </script>
 
   <!-- endinject -->
