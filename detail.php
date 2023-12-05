@@ -61,7 +61,7 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
               Beranda
             </a>
 
-            <a href="saran-berita/req-news.php" class="left-topbar-item">
+            <a href="req-news.php" class="left-topbar-item">
               Saran Berita
             </a>
 

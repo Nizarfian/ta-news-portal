@@ -4,13 +4,13 @@ session_start();
 $login = $_SESSION['login'] ?? null;
 
 if (!isset($_SESSION["submit"])) {
-	header("Location: ../login/login.php");
+	header("Location: login/login.php");
 	exit;
 }
 
 $user = $_SESSION['id_user'];
 
-include_once('../connection.php');
+include_once('connection.php');
 
 $query = mysqli_query($conn, "SELECT * FROM kategori");
 
@@ -24,24 +24,24 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
-  <link rel="icon" type="image/png" href="../images/icons/k.png" />
+  <link rel="icon" type="image/png" href="images/icons/k.png" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="../fonts/fontawesome-5.0.8/css/fontawesome-all.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/fontawesome-5.0.8/css/fontawesome-all.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
+  <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../css/util.min.css">
+  <link rel="stylesheet" type="text/css" href="css/util.min.css">
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="../css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <!--===============================================================================================-->
 </head>
 
@@ -54,7 +54,7 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
       <div class="topbar">
         <div class="content-topbar container h-100">
           <div class="left-topbar">
-            <a href="../index.php" class="left-topbar-item">
+            <a href="index.php" class="left-topbar-item">
               Beranda
             </a>
 
@@ -117,7 +117,7 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
             Informasi Berita
           </h2>
           <div class="p-r-10 p-r-0-sr991">
-            <form action="../backend/tambah/proses-tambah-saran-berita.php" method="post" enctype="multipart/form-data">
+            <form action="backend/tambah/proses-tambah-saran-berita.php" method="post" enctype="multipart/form-data">
               <input type="hidden" name="user" value="<?= $user; ?>">
 
               <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" id="judul"
@@ -151,8 +151,8 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
         <div class="row">
           <div class="col-sm-6 col-lg-6 p-b-20">
             <div class="size-h-3 flex-s-c">
-              <a href="../index.php">
-                <img class="max-s-full" src="../images/logo-k3l.png" alt="LOGO">
+              <a href="index.php">
+                <img class="max-s-full" src="images/logo-k3l.png" alt="LOGO">
               </a>
             </div>
 
@@ -207,14 +207,14 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
 
 
   <!--===============================================================================================-->
-  <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
+  <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
   <!--===============================================================================================-->
-  <script src="../vendor/animsition/js/animsition.min.js"></script>
+  <script src="vendor/animsition/js/animsition.min.js"></script>
   <!--===============================================================================================-->
-  <script src="../vendor/bootstrap/js/popper.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--===============================================================================================-->
-  <script src="../js/main.js"></script>
+  <script src="js/main.js"></script>
 
 </body>
 

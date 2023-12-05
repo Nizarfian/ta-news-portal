@@ -57,7 +57,7 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
               Beranda
             </a>
 
-            <a href="saran-berita/req-news.php" class="left-topbar-item">
+            <a href="req-news.php" class="left-topbar-item">
               Saran Berita
             </a>
 

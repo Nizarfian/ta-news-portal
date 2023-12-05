@@ -14,20 +14,20 @@ if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == UPLOAD_ERR_OK) {
 
   $check = getimagesize($_FILES["gambar"]["tmp_name"]);
   if ($check === false) {
-    header("Location:../../saran-berita/req-news.php");
+    header("Location:../../req-news.php");
     echo "error";
     exit();
   }
 
   if ($_FILES["gambar"]["size"] > 3000000) {
-    header("Location:../../saran-berita/req-news.php");
+    header("Location:../../req-news.php");
     echo "error ukuran";
     exit();
   }
 
   $allowedFileTypes = ["jpg", "jpeg", "png"];
   if (!in_array($imageFileType, $allowedFileTypes)) {
-    header("Location:../../saran-berita/req-news.php");
+    header("Location:../../req-news.php");
     echo "error format";
     exit();
   }
@@ -35,17 +35,17 @@ if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == UPLOAD_ERR_OK) {
   if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $targetFile)) {
     $gambar = basename($_FILES["gambar"]["name"]);
   } else {
-    header("Location:../../saran-berita/req-news.php");
+    header("Location:../../req-news.php");
     echo "error upload";
     exit();
   }
 } else {
-  header("Location:../../saran-berita/req-news.php");
+  header("Location:../../req-news.php");
   echo "belum upload";
   exit();
 }
 
 $result = mysqli_query($conn, "INSERT INTO `saran_berita` (`id_saran_berita`, `id_kategori`, `id_user`, `judul`, `isi_berita`, `gambar`) VALUES (NULL, '$kategori', '$user', '$judul', '$isi', '$gambar');");
 
-header("Location:../../saran-berita/req-news.php");
+header("Location:../../req-news.php");
 exit();
