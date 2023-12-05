@@ -220,7 +220,7 @@
 				</a>
 
 				<span class="breadcrumb-item f1-s-3 cl9">
-					Entertaiment
+					Kategori
 				</span>
 			</div>
 		</div>

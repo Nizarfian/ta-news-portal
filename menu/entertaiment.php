@@ -565,8 +565,8 @@
 				<div class="row">
 					<div class="col-sm-6 col-lg-6 p-b-20">
 						<div class="size-h-3 flex-s-c">
-							<a href="../index.php">
-								<img class="../max-s-full" src="images/logo-k3l.png" alt="LOGO">
+							<a href="..">
+								<img class="max-s-full" src="../images/logo-k3l.png" alt="LOGO">
 							</a>
 						</div>
 
