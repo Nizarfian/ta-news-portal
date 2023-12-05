@@ -5,48 +5,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="images/icons/k.png" />
+    <link rel="icon" type="image/png" href="../images/icons/k.png" />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="vendor/bootstrap/css/bootstrap.min.css"
+      href="../vendor/bootstrap/css/bootstrap.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"
+      href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="fonts/fontawesome-5.0.8/css/fontawesome-all.min.css"
-    />
-    <!--===============================================================================================-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="fonts/iconic/css/material-design-iconic-font.min.css"
-    />
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css" />
-    <!--===============================================================================================-->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="vendor/css-hamburgers/hamburgers.min.css"
+      href="../fonts/fontawesome-5.0.8/css/fontawesome-all.min.css"
     />
     <!--===============================================================================================-->
     <link
       rel="stylesheet"
       type="text/css"
-      href="vendor/animsition/css/animsition.min.css"
+      href="../fonts/iconic/css/material-design-iconic-font.min.css"
     />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.min.css" />
+    <link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css" />
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/css-hamburgers/hamburgers.min.css"
+    />
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../vendor/animsition/css/animsition.min.css"
+    />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../css/util.min.css" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="../css/main.css" />
     <!--===============================================================================================-->
   </head>
   <body class="animsition">
@@ -57,19 +57,19 @@
         <div class="topbar">
           <div class="content-topbar container h-100">
             <div class="left-topbar">
-              <a href="index.php" class="left-topbar-item">
+              <a href="../index.php" class="left-topbar-item">
                 Beranda
               </a>
 
-              <a href="login/sign-up.php" class="left-topbar-item">
+              <a href="../login/sign-up.php" class="left-topbar-item">
                 Daftar
               </a>
 
-              <a href="login/login.php" class="left-topbar-item">
+              <a href="../login/login.php" class="left-topbar-item">
                 Masuk
               </a>
 
-              <a href="saran-berita/req-news.php" class="left-topbar-item">
+              <a href="../saran-berita/req-news.php" class="left-topbar-item">
                 Saran Berita
               </a>
             </div>
@@ -98,8 +98,8 @@
         <div class="wrap-header-mobile">
           <!-- Logo moblie -->
           <div class="logo-mobile">
-            <a href="index.php"
-              ><img src="images/logo-k3l2.png" alt="IMG-LOGO"
+            <a href="../index.php"
+              ><img src="../images/logo-k3l2.png" alt="IMG-LOGO"
             /></a>
           </div>
 
@@ -115,19 +115,19 @@
         <div class="menu-mobile">
           <ul class="topbar-mobile">
             <li class="left-topbar">
-              <a href="index.php" class="left-topbar-item">
+              <a href="../index.php" class="left-topbar-item">
                 Beranda
               </a>
 
-              <a href="login/sign-up.php" class="left-topbar-item">
+              <a href="../login/sign-up.php" class="left-topbar-item">
                 Daftar
               </a>
 
-              <a href="login/login.php" class="left-topbar-item">
+              <a href="../login/login.php" class="left-topbar-item">
                 Masuk
               </a>
 
-              <a href="saran-berita/req-news.php" class="left-topbar-item">
+              <a href="../saran-berita/req-news.php" class="left-topbar-item">
                 Saran Berita
               </a>
             </li>
@@ -153,27 +153,27 @@
 
           <ul class="main-menu-m">
             <li>
-              <a href="menu/berita-terbaru.php">Berita Terbaru</a>
+              <a href="../menu/berita-terbaru.php">Berita Terbaru</a>
             </li>
 
             <li>
-              <a href="menu/entertaiment.php">Entertaiment </a>
+              <a href="../menu/entertaiment.php">Entertaiment </a>
             </li>
 
             <li>
-              <a href="menu/otomotif.php">Otomotif</a>
+              <a href="../menu/otomotif.php">Otomotif</a>
             </li>
 
             <li>
-              <a href="menu/olahraga.php">Olahraga</a>
+              <a href="../menu/olahraga.php">Olahraga</a>
             </li>
 
             <li>
-              <a href="menu/edukasi.php">Edukasi</a>
+              <a href="../menu/edukasi.php">Edukasi</a>
             </li>
 
             <li>
-              <a href="menu/kesehatan.php">Kesehatan</a>
+              <a href="../menu/kesehatan.php">Kesehatan</a>
             </li>
           </ul>
 			  </div>
@@ -218,27 +218,27 @@
 
               <ul class="main-menu">
                 <li class="">
-                  <a href="menu/berita-terbaru.php">Berita Terbaru</a>
+                  <a href="menu.php">Berita Terbaru</a>
                 </li>
 
                 <li class="mega-menu-item">
-                  <a href="menu/entertaiment.php">Entertaiment</a>
+                  <a href="menu.php">Entertaiment</a>
                 </li>
 
                 <li class="mega-menu-item">
-                  <a href="menu/otomotif.php">Otomotif</a>
+                  <a href="menu.php">Otomotif</a>
                 </li>
 
                 <li class="mega-menu-item">
-                  <a href="menu/olahraga.php">Olahraga</a>
+                  <a href="menu.php">Olahraga</a>
                 </li>
 
                 <li class="mega-menu-item">
-                  <a href="menu/edukasi.php">Edukasi</a>
+                  <a href="menu.php">Edukasi</a>
                 </li>
 
                 <li class="mega-menu-item">
-                  <a href="menu/kesehatan.php">Kesehatan</a>
+                  <a href="menu.php">Kesehatan</a>
                 </li>
               </ul>
             </nav>
@@ -249,7 +249,7 @@
 
     <!-- Breadcrumb -->
     <div class="container">
-      <div class="headline bg0 flex-wr-sb-c p-tb-8">
+      <div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8 ">
         <div class="f2-s-1 p-r-30 m-tb-6">
           <a href="index.php" class="breadcrumb-item f1-s-3 cl9"> Home </a>
 
@@ -264,11 +264,11 @@
     <section class="bg0 p-b-100 p-t-10">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-md-10 col-lg-9 p-b-30">
+          <div class="col-md-10 col-lg-8 p-b-30">
             <div class="p-r-10 p-r-0-sr991">
               <!-- Blog Detail -->
               <div class="p-b-30">
-                <h3 class="f1-l-3 cl2 p-b-16 respon2">Judul Berita</h3>
+                <h3 class="f1-l-3 cl2 p-b-16 p-t-20 respon2">Judul Berita</h3>
 
                 <div class="flex-wr-s-s p-b-20">
                   <span class="f1-s-3 cl8 m-r-15">
@@ -415,7 +415,7 @@
 
           <!-- Sidebar -->
           <div class="col-md-10 col-lg-3 p-b-30">
-            <div class="p-l-10 p-rl-0-sr991 p-t-3">
+            <div class="p-l-10 p-rl-0-sr991 p-t-20">
               <!-- Category -->
               <div class="p-b-60">
                 <div class="how2 how2-cl4 flex-s-c">
