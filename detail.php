@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-$user = $_SESSION['id_user'];
+$login = $_SESSION['login'] ?? null;
+
+$user = $_SESSION['id_user'] ?? null;
 
 include_once('connection.php');
 
@@ -63,17 +65,19 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
               Saran Berita
             </a>
 
-            <a href="login/sign-up.php" class="left-topbar-item">
-              Daftar
-            </a>
+            <?php if ($login) { ?>
+              <a href="backend/logout.php" class="left-topbar-item">
+                Logout
+              </a>
+            <?php } else { ?>
+              <a href="login/sign-up.php" class="left-topbar-item">
+                Daftar
+              </a>
 
-            <a href="login/login.php" class="left-topbar-item">
-              Masuk
-            </a>
-
-            <a href="backend/logout.php" class="left-topbar-item">
-              Logout
-            </a>
+              <a href="login/login.php" class="left-topbar-item">
+                Masuk
+              </a>
+            <?php } ?>
           </div>
 
           <div class="right-topbar">
@@ -197,7 +201,13 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
             <div class="p-b-50">
               <h4 class="f1-l-4 cl3 p-b-12">Berikan Komentar</h4>
 
-              <form action="backend/tambah/proses-tambah-komentar.php" method="post" id="komentar">
+              <form action="
+              <?php if (isset($user)) {
+                echo 'backend/tambah/proses-tambah-komentar.php';
+              } else {
+                echo 'login/login.php';
+              } ?>
+              " method="post" id="komentar">
                 <input type="hidden" id="tglKomen" name="tglKomen">
                 <input type="hidden" id="idBerita" name="idBerita" value="<?= $idBerita; ?>">
                 <input type="hidden" id="idUser" name="idUser" value="<?= $user; ?>">

@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+$login = $_SESSION['login'] ?? null;
 
 include_once('connection.php');
 
@@ -58,17 +61,19 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
               Saran Berita
             </a>
 
-            <a href="login/sign-up.php" class="left-topbar-item">
-              Daftar
-            </a>
+            <?php if ($login) { ?>
+              <a href="backend/logout.php" class="left-topbar-item">
+                Logout
+              </a>
+            <?php } else { ?>
+              <a href="login/sign-up.php" class="left-topbar-item">
+                Daftar
+              </a>
 
-            <a href="login/login.php" class="left-topbar-item">
-              Masuk
-            </a>
-
-            <a href="backend/logout.php" class="left-topbar-item">
-              Logout
-            </a>
+              <a href="login/login.php" class="left-topbar-item">
+                Masuk
+              </a>
+            <?php } ?>
           </div>
 
           <div class="right-topbar">
@@ -124,9 +129,9 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
               </li>
 
               <?php foreach ($menu as $data) : ?>
-              <li class="mega-menu-item">
-                <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
-              </li>
+                <li class="mega-menu-item">
+                  <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
+                </li>
               <?php endforeach; ?>
             </ul>
           </nav>
@@ -145,7 +150,7 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
 
         <span class="breadcrumb-item f1-s-3 cl9">
           <?php foreach ($kategori as $data) : ?>
-          <?= $data['nama_kategori']; ?>
+            <?= $data['nama_kategori']; ?>
           <?php endforeach; ?>
         </span>
       </div>
@@ -156,7 +161,7 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
   <div class="container p-t-4 p-b-40">
     <h2 class="f1-l-1 cl2">
       <?php foreach ($kategori as $data) : ?>
-      <?= $data['nama_kategori']; ?>
+        <?= $data['nama_kategori']; ?>
       <?php endforeach; ?>
     </h2>
   </div>
@@ -170,8 +175,7 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
             <a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
             <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-              <a href="#"
-                class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+              <a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
                 kategori
               </a>
 
@@ -201,13 +205,11 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
         <div class="col-md-6 p-rl-1">
           <div class="row m-rl--1">
             <div class="col-sm-6 p-rl-1 p-b-2">
-              <div class="bg-img1 size-a-14 how1 pos-relative"
-                style="background-image: url(images/entertaiment-02.jpg);">
+              <div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-02.jpg);">
                 <a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
                 <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-                  <a href="#"
-                    class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                  <a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
                     kategori
                   </a>
 
@@ -221,13 +223,11 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
             </div>
 
             <div class="col-sm-6 p-rl-1 p-b-2">
-              <div class="bg-img1 size-a-14 how1 pos-relative"
-                style="background-image: url(images/entertaiment-03.jpg);">
+              <div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-03.jpg);">
                 <a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
                 <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-                  <a href="#"
-                    class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                  <a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
                     kategori
                   </a>
 
@@ -241,13 +241,11 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
             </div>
 
             <div class="col-sm-6 p-rl-1 p-b-2">
-              <div class="bg-img1 size-a-14 how1 pos-relative"
-                style="background-image: url(images/entertaiment-04.jpg);">
+              <div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-04.jpg);">
                 <a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
                 <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-                  <a href="#"
-                    class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                  <a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
                     kategori
                   </a>
 
@@ -261,13 +259,11 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
             </div>
 
             <div class="col-sm-6 p-rl-1 p-b-2">
-              <div class="bg-img1 size-a-14 how1 pos-relative"
-                style="background-image: url(images/entertaiment-05.jpg);">
+              <div class="bg-img1 size-a-14 how1 pos-relative" style="background-image: url(images/entertaiment-05.jpg);">
                 <a href="detail.html" class="dis-block how1-child1 trans-03"></a>
 
                 <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-                  <a href="#"
-                    class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
+                  <a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
                     kategori
                   </a>
 
@@ -293,38 +289,36 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
           <div class="row">
             <?php ?>
             <?php foreach ($berita as $data) : ?>
-            <div class="col-sm-4 p-r-25 p-r-15-sr991">
-              <!-- Item latest -->
-              <div class="m-b-45">
-                <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>"
-                  class="wrap-pic-w hov1 trans-03">
-                  <img src="img/<?= $data['gambar']; ?>" alt="IMG" height="200">
-                </a>
+              <div class="col-sm-4 p-r-25 p-r-15-sr991">
+                <!-- Item latest -->
+                <div class="m-b-45">
+                  <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="wrap-pic-w hov1 trans-03">
+                    <img src="img/<?= $data['gambar']; ?>" alt="IMG" height="200">
+                  </a>
 
-                <div class="p-t-16">
-                  <h5 class="p-b-5">
-                    <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>"
-                      class="f1-m-3 cl2 hov-cl10 trans-03">
-                      <?= $data['judul']; ?>
-                    </a>
-                  </h5>
+                  <div class="p-t-16">
+                    <h5 class="p-b-5">
+                      <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="f1-m-3 cl2 hov-cl10 trans-03">
+                        <?= $data['judul']; ?>
+                      </a>
+                    </h5>
 
-                  <span class="cl8">
-                    <span class="f1-s-4 cl8 hov-cl10 trans-03">
-                      <?= $data['penulis']; ?>
+                    <span class="cl8">
+                      <span class="f1-s-4 cl8 hov-cl10 trans-03">
+                        <?= $data['penulis']; ?>
+                      </span>
+
+                      <span class="f1-s-3 m-rl-3">
+                        -
+                      </span>
+
+                      <span class="f1-s-3">
+                        <?= date("d M", strtotime($data["tgl_rilis"])); ?>
+                      </span>
                     </span>
-
-                    <span class="f1-s-3 m-rl-3">
-                      -
-                    </span>
-
-                    <span class="f1-s-3">
-                      <?= date("d M", strtotime($data["tgl_rilis"])); ?>
-                    </span>
-                  </span>
+                  </div>
                 </div>
               </div>
-            </div>
             <?php endforeach; ?>
           </div>
 
@@ -352,14 +346,14 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idK
             <div class="col-md-9 col-lg-9 p-b-20">
               <div class="row">
                 <?php foreach ($menu as $data) : ?>
-                <div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
-                  <!-- Item latest -->
-                  <h5>
-                    <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="f1-m-2 cl5 hov-cl10 trans-03">
-                      <?= $data['nama_kategori']; ?>
-                    </a>
-                  </h5>
-                </div>
+                  <div class="col-sm-3 p-r-25 p-r-15-sr991 m-b-15">
+                    <!-- Item latest -->
+                    <h5>
+                      <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="f1-m-2 cl5 hov-cl10 trans-03">
+                        <?= $data['nama_kategori']; ?>
+                      </a>
+                    </h5>
+                  </div>
                 <?php endforeach; ?>
               </div>
             </div>

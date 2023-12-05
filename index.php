@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+$login = $_SESSION['login'] ?? null;
 
 include_once('connection.php');
 
@@ -53,6 +56,11 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id
               Saran Berita
             </a>
 
+            <?php if ($login) { ?>
+            <a href="backend/logout.php" class="left-topbar-item">
+              Logout
+            </a>
+            <?php } else { ?>
             <a href="login/sign-up.php" class="left-topbar-item">
               Daftar
             </a>
@@ -60,10 +68,7 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id
             <a href="login/login.php" class="left-topbar-item">
               Masuk
             </a>
-
-            <a href="backend/logout.php" class="left-topbar-item">
-              Logout
-            </a>
+            <?php } ?>
           </div>
 
           <div class="right-topbar">
