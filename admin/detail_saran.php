@@ -2,9 +2,9 @@
 //session login
 session_start();
 
-if(!isset($_SESSION["submit"])){
-	header("Location: ../login/login.php");
-	exit;
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
 }
 
 //query sql
@@ -73,7 +73,7 @@ foreach ($query as $data) {
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../backend/logout.php">
               <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
             </a>
           </li>
@@ -154,7 +154,7 @@ foreach ($query as $data) {
                 <div class="card-body">
                   <h4>Kategori</h4>
                   <p><?= $kategori; ?></p>
-                  <h4>user</h4>
+                  <h4>User</h4>
                   <p><?= $username; ?></p>
                   <h4>Judul</h4>
                   <p><?= $judul; ?></p>

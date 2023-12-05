@@ -2,9 +2,9 @@
 //session login
 session_start();
 
-if(!isset($_SESSION["submit"])){
-	header("Location: ../login/login.php");
-	exit;
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
 }
 
 //query sql
@@ -36,7 +36,8 @@ function custom_echo($x, $length)
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 
   <!-- DataTables CSS, JS, JQUERY -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
@@ -71,12 +72,13 @@ function custom_echo($x, $length)
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../backend/logout.php">
               <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -156,26 +158,26 @@ function custom_echo($x, $length)
                         <th class="text-center" scope="col" width="200px">Judul</th>
                         <th class="text-center" scope="col">Kategori</th>
                         <th class="text-center" scope="col" width="200px">Isi Berita</th>
-                        <th class="text-center" scope="col">Gambar</th>
                         <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
                       <?php $i = 1 ?>
                       <?php foreach ($query as $data) : ?>
-                        <tr>
-                          <td class="text-center align-middle"><?= $i; ?></td>
-                          <td><?= $data["username"]; ?></td>
-                          <td><?= custom_echo($data["judul"], 25) ?></td>
-                          <td><?= $data["nama_kategori"]; ?></td>   
-                          <td><?= custom_echo($data["isi_berita"], 50) ?></td>
-                          <td style="text-align: center;"><img src="../img/<?= $data["gambar"]; ?>"></td>
-                          <td width="50px" class="text-center align-middle">
-                            <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
-                          </td>
-                        </tr>
-                        <?php $i++; ?>
+                      <tr>
+                        <td class="text-center align-middle"><?= $i; ?></td>
+                        <td><?= $data["username"]; ?></td>
+                        <td><?= custom_echo($data["judul"], 25) ?></td>
+                        <td><?= $data["nama_kategori"]; ?></td>
+                        <td><?= custom_echo($data["isi_berita"], 50) ?></td>
+                        <td width="50px" class="text-center align-middle">
+                          <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>"
+                            class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                          <a href="#" class="btn btn-danger btn-sm"
+                            onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
+                        </td>
+                      </tr>
+                      <?php $i++; ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
@@ -204,17 +206,17 @@ function custom_echo($x, $length)
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <script>
-    $(document).ready(function() {
-      $('#myTable').DataTable();
-    });
+  $(document).ready(function() {
+    $('#myTable').DataTable();
+  });
 
-    function confirmDelete(idSaran) {
-      if (confirm('Yakin ingin menghapus saran berita ini?')) {
-        window.location.href = '../backend/hapus/proses-hapus-saran.php?idSaran=' + idSaran;
-      } else {
-        console.log('Hapus dibatalkan');
-      }
+  function confirmDelete(idSaran) {
+    if (confirm('Yakin ingin menghapus saran berita ini?')) {
+      window.location.href = '../backend/hapus/proses-hapus-saran.php?idSaran=' + idSaran;
+    } else {
+      console.log('Hapus dibatalkan');
     }
+  }
   </script>
 
   <!-- endinject -->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 05:24 PM
+-- Generation Time: Dec 05, 2023 at 06:56 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -42,8 +42,21 @@ CREATE TABLE `berita` (
 --
 
 INSERT INTO `berita` (`id_berita`, `id_kategori`, `judul`, `penulis`, `isi_berita`, `tgl_rilis`, `gambar`) VALUES
-(18, 5, 'Profil Maruli Simanjuntak, Sosok KSAD Baru yang Dilantik Jokowi', 'Christopher', 'Jakarta - Presiden Joko Widodo (Jokowi) telah melantik Maruli Simanjuntak sebagai Kepala Staf Angkatan Darat (KSAD). Maruli mengisi posisi yang sebelumnya diemban oleh Jenderal Agus Subiyanto, yang kini telah resmi menjadi Panglima TNI.\r\nDengan jabatannya sebagai KSAD, Maruli Simanjuntak kini menyandang pangkat Jenderal TNI. Sebelumnya, Maruli menjabat sebagai Panglima Komando Cadangan Strategis Angkatan Darat (Pangkostrad)\r\n\r\nLantas, seperti apa sosok Jenderal TNI Maruli Simanjuntak yang kini telah resmi dilantik menjadi KSAD baru? Simak informasi profil Maruli Simanjuntak berikut ini:\r\n\r\nDihimpun dari catatan redaksi detikcom, Maruli Simanjuntak, M.Sc. sebelumnya menjabat sebagai Panglima Kostrad (Pangkostrad) sejak tanggal 31 Januari 2022. Maruli Simanjuntak adalah seorang Abituren Akademi Militer (Akmil) tahun 1992.\r\n\r\nMaruli lahir pada tanggal 27 Februari 1970 di Bandung, Jawa Barat (Jabar). Maruli merupakan anak ketiga dari lima bersaudara dari pasangan Batak yang merantau ke Jawa. Ayahnya berprofesi sebagai guru dan ibunya seorang perawat.\r\n\r\nSejak awal karier, Maruli pernah dipercaya memegang sejumlah jabatan strategis di Korps Baret Merah. Di antaranya yaitu, Komandan Batalyon (Danyon) 21 Grup 2 Kopassus, Komandan Sekolah Komando Pusat Pendidikan dan Latihan Pasukan Khusus (Pusdikpassus).\r\n\r\nMaruli juga dipercaya sebagai Wakil Komandan Grup 1 Kopassus. Dia lalu dipercaya mengisi posisi sebagai Komandan Grup 2 Kopassus sampai tahun 2014. Di tahun yang sama, Maruli dipercaya menjadi Komandan Grup A Pasukan Pengamanan Presiden (Paspampres) sampai tahun 2016.\r\n\r\nPada tahun 2016, Maruli mengemban jabatan sebagai Komandan Korem (Danrem) 074/Warastratama. Saat menjabat Danrem 074, Maruli meraih Penghargaan sebagai Danrem terbaik dalam bidang Upaya Khusus (Upsus) Ketahanan Pangan Tingkat Nasional tahun 2016.\r\n\r\nPada tahun 2017 hingga 2018, Maruli kemudian ditunjuk untuk menduduki jabatan sebagai Wakil Komandan Paspampres. Satu tahun berikutnya, Maruli Simanjuntak menjabat sebagai Kepala Staf Komando Daerah Militer (Kasdam) IV/Diponegoro.\r\n\r\nSelanjutnya, sosok Maruli Simanjuntak mendapatkan promosi menjabat sebagai Komandan Paspampres dan berlanjut memegang tongkat komando sebagai Pangdam IX/Udayana. Maruli mulai menjabat sebagai Pangkostrad pada awal tahun 2022 lalu.\r\n\r\nKini, usai dilantik oleh Presiden Jokowi pada tanggal 29 November 2023, Maruli Simanjuntak telah resmi menjabat sebagai KSAD baru, menggantikan Jenderal Agus Subiyanto, yang kini menjadi Panglima TNI. Maruli kini juga resmi menyandang pangkat sebagai Jenderal TNI.\r\n', '2023-11-29', 'ksad-jenderal-maruli-simanjuntak-dok-youtube-sekretariat-presiden_169.png'),
-(19, 1, 'Francesco Camarda Sabtu Bikin Sejarah, Senin Masuk Sekolah', 'Christopher', 'Penyerang AC Milan berumur 15 tahun, Francesco Camarda, mencetak sejarah baru pada hari Sabtu (25/11/2023). Selang dua hari, dia harus kembali menuntut ilmu. Partai pekan ke-13 Liga Italia 2023-2024 antara Milan vs Fiorentina, Sabtu (25/11/2023) atau Minggu (26/11/2023) dini hari WIB, menjadi panggung bersejarah bagi Francesco Camarda. Camarda yang merupakan kelahiran tahun 2008 dimainkan oleh pelatih Milan, Stefano Pioli pada menit ke-83. Ketika hendak masuk lapangan, Camarda diantar publik San Siro dengan pekik menggelegar. Seisi San Siro kompak meneriakkan nama “Camarda!” usai sang announcer pertandingan mengucapkan “Francesco”.\r\n\r\nSejarah tercipta. Bermain dalam usia 15 tahun, 8 bulan, plus 15 hari, Camarda resmi menjadi pemain termuda yang pernah mentas di ajang Liga Italia. Camarda mengusangkan rekor pemain Bologna, Wisdom Amey, yang menuai debut di Serie A Liga Italia pada usia 15 tahun, 9 bulan, plus 1 hari. Sehari setelah mencatat debut bersejarah bersama Milan, Camarda kembali ke sentra latihan klub di Milanello, Minggu (26/11/2023). Ia datang bersama kedua orangtuanya dan sang anjing peliharaan. Tak lupa, Camarda membawa traktiran berupa kue-kue manis untuk rekan setimnya di Milan. Camarda meneruskan tradisi lama di Milan, di mana seorang debutan wajib membawa produk pastry untuk dilahap bersama-sama.', '2023-11-29', '6562d3c74b3cd.jpg');
+(1, 4, 'asdfadg', 'asdasd', 'asdgadg', '2023-12-05', '6562d3c74b3cd.jpg'),
+(2, 4, 'asd', 'asd', 'asdasd', '2023-12-20', 'ksad-jenderal-maruli-simanjuntak-dok-youtube-sekretariat-presiden_169.png'),
+(3, 4, 'asdfasd', 'asdasd', 'asdasdasda', '2023-12-04', '3.jpg'),
+(4, 1, 'asdasd', 'asdasd', 'asdasd', '2023-12-05', '6562d3c74b3cd.jpg'),
+(5, 1, 'asdasd', 'asdasd', 'asdasd', '2023-12-03', 'ksad-jenderal-maruli-simanjuntak-dok-youtube-sekretariat-presiden_169.png'),
+(6, 1, 'asdasd', 'asdasd', 'asdasd', '2023-12-03', '3.jpg'),
+(7, 5, 'asdasd', 'asdasd', 'asdasd', '2023-12-04', '2.jpg'),
+(8, 2, 'asdasd', 'asdasd', 'asdasd', '2023-12-03', '6562d3c74b3cd.jpg'),
+(9, 3, 'asdasd', 'asdasd', 'asdasd', '2023-12-01', '6562d3c74b3cd.jpg'),
+(10, 3, 'asdasd', 'asdasd', 'asdasd', '2023-12-03', 'ksad-jenderal-maruli-simanjuntak-dok-youtube-sekretariat-presiden_169.png'),
+(11, 5, 'asdasd', 'asdasd', 'asdasd', '2023-12-04', '6562d3c74b3cd.jpg'),
+(12, 5, 'asdasd', 'asdasd', 'asdasd', '2023-12-04', 'ksad-jenderal-maruli-simanjuntak-dok-youtube-sekretariat-presiden_169.png'),
+(13, 5, 'asdasd', 'asdasd', 'asdasd', '2023-12-01', '3.jpg'),
+(14, 1, 'asdasd', 'asdasd', 'asdasd', '2023-12-20', '2.jpg'),
+(15, 5, 'asdasd', 'asdasd', 'asdasd', '2023-12-10', 'Dihantam Pandemi Covid-19, Peringkat Indonesia di PISA 2022 Naik.jpg');
 
 -- --------------------------------------------------------
 
@@ -61,12 +74,11 @@ CREATE TABLE `kategori` (
 --
 
 INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
-(1, 'Olahraga'),
-(2, 'Makanan'),
-(3, 'Kesehatan'),
-(4, 'Pendidikan'),
-(5, 'Politik'),
-(6, 'K-Pop');
+(1, ' Entertaiment'),
+(2, 'Otomotif'),
+(3, 'Olahraga'),
+(4, 'Edukasi'),
+(5, 'Kesehatan');
 
 -- --------------------------------------------------------
 
@@ -87,9 +99,8 @@ CREATE TABLE `komentar` (
 --
 
 INSERT INTO `komentar` (`id_komentar`, `id_berita`, `id_user`, `isi_komentar`, `tgl_komen`) VALUES
-(1, 18, 2, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '2023-11-29 07:48:31'),
-(2, 18, 3, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '2023-11-29 12:48:31'),
-(3, 19, 4, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '2023-11-30 14:50:16');
+(6, 14, 4, 'test komen', '2023-12-06 00:55:00'),
+(7, 5, 4, 'test', '2023-12-06 00:55:25');
 
 -- --------------------------------------------------------
 
@@ -111,9 +122,7 @@ CREATE TABLE `saran_berita` (
 --
 
 INSERT INTO `saran_berita` (`id_saran_berita`, `id_kategori`, `id_user`, `judul`, `isi_berita`, `gambar`) VALUES
-(1, 6, 2, 'Berita 6', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg'),
-(2, 3, 3, 'Berita 3', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg'),
-(3, 1, 5, 'Berita 1', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg');
+(1, 4, 4, 'Dihantam Pandemi Covid-19, Peringkat Indonesia di PISA 2022 Naik', 'Hasil studi PISA 2022 dirilis Kemendikbudristek , Selasa (5/12/2023). Berdasarkan hasil PISA 2022, peringkat hasil belajar literasi Indonesia berhasil naik 5 sampai 6 posisi dibanding hasil PISA 2018. Peningkatan ini merupakan capaian paling tinggi secara peringkat (persentil) sepanjang sejarah Indonesia mengikuti PISA. Menteri Pendidikan, Kebudayaan, Riset, dan Teknologi (Mendikbudristek), Nadiem Anwar Makarim, menyampaikan bahwa peningkatan peringkat ini menunjukkan ketangguhan sistem pendidikan Indonesia dalam mengatasi hilangnya pembelajaran (learning loss) akibat pandemi. \r\n\r\n“Untuk literasi membaca, peringkat Indonesia di PISA 2022 naik 5 posisi dibanding sebelumnya. Untuk literasi matematika, peringkat Indonesia di PISA 2022 juga naik 5 posisi, sedangkan untuk literasi sains naik 6 posisi,” jelasnya di Jakarta, melalui siaran pers, Selasa (5/12/2023). \r\n\r\nPeningkatan posisi Indonesia pada PISA 2022 mengindikasikan resiliensi yang baik dalam menghadapi pandemi Covid-19. Skor literasi membaca internasional di PISA 2022 rata-rata turun 18 poin, sedangkan skor Indonesia mengalami penurunan sebesar 12 poin, yang merupakan penurunan dengan kategori rendah dibandingkan negara-negara lain. \r\n\r\nDirektur untuk Pendidikan dan Keterampilan, Organisasi untuk Kerja Sama dan Pembangunan Ekonomi (Organisation for Economic Cooperation and Development, OECD), Andreas Schleicher memuji ketangguhan sistem pendidikan Indonesia, terutama di saat pandemi Covid-19. Beberapa tahun terakhir ini menurutnya merupakan masa yang sangat sulit. Namun, peserta didik Indonesia secara umum berhasil mempertahankan kualitas hasil pembelajaran dalam nilai PISA mereka. \r\n\r\n“Kami sampaikan selamat kepada Indonesia yang telah berhasil menjaga kualitas hasil pembelajaran. Hasil PISA ini juga menunjukkan bahwa para guru di Indonesia memberi dukungan yang baik para murid selama pandemi,” ucapnya bangga. \r\n\r\nIndonesia mengikuti PISA sejak pertama kali diselenggarakan pada tahun 2000. Keikutsertaan dalam PISA memungkinkan Indonesia memantau kualitas pendidikannya dari waktu ke waktu dan membandingkannya dengan negara lain. \r\n\r\nPISA diselenggarakan setiap tiga tahun oleh OECD untuk mengukur literasi membaca, matematika, dan sains pada murid berusia 15 tahun. Pada 2022, PISA diikuti oleh 81 negara, yang terdiri dari 37 negara OECD dan 44 negara mitra. Selain menggunakan PISA, sejak 2021 Indonesia telah melaksanakan Asesmen Nasional (AN) untuk memetakan kualitas pendidikan di setiap sekolah dan daerah secara lebih komprehensif.\r\n\r\nMengapa Peringkat PISA Indonesia Naik?\r\n\r\nMendikbudristek dalam paparannya mengutarakan bahwa relatif kecilnya learning loss mencerminkan ketangguhan para guru yang didukung berbagai program penanganan pandemi dari Kemendikbudristek. Alasan pertama berkaitan dengan akses daring. “Bantuan kuota internet diberikan pada lebih dari 25 juta murid dan 1,7 juta guru agar dapat mengakses materi dan melaksanakan pembelajaran secara daring,” tutur Nadiem.\r\n\r\nFaktor lain yang mendorong naiknya peringkat Indonesia pada PISA 2022 adalah pelatihan guru yang disediakan oleh Kemendikbudristek melalui Platform Merdeka Mengajar disertai adanya materi pembelajaran secara daring dan hibrida (hybrid).\r\n“Berbagai materi pembelajaran dibuat untuk membantu guru melaksanakan pembelajaran di masa pandemi. Ini mencakup materi “Belajar dari Rumah” di TVRI, modul asesmen diagnostik untuk mengukur literasi dan numerasi, modul pembelajaran literasi dan numerasi,” jelasnya. \r\n\r\nTerobosan yang tak kalah penting adalah pemberlakuan Kurikulum Darurat yang menyederhanakan materi kurikulum agar guru dapat fokus pada pembelajaran yang lebih mendalam, terutama untuk penguatan literasi dan numerasi peserta didik. \r\n\r\n“Penyederhanaan materi kurikulum efektif memitigasi learning loss. Sekolah yang menggunakan Kurikulum Darurat mengalami 1 bulan learning loss, dibanding 5 bulan di sekolah yang menerapkan Kurikulum 2013 secara penuh,“ imbuh Nadiem. Penyederhanaan materi ini menjadi salah satu prinsip utama dalam merancang Kurikulum Merdeka. \r\n\r\nDengan prinsip ini, Kurikulum Merdeka mengurangi materi wajib di berbagai mata pelajaran agar guru punya waktu lebih untuk menggunakan pembelajaran yang mendalam, interaktif, dan berbasis projek. \r\n\r\nKurikulum Merdeka menurut Nadiem, mendukung guru melakukan asesmen diagnostik dan pembelajaran yang sesuai dengan kemampuan tiap murid. Buku-buku teks Kurikulum Merdeka juga memuat lebih banyak aktivitas yang dirancang mengasah daya nalar. “Dengan demikian, pembelajaran dengan Kurikulum Merdeka tidak lagi berorientasi pada penyampaian materi, tapi mengasah kompetensi dan karakter murid,” tegasnya.', 'Dihantam Pandemi Covid-19, Peringkat Indonesia di PISA 2022 Naik.jpg');
 
 -- --------------------------------------------------------
 
@@ -136,7 +145,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
 (1, 'Kelompok3', 'admin', 'admin'),
 (2, 'Aprilisa', 'user1', 'user'),
 (3, 'Rania', 'user2', 'user'),
-(4, 'Christoper', 'user3', 'user'),
+(4, 'Christopher', 'user3', 'user'),
 (5, 'Irfan', 'user4', 'user'),
 (6, 'Nizar', 'user5', 'user');
 
@@ -187,13 +196,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `komentar`
@@ -205,13 +214,13 @@ ALTER TABLE `komentar`
 -- AUTO_INCREMENT for table `saran_berita`
 --
 ALTER TABLE `saran_berita`
-  MODIFY `id_saran_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_saran_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

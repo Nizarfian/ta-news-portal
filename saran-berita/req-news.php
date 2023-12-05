@@ -1,32 +1,51 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+	header("Location: ../login/login.php");
+	exit;
+}
+
+$user = $_SESSION['id_user'];
+
+include_once('../connection.php');
+
+$query = mysqli_query($conn, "SELECT * FROM kategori");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<title>Contact</title>
+	<title>Saran Berita</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="../images/icons/k.png"/>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="../images/icons/k.png" />
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="../fonts/fontawesome-5.0.8/css/fontawesome-all.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/animate/animate.css">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/css-hamburgers/hamburgers.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../vendor/animsition/css/animsition.min.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../css/util.min.css">
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="../css/main.css">
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 </head>
+
 <body class="animsition">
-	
+
 	<!-- Header -->
 	<header>
 		<!-- Header desktop -->
@@ -38,6 +57,10 @@
 							Beranda
 						</a>
 
+						<a href="req-news.php" class="left-topbar-item">
+							Saran Berita
+						</a>
+
 						<a href="../login/sign-up.php" class="left-topbar-item">
 							Daftar
 						</a>
@@ -46,8 +69,8 @@
 							Masuk
 						</a>
 
-						<a href="#" class="left-topbar-item">
-							Saran Berita
+						<a href="../backend/logout.php" class="left-topbar-item">
+							Logout
 						</a>
 					</div>
 
@@ -70,63 +93,6 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- Header Mobile -->
-			<div class="wrap-header-mobile">
-				<!-- Logo moblie -->		
-				<div class="logo-mobile">
-					<a href="../index.php"><img src="../images/logo-k3l2.png" alt="IMG-LOGO"></a>
-				</div>
-
-				<!-- Button show menu -->
-				<div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
-					<span class="hamburger-box">
-						<span class="hamburger-inner"></span>
-					</span>
-				</div>
-			</div>
-
-			<!-- Menu Mobile -->
-			<div class="menu-mobile">
-				<ul class="topbar-mobile">
-					<li class="left-topbar">
-						<a href="../index.php" class="left-topbar-item">
-							Beranda
-						</a>
-
-						<a href="../login/sign-up.php" class="left-topbar-item">
-							Daftar
-						</a>
-
-						<a href="../login/login.php" class="left-topbar-item">
-							Masuk
-						</a>
-
-						<a href="#" class="left-topbar-item">
-							Saran Berita
-						</a>
-					</li>
-
-					<li class="right-topbar">
-						<a href="#">
-							<span class="fab fa-facebook-f"></span>
-						</a>
-
-						<a href="#">
-							<span class="fab fa-twitter"></span>
-						</a>
-
-						<a href="#">
-							<span class="fab fa-instagram"></span>
-						</a>
-
-						<a href="#">
-							<span class="fab fa-youtube"></span>
-						</a>
-					</li>
-				</ul>
-			</div>
-			
 		</div>
 	</header>
 
@@ -134,7 +100,7 @@
 	<div class="container">
 		<div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
 			<div class="f2-s-1 p-r-30 m-tb-6">
-				
+
 			</div>
 		</div>
 	</div>
@@ -148,28 +114,26 @@
 						Informasi Berita
 					</h2>
 					<div class="p-r-10 p-r-0-sr991">
-						<form>
-							<input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="" placeholder="Nama">
+						<form action="../backend/tambah/proses-tambah-saran-berita.php" method="post" enctype="multipart/form-data">
+							<input type="hidden" name="user" value="<?= $user; ?>">
 
-							<input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="" placeholder="Judul">
+							<input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" id="judul" name="judul" autocomplete="off" required placeholder="Judul">
 
-							<select class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-14 m-b-20" name="">
-								<option value="" disabled selected>
-								 Kategori
-								</option>
-								<option value="">
-								 
-								</option>
-							  </select>
-							<textarea class="bo-1-rad-1 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="" placeholder="Deskripsi"></textarea>
-                			
-							<input class="f1-s-13" type="file" name="gambar" required="" />
+							<select class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-14 m-b-20" id="kategori" name="kategori" required>
+								<?php foreach ($query as $data) { ?>
+									<option value="<?= $data['id_kategori'] ?>"><?= $data['nama_kategori'] ?></option>
+								<?php } ?>
+							</select>
+
+							<textarea class="bo-1-rad-1 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" id="isi" name="isi" required placeholder="Deskripsi"></textarea>
+
+							<input class="f1-s-13" type="file" name="gambar">
 
 							<button type="submit" name="submit" class="m-t-20 btn btn-primary btn-block mb-4">Kirim</button>
 						</form>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 	</section>
@@ -188,7 +152,8 @@
 
 						<div>
 							<p class="f1-s-1 cl11 p-b-16">
-								K3lnews adalah salah satu pionir media online yang dibuat oleh 5 orang putra/i terbaik Indonesia dan pertama kali hadir di Internet pada 29 Desember 2023. 
+								K3lnews adalah salah satu pionir media online yang dibuat oleh 5 orang putra/i terbaik Indonesia dan
+								pertama kali hadir di Internet pada 29 Desember 2023.
 							</p>
 
 							<p class="f1-s-1 cl11 p-b-16">
@@ -199,15 +164,15 @@
 								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-facebook-f"></span>
 								</a>
-		
+
 								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-twitter"></span>
 								</a>
-		
+
 								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-instagram"></span>
 								</a>
-		
+
 								<a href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
 									<span class="fab fa-youtube"></span>
 								</a>
@@ -235,15 +200,16 @@
 	</div>
 
 
-<!--===============================================================================================-->	
+	<!--===============================================================================================-->
 	<script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="../vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="../vendor/bootstrap/js/popper.js"></script>
 	<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
+	<!--===============================================================================================-->
 	<script src="../js/main.js"></script>
 
 </body>
+
 </html>

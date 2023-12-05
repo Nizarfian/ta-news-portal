@@ -62,7 +62,7 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../backend/logout.php">
               <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
             </a>
           </li>

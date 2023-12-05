@@ -15,20 +15,20 @@ if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == UPLOAD_ERR_OK) {
 
   $check = getimagesize($_FILES["gambar"]["tmp_name"]);
   if ($check === false) {
-    // header("Location:../../admin/berita.php");
+    header("Location:../../admin/berita.php");
     echo "error";
     exit();
   }
 
   if ($_FILES["gambar"]["size"] > 3000000) {
-    // header("Location:../../admin/berita.php");
+    header("Location:../../admin/berita.php");
     echo "error ukuran";
     exit();
   }
 
   $allowedFileTypes = ["jpg", "jpeg", "png"];
   if (!in_array($imageFileType, $allowedFileTypes)) {
-    // header("Location:../../admin/berita.php");
+    header("Location:../../admin/berita.php");
     echo "error format";
     exit();
   }
@@ -36,12 +36,12 @@ if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == UPLOAD_ERR_OK) {
   if (move_uploaded_file($_FILES["gambar"]["tmp_name"], $targetFile)) {
     $gambar = basename($_FILES["gambar"]["name"]);
   } else {
-    // header("Location:../../admin/berita.php");
+    header("Location:../../admin/berita.php");
     echo "error upload";
     exit();
   }
 } else {
-  // header("Location:../../admin/berita.php");
+  header("Location:../../admin/berita.php");
   echo "belum upload";
   exit();
 }
