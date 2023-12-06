@@ -152,21 +152,21 @@ function custom_echo($x, $length)
                     <thead>
                       <tr class="text-center align-middle">
                         <th class="text-center" scope="col" width="10px">No. </th>
-                        <th class="text-center" scope="col" width="250px">Judul</th>
-                        <th class="text-center" scope="col" width="100px">User</th>
-                        <th class="text-center" scope="col" width="350px">Komentar</th>
-                        <th class="text-center" scope="col" width="50px">Tanggal Komentar</th>
+                        <th class="text-center" scope="col" width="">Judul</th>
+                        <th class="text-center" scope="col" width="">User</th>
+                        <th class="text-center" scope="col" width="">Komentar</th>
+                        <th class="text-center" scope="col" width="">Tanggal Komentar</th>
                         <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
-                    <tbody>
+                    <tbody> 
                       <?php $i = 1 ?>
                       <?php foreach ($query as $data) : ?>
                         <tr>
                           <td class="text-center align-middle"><?= $i; ?></td>
-                          <td><?php custom_echo($data["judul"], 40) ?></td>
+                          <td><?php custom_echo($data["judul"], 15) ?></td>
                           <td><?= $data["username"]; ?></td>
-                          <td class="text-center align-middle"><?php custom_echo($data["isi_komentar"], 50) ?></td>
+                          <td class="text-center align-middle"><?php custom_echo($data["isi_komentar"], 30) ?></td>
                           <td><?= date("d F Y, H:i:s", strtotime($data["tgl_komen"])); ?></td>
                           <td width="50px" class="text-center align-middle">
                             <a href="detail_komentar.php?idKomentar=<?= $data["id_komentar"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>

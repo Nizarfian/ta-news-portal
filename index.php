@@ -5,10 +5,34 @@ $login = $_SESSION['login'] ?? null;
 
 include_once('connection.php');
 
-$menu = mysqli_query($conn, "SELECT * FROM `kategori`;");
+$records_per_page = 3;
 
-$berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori ORDER BY tgl_rilis DESC;");
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
+
+$start_from = ($current_page - 1) * $records_per_page;
+
+$berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori ORDER BY tgl_rilis DESC LIMIT $start_from, $records_per_page");
+
+$total_berita = mysqli_query($conn, "SELECT COUNT(*) FROM berita");
+
+$total_records = mysqli_fetch_row($total_berita)[0];
+
+$total_pages = ceil($total_records / $records_per_page);
+
+$menu = mysqli_query($conn, "SELECT * FROM `kategori` LIMIT 8;");
+
+$berita_utama = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori ORDER BY tgl_rilis ASC LIMIT 3;");
+
+function custom_echo($x, $length)
+{
+  if (strlen($x) <= $length) {
+    echo $x;
+  } else {
+    $y = substr($x, 0, $length) . '...';
+    echo $y;
+  }
+}
 ?>
 
 <!DOCTYPE html>
@@ -119,10 +143,6 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id
 						</a>
 
 						<ul class="main-menu">
-							<li class="">
-								<a href="index.php">Berita Terbaru</a>
-							</li>
-
 							<?php foreach ($menu as $data) : ?>
 								<li class="mega-menu-item">
 									<a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
@@ -138,100 +158,30 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id
 	<!-- Feature post -->
 	<section class="bg0">
 		<div class="container">
-			<div class="row m-rl--1">
-				<div class="col-md-6 p-rl-1 p-b-2">
-					<div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url(images/post-01.jpg);">
-						<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
-
+			<div class="row m-rl-0 justify-content-center">
+			<?php foreach ($berita_utama as $data) : ?>
+				<div class="col-md-4 p-rl-1 p-b-2">
+					<div class="bg-img1 size-a-11 how1 pos-relative" style="background-image: url(img/<?= $data['gambar']; ?>);">
+						<a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="dis-block how1-child1 trans-03"></a>
 						<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-							<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-								kategori
+							<a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn2 trans-03 p-rl-5 p-t-2">
+								<?= $data['nama_kategori']; ?>
 							</a>
-
-							<h3 class="how1-child2 m-t-14 m-b-10">
-								<a href="detail.php" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
-									nama judul
+							<h3 class="how1-child2 m-t-10">
+								<a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="f1-l-1 cl0 hov-cl10 trans-03 respon1">
+									<?php custom_echo($data["judul"], 50) ?>
 								</a>
 							</h3>
-
-							<span class="how1-child2">
-								<span class="f1-s-4 cl11">
-									penulis
-								</span>
-
-								<span class="f1-s-3 cl11 m-rl-3">
-									-
-								</span>
-
-								<span class="f1-s-3 cl11">
-									tanggal
-								</span>
-							</span>
 						</div>
 					</div>
 				</div>
-
-				<div class="col-md-6 p-rl-1">
-					<div class="row m-rl--1">
-						<div class="col-12 p-rl-1 p-b-2">
-							<div class="bg-img1 size-a-4 how1 pos-relative" style="background-image: url(images/post-02.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
-
-								<div class="flex-col-e-s s-full p-rl-25 p-tb-24">
-									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn2 trans-03 p-rl-5 p-t-2">
-										kategori
-									</a>
-
-									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
-											nama judul
-										</a>
-									</h3>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 p-rl-1 p-b-2">
-							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(images/post-03.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
-
-								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										kategori
-									</a>
-
-									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-											nama judul
-										</a>
-									</h3>
-								</div>
-							</div>
-						</div>
-
-						<div class="col-sm-6 p-rl-1 p-b-2">
-							<div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(images/post-04.jpg);">
-								<a href="detail.php" class="dis-block how1-child1 trans-03"></a>
-
-								<div class="flex-col-e-s s-full p-rl-25 p-tb-20">
-									<a href="#" class="dis-block bo-1-rad-20 how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
-										kategori
-									</a>
-
-									<h3 class="how1-child2 m-t-14">
-										<a href="detail.php" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
-											nama judul
-										</a>
-									</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+			<?php endforeach; ?>
 			</div>
 		</div>
+			
+	
 	</section>
-
+	
 	<!-- Berita Terbaru -->
 	<section class="bg0 p-t-60 p-b-35">
 		<div class="container">
@@ -286,9 +236,12 @@ $berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id
 
 					<!-- Pagination -->
 					<div class="flex-wr-s-c m-rl--7 p-t-10">
-						<a href="#" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">1</a>
-						<a href="#" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7">2</a>
+						<?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+							<a href="index.php?page=<?= $i ?>" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 <?= $i == $current_page ? 'pagi-active' : ''; ?>"><?= $i ?></a>
+						<?php endfor; ?>
 					</div>
+
+
 				</div>
 			</div>
 		</div>

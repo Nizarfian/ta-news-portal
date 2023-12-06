@@ -5,6 +5,23 @@ if(!isset($_SESSION["submit"])){
 	header("Location: ../login/login.php");
 	exit;
 }
+
+include_once('../connection.php');
+$jumlah1 = mysqli_query($conn, "SELECT * FROM berita");
+$count1 = mysqli_num_rows($jumlah1);
+
+$jumlah2 = mysqli_query($conn, "SELECT * FROM kategori");
+$count2 = mysqli_num_rows($jumlah2);
+
+$jumlah3 = mysqli_query($conn, "SELECT * FROM komentar");
+$count3 = mysqli_num_rows($jumlah3);
+
+$jumlah4 = mysqli_query($conn, "SELECT * FROM saran_berita");
+$count4 = mysqli_num_rows($jumlah4);
+
+$jumlah5 = mysqli_query($conn, "SELECT * FROM user");
+$count5 = mysqli_num_rows($jumlah5);
+
 ?>
 
 <!DOCTYPE html>
@@ -124,27 +141,26 @@ if(!isset($_SESSION["submit"])){
             </span> Dashboard
           </h3>
         </div>
+        
         <div class="row">
-          <div class="col-md-4 stretch-card grid-margin">
-            <div class="card bg-gradient-danger card-img-holder text-white">
-              <a href="kategori.php" style="text-decoration: none; color: white">
-                <div class="card-body">
-                  <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                  <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                  </h4>
-                  <h2 class="mb-5">List Kategori</h2>
-                </div>
-              </a>
-            </div>
-          </div>
           <div class="col-md-4 stretch-card grid-margin">
             <div class="card bg-gradient-info card-img-holder text-white">
               <a href="berita.php" style="text-decoration: none; color: white">
                 <div class="card-body">
                   <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                  <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                  </h4>
-                  <h2 class="mb-5">List Berita</h2>
+                  <h1 class="mb-4"><?= $count1 ?></h1>
+                  <h3>Data Berita</h3>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-4 stretch-card grid-margin">
+            <div class="card bg-gradient-danger card-img-holder text-white">
+              <a href="kategori.php" style="text-decoration: none; color: white">
+                <div class="card-body">
+                  <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                  <h1 class="mb-4"><?= $count2 ?></h1>
+                  <h3>Data Kategori</h3>
                 </div>
               </a>
             </div>
@@ -154,9 +170,8 @@ if(!isset($_SESSION["submit"])){
               <a href="komentar.php" style="text-decoration: none; color: white">
                 <div class="card-body">
                   <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                  <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                  </h4>
-                  <h2 class="mb-5">List Komentar</h2>
+                  <h1 class="mb-4"><?= $count3 ?></h1>
+                  <h3>Data Komentar</h3>
                 </div>
               </a>
             </div>
@@ -166,9 +181,8 @@ if(!isset($_SESSION["submit"])){
               <a href="saran.php" style="text-decoration: none; color: white">
                 <div class="card-body">
                   <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                  <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                  </h4>
-                  <h2 class="mb-5">Saran Berita</h2>
+                  <h1 class="mb-4"><?= $count4 ?></h1>
+                  <h3>Saran Berita</h3>
                 </div>
               </a>
             </div>
@@ -178,9 +192,8 @@ if(!isset($_SESSION["submit"])){
               <a href="user.php" style="text-decoration: none; color: white">
                 <div class="card-body">
                   <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                  <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                  </h4>
-                  <h2 class="mb-5">List User</h2>
+                  <h1 class="mb-4"><?= $count5 ?></h1>
+                  <h3>Data User</h3>
                 </div>
               </a>
             </div>
