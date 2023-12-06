@@ -1,3 +1,11 @@
+<?php
+
+include_once('../connection.php');
+
+$query = mysqli_query($conn, "SELECT * FROM kategori");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,10 +30,10 @@
 
 <body>
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
+        <!-- partial:partials/navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo"></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -39,7 +47,7 @@
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
                         <a class="nav-link" href="#">
-                            <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
+                            <i class="mdi mdi-logout me-2 text-success"></i>Logout
                         </a>
                     </li>
                 </ul>
@@ -50,7 +58,7 @@
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
+            <!-- partial:partials/sidebar.php -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
@@ -115,33 +123,36 @@
                         <div class="col-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <form class="forms-sample">
+                                    <form class="forms-sample" action="../backend/tambah/proses-tambah-berita.php" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="exampleFormControlSelect2">Nama Kategori</label>
-                                            <select class="form-control" id="exampleFormControlSelect2" required>
+                                            <label for="kategori">Nama Kategori</label>
+                                            <select class="form-control" id="kategori" name="kategori" required>
                                                 <option>--Pilih--</option>
-                                                <option>Olahraga</option>
-                                                <option>Politik</option>
-                                                <option>Kesehatan</option>
-                                                <option>Makanan</option>
-                                                <option>Pendidikan</option>
+                                                <?php foreach ($query as $data) { ?>
+                                                    <option value="<?= $data['id_kategori'] ?>">
+                                                        <?= $data['nama_kategori'] ?></option>
+                                                <?php } ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputEmail3">Judul</label>
-                                            <input type="text" class="form-control" id="exampleInputName1" placeholder="Judul" required>
+                                            <label for="judul">Judul</label>
+                                            <input type="text" class="form-control" id="judul" name="judul" autocomplete="off" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword4">Tanggal Rilis</label>
-                                            <input type="date" class="form-control" id="exampleInputName1" placeholder="Tanggal Rilis" required>
+                                            <label for="penulis">Penulis</label>
+                                            <input type="text" class="form-control" id="penulis" name="penulis" autocomplete="off" required>
+                                        </div>
+                                        <div class="form-group col-2">
+                                            <label for="tgl_rilis">Tanggal Rilis</label>
+                                            <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleSelectGender">Isi Berita</label>
-                                            <textarea class="form-control" id="exampleTextarea1" rows="6" required></textarea>
+                                            <label for="isi">Isi Berita</label>
+                                            <textarea class="form-control" id="isi" rows="6" name="isi" required></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Gambar</label>
-                                            <input type="file" name="img[]" class="file-upload-default">
+                                            <input type="file" name="gambar" class="file-upload-default">
                                             <div class="input-group col-xs-12">
                                                 <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Gambar">
                                                 <span class="input-group-append">
@@ -150,7 +161,8 @@
                                             </div>
                                         </div>
                                         <div class="d-flex justify-content-between col-xs-12">
-                                            <a href="berita.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i> Kembali</a>
+                                            <a href="berita.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i>
+                                                Kembali</a>
                                             <input type="submit" name="Submit" value="Submit" class="btn btn-success btn-sm">
                                         </div>
                                     </form>
@@ -158,7 +170,7 @@
                             </div>
                         </div>
                         <!-- content-wrapper ends -->
-                        <!-- partial:partials/_footer.html -->
+                        <!-- partial:partials/footer.php -->
                         <footer class="footer">
                             <div class="container-fluid d-flex justify-content-center">
                                 <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright

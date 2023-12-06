@@ -1,3 +1,9 @@
+<?php
+include_once('../connection.php');
+
+$query = mysqli_query($conn, "SELECT * FROM `user`;");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,11 +37,11 @@
 
 <body>
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
+        <!-- partial:partials/navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png"
-                        alt="logo" /></a>
+                        alt="logo"></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -49,7 +55,7 @@
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
                         <a class="nav-link" href="#">
-                            <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
+                            <i class="mdi mdi-logout me-2 text-success"></i>Logout
                         </a>
                     </li>
                 </ul>
@@ -61,7 +67,7 @@
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
+            <!-- partial:partials/sidebar.php -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
@@ -129,50 +135,31 @@
                                     <table class="table table-bordered" id="myTable">
                                         <thead>
                                             <tr class="text-center align-middle">
-                                                <th class="text-center" scope="col" width="50px">No. </th>
-                                                <th class="text-center" scope="col">Nama</th>
+                                                <th class="text-center" scope="col" width="30px">No. </th>
                                                 <th class="text-center" scope="col">Username</th>
                                                 <th class="text-center" scope="col">Role</th>
                                                 <th class="text-center" scope="col">Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php $i = 1 ?>
+                                            <?php foreach ($query as $data) : ?>
                                             <tr>
-                                                <td class="text-center align-middle"> 1 </td>
-                                                <td> Kelompok 3 </td>
-                                                <td> admin </td>
-                                                <td> admin </td>
+                                                <td class="text-center align-middle"><?= $i; ?></td>
+                                                <td><?= $data["username"]; ?></td>
+                                                <td><?= $data["role"]; ?></td>
                                                 <td width="50px" class="text-center align-middle">
-                                                    <a href="edit_user.php" class="btn btn-warning btn-sm"><i
+                                                    <a href="edit_user.php?idUser=<?= $data["id_user"]; ?>"
+                                                        class="btn btn-warning btn-sm"><i
                                                             class="bi bi-pencil-square"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i
-                                                            class="bi bi-trash"></i></a>
+                                                    <a href="#" class="btn btn-danger btn-sm"
+                                                        onclick="confirmDelete(<?= $data['id_user'] ?>)">
+                                                        <i class="bi bi-trash"></i>
+                                                    </a>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td class="text-center align-middle"> 2 </td>
-                                                <td> April </td>
-                                                <td> user1 </td>
-                                                <td> user </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="edit_user.php" class="btn btn-warning btn-sm"><i
-                                                            class="bi bi-pencil-square"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i
-                                                            class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle"> 3 </td>
-                                                <td> Rani </td>
-                                                <td> user2 </td>
-                                                <td> user </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="edit_user.php" class="btn btn-warning btn-sm"><i
-                                                            class="bi bi-pencil-square"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i
-                                                            class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
+                                            <?php $i++; ?>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -181,7 +168,7 @@
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
+                <!-- partial:partials/footer.php -->
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">
@@ -203,6 +190,14 @@
     $(document).ready(function() {
         $('#myTable').DataTable();
     });
+
+    function confirmDelete(idUser) {
+        if (confirm('Yakin ingin menghapus user ini?')) {
+            window.location.href = '../backend/hapus/proses-hapus-user.php?idUser=' + idUser;
+        } else {
+            console.log('Hapus dibatalkan');
+        }
+    }
     </script>
 
     <!-- endinject -->

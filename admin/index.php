@@ -38,12 +38,11 @@
                 </li>
                 <li class="nav-item nav-logout d-none d-lg-block">
                     <a class="nav-link" href="#">
-                        <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
+                        <i class="mdi mdi-logout me-2 text-success"></i>Logout
                     </a>
                 </li>
             </ul>
-            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                data-toggle="offcanvas">
+            <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                 <span class="mdi mdi-menu"></span>
             </button>
         </div>
@@ -118,62 +117,62 @@
                 <div class="row">
                     <div class="col-md-4 stretch-card grid-margin">
                         <div class="card bg-gradient-danger card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                    alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3"><i
-                                        class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                </h4>
-                                <h2 class="mb-5">List Kategori</h2>
-                            </div>
+                            <a href="kategori.php" style="text-decoration: none; color: white">
+                                <div class="card-body">
+                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                    </h4>
+                                    <h2 class="mb-5">List Kategori</h2>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4 stretch-card grid-margin">
                         <div class="card bg-gradient-info card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                    alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3"><i
-                                        class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                </h4>
-                                <h2 class="mb-5">List Berita</h2>
-                            </div>
+                            <a href="berita.php" style="text-decoration: none; color: white">
+                                <div class="card-body">
+                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                    </h4>
+                                    <h2 class="mb-5">List Berita</h2>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4 stretch-card grid-margin">
                         <div class="card bg-gradient-warning card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                    alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3"><i
-                                        class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                </h4>
-                                <h2 class="mb-5">List Komentar</h2>
-                            </div>
+                            <a href="komentar.php" style="text-decoration: none; color: white">
+                                <div class="card-body">
+                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                    </h4>
+                                    <h2 class="mb-5">List Komentar</h2>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4 stretch-card grid-margin">
                         <div class="card bg-gradient-dark card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                    alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3"><i
-                                        class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                </h4>
-                                <h2 class="mb-5">Saran Berita</h2>
-                            </div>
+                            <a href="saran.php" style="text-decoration: none; color: white">
+                                <div class="card-body">
+                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                    </h4>
+                                    <h2 class="mb-5">Saran Berita</h2>
+                                </div>
+                            </a>
                         </div>
                     </div>
                     <div class="col-md-4 stretch-card grid-margin">
                         <div class="card bg-gradient-success card-img-holder text-white">
-                            <div class="card-body">
-                                <img src="assets/images/dashboard/circle.svg" class="card-img-absolute"
-                                    alt="circle-image" />
-                                <h4 class="font-weight-normal mb-3"><i
-                                        class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                </h4>
-                                <h2 class="mb-5">List User</h2>
-                            </div>
+                            <a href="user.php" style="text-decoration: none; color: white">
+                                <div class="card-body">
+                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
+                                    </h4>
+                                    <h2 class="mb-5">List User</h2>
+                                </div>
+                            </a>
                         </div>
                     </div>
                 </div>

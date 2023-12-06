@@ -1,17 +1,17 @@
 <?php
-include_once('../connection.php');
+include("../connection.php");
 
-$query = mysqli_query($conn, "SELECT * FROM `komentar` JOIN berita ON komentar.id_berita=berita.id_berita JOIN user ON komentar.id_user=user.id_user;");
+$id = $_GET["idKomentar"];
 
-function custom_echo($x, $length)
-{
-    if (strlen($x) <= $length) {
-        echo $x;
-    } else {
-        $y = substr($x, 0, $length) . '...';
-        echo $y;
-    }
+$query = mysqli_query($conn, "SELECT * FROM `komentar` JOIN berita ON komentar.id_berita=berita.id_berita JOIN user ON komentar.id_user=user.id_user WHERE id_komentar = $id;");
+
+foreach ($query as $data) {
+    $judul = $data["judul"];
+    $username = $data["username"];
+    $isi_komentar = $data["isi_komentar"];
+    $tgl_komen = $data["tgl_komen"];
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +21,7 @@ function custom_echo($x, $length)
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Admin | Komentar</title>
+    <title>Admin | Detail Komentar</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -133,43 +133,21 @@ function custom_echo($x, $length)
             <div class="main-panel">
                 <div class="content-wrapper">
                     <div class="page-header">
-                        <h3 class="page-title"> Komentar </h3>
+                        <h3 class="page-title"> Detail Komentar </h3>
+                        <a href="komentar.php" class="btn btn-info btn-sm mb-3">Kembali</a>
                     </div>
                     <div class="row">
                         <div class="col-lg-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <table class="table table-bordered" id="myTable">
-                                        <thead>
-                                            <tr class="text-center align-middle">
-                                                <th class="text-center" scope="col">No. </th>
-                                                <th class="text-center" scope="col">Judul</th>
-                                                <th class="text-center" scope="col">User</th>
-                                                <th class="text-center" scope="col">Komentar</th>
-                                                <th class="text-center" scope="col">Tanggal Komentar</th>
-                                                <th class="text-center" scope="col">Aksi</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php $i = 1 ?>
-                                            <?php foreach ($query as $data) : ?>
-                                                <tr>
-                                                    <td class="text-center align-middle"><?= $i; ?></td>
-                                                    <td><?php custom_echo($data["judul"], 10) ?></td>
-                                                    <td><?= $data["username"]; ?></td>
-                                                    <td class="text-center align-middle">
-                                                        <?php custom_echo($data["isi_komentar"], 30) ?></td>
-                                                    <td style="width: 10px;">
-                                                        <?= date("d/m/Y, H:i", strtotime($data["tgl_komen"])) ?>
-                                                    <td width="50px" class="text-center align-middle">
-                                                        <a href="detail_komentar.php?idKomentar=<?= $data["id_komentar"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                        <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_komentar'] ?>)"><i class="bi bi-trash"></i></a>
-                                                    </td>
-                                                </tr>
-                                                <?php $i++; ?>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                    <h4>Berita</h4>
+                                    <p><?= $judul; ?></p>
+                                    <h4>User</h4>
+                                    <p><?= $username; ?></p>
+                                    <h4>Isi Komentar</h4>
+                                    <p><?= $isi_komentar; ?></p>
+                                    <h4>Tanggal Komentar</h4>
+                                    <p><?= $tgl_komen; ?></p>
                                 </div>
                             </div>
                         </div>
@@ -195,13 +173,9 @@ function custom_echo($x, $length)
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-
-        function confirmDelete(idKomentar) {
-            if (confirm('Yakin ingin menghapus komentar ini?')) {
-                window.location.href = '../backend/hapus/proses-hapus-komentar.php?idKomentar=' + idKomentar;
+        function confirmDelete(idBerita) {
+            if (confirm('Yakin ingin menghapus berita ini?')) {
+                window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
             } else {
                 console.log('Hapus dibatalkan');
             }

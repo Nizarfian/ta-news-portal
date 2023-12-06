@@ -1,3 +1,19 @@
+<?php
+include_once('../connection.php');
+
+$query = mysqli_query($conn, "SELECT * FROM `saran_berita` JOIN kategori ON saran_berita.id_kategori=kategori.id_kategori JOIN user ON saran_berita.id_user=user.id_user;");
+
+function custom_echo($x, $length)
+{
+    if (strlen($x) <= $length) {
+        echo $x;
+    } else {
+        $y = substr($x, 0, $length) . '...';
+        echo $y;
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,10 +46,10 @@
 
 <body>
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
+        <!-- partial:partials/navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
+                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo"></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -47,7 +63,7 @@
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
                         <a class="nav-link" href="#">
-                            <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
+                            <i class="mdi mdi-logout me-2 text-success"></i>Logout
                         </a>
                     </li>
                 </ul>
@@ -58,7 +74,7 @@
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
+            <!-- partial:partials/sidebar.php -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
@@ -128,7 +144,7 @@
                                             <tr class="text-center align-middle">
                                                 <th class="text-center" scope="col">No. </th>
                                                 <th class="text-center" scope="col">Kategori</th>
-                                                <th class="text-center" scope="col">User</th>
+                                                <th class="text-center" scope="col">Nama</th>
                                                 <th class="text-center" scope="col">Judul</th>
                                                 <th class="text-center" scope="col">Isi Berita</th>
                                                 <th class="text-center" scope="col">Gambar</th>
@@ -136,66 +152,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td class="text-center align-middle"> 1 </td>
-                                                <td> Politik </td>
-                                                <td> username1 </td>
-                                                <td> Berita 1 </td>
-                                                <td> INI BERITA POLITIK </td>
-                                                <td> </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="#" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle"> 2 </td>
-                                                <td> Pendidikan </td>
-                                                <td> username2 </td>
-                                                <td> Berita 2 </td>
-                                                <td> INI BERITA PENDIDIKAN </td>
-                                                <td> </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="#" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle"> 3 </td>
-                                                <td> Makanan </td>
-                                                <td> username3 </td>
-                                                <td> Berita 3 </td>
-                                                <td> INI BERITA MAKANAN </td>
-                                                <td> </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="#" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle"> 4 </td>
-                                                <td> Olahraga </td>
-                                                <td> username4 </td>
-                                                <td> Berita 4 </td>
-                                                <td> INI BERITA OLAHRAGA </td>
-                                                <td> </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="#" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center align-middle"> 5 </td>
-                                                <td> Kesehatan </td>
-                                                <td> username5 </td>
-                                                <td> Berita 5 </td>
-                                                <td> INI BERITA KESEHATAN </td>
-                                                <td> </td>
-                                                <td width="50px" class="text-center align-middle">
-                                                    <a href="#" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                                                    <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
-                                                </td>
-                                            </tr>
+                                            <?php $i = 1 ?>
+                                            <?php foreach ($query as $data) : ?>
+                                                <tr>
+                                                    <td class="text-center align-middle"><?= $i; ?></td>
+                                                    <td><?= $data["nama_kategori"]; ?></td>
+                                                    <td><?= $data["username"]; ?></td>
+                                                    <td><?= custom_echo($data["judul"], 10) ?></td>
+                                                    <td><?= custom_echo($data["isi_berita"], 30) ?></td>
+                                                    <td><img src="../img/<?= $data["gambar"]; ?>"></td>
+                                                    <td width="50px" class="text-center align-middle">
+                                                        <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                                                        <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <?php $i++; ?>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -204,7 +176,7 @@
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
+                <!-- partial:partials/footer.php -->
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">
@@ -226,6 +198,14 @@
         $(document).ready(function() {
             $('#myTable').DataTable();
         });
+
+        function confirmDelete(idSaran) {
+            if (confirm('Yakin ingin menghapus saran berita ini?')) {
+                window.location.href = '../backend/hapus/proses-hapus-saran.php?idSaran=' + idSaran;
+            } else {
+                console.log('Hapus dibatalkan');
+            }
+        }
     </script>
 
     <!-- endinject -->
