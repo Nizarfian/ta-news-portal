@@ -9,12 +9,17 @@ $records_per_page = 3;
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
-
 $start_from = ($current_page - 1) * $records_per_page;
 
-$berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori ORDER BY tgl_rilis DESC LIMIT $start_from, $records_per_page");
+$searchKeyword = isset($_GET['search']) ? $_GET['search'] : '';
 
-$total_berita = mysqli_query($conn, "SELECT COUNT(*) FROM berita");
+// Query pencarian
+$searchQuery = "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori 
+                WHERE judul LIKE '%$searchKeyword%' ORDER BY tgl_rilis DESC LIMIT $start_from, $records_per_page";
+
+$berita = mysqli_query($conn, $searchQuery);
+
+$total_berita = mysqli_query($conn, "SELECT COUNT(*) FROM berita WHERE judul LIKE '%$searchKeyword%'");
 
 $total_records = mysqli_fetch_row($total_berita)[0];
 
@@ -23,6 +28,7 @@ $total_pages = ceil($total_records / $records_per_page);
 $menu = mysqli_query($conn, "SELECT * FROM `kategori` LIMIT 8;");
 
 $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori ORDER BY tgl_rilis ASC LIMIT 3;");
+
 
 function custom_echo($x, $length)
 {
@@ -124,12 +130,14 @@ function custom_echo($x, $length)
 
 				<!-- Search -->
 				<div class="banner-header">
-					<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-						<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
-						<button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
-							<i class="zmdi zmdi-search"></i>
-						</button>
-					</div>
+					<form action="" method="GET">
+						<div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+							<input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+							<button type="submit" class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+								<i class="zmdi zmdi-search"></i>
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 

@@ -5,17 +5,42 @@ $login = $_SESSION['login'] ?? null;
 
 include_once('connection.php');
 
-$idKategori = $_GET['idKategori'];
+$records_per_page = 1;
+
+$current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+$start_from = ($current_page - 1) * $records_per_page;
+
+$searchKeyword = isset($_GET['search']) ? $_GET['search'] : '';
+$idKategori = isset($_GET['idKategori']) ? $_GET['idKategori'] : null;
+
+// Query pencarian
+if ($idKategori !== null) {
+    $query = "SELECT * FROM `berita` WHERE `id_kategori` = $idKategori";
+
+    if (!empty($searchKeyword)) {
+        $query .= " AND `judul` LIKE '%$searchKeyword%'";
+    }
+
+    $query .= " LIMIT $start_from, $records_per_page";
+
+    $berita = mysqli_query($conn, $query);
+
+    // Total berita yang memenuhi kriteria
+    $total_berita = mysqli_query($conn, "SELECT COUNT(*) FROM berita WHERE id_kategori = $idKategori AND judul LIKE '%$searchKeyword%'");
+    $total_records = mysqli_fetch_row($total_berita)[0];
+    
+    // Perhitungan total halaman
+    $total_pages = ceil($total_records / $records_per_page);
+}
 
 $menu = mysqli_query($conn, "SELECT * FROM `kategori`;");
 
 $kategori = mysqli_query($conn, "SELECT * FROM `kategori` WHERE `id_kategori` = $idKategori;");
 
-$berita = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idKategori;");
-
 $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` = $idKategori LIMIT 3");
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -106,14 +131,20 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
         </div>
 
         <!-- Search -->
+        <!-- Search -->
         <div class="banner-header">
-          <div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-            <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search">
-            <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
-              <i class="zmdi zmdi-search"></i>
-            </button>
-          </div>
+          <form action="" method="GET">
+            <div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
+              <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+              <input type="hidden" name="idKategori" value="<?= isset($_GET['idKategori']) ? $_GET['idKategori'] : ''; ?>">
+              <button type="submit" class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
+                <i class="zmdi zmdi-search"></i>
+              </button>
+            </div>
+          </form>
         </div>
+
+
       </div>
 
       <!--  -->
@@ -126,7 +157,7 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
             </a>
             <ul class="main-menu">
               <?php foreach ($menu as $data) : ?>
-                <li class="main-menu-active">
+                <li class="<?= $data['id_kategori'] == $idKategori ? 'main-menu-active' : ''; ?>">
                   <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
                 </li>
               <?php endforeach; ?>
@@ -162,8 +193,6 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
       <?php endforeach; ?>
     </h2>
   </div>
-
- 
 
   <!-- Post -->
   <section class="bg0 p-b-55">
@@ -207,10 +236,12 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
           </div>
 
           <!-- Pagination -->
-          <div class="flex-wr-s-c m-rl--7 p-t-15">
-            <a href="#" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 pagi-active">1</a>
-            <a href="#" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7">2</a>
-          </div>
+          <div class="flex-wr-s-c m-rl--7 p-t-10">
+						<?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+              <a href="menu.php?idKategori=<?= $idKategori ?>&page=<?= $i ?>" class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 <?= $i == $current_page ? 'pagi-active' : ''; ?>"><?= $i ?></a>
+						<?php endfor; ?>
+					</div>
+
         </div>
       </div>
     </div>
