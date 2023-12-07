@@ -63,12 +63,13 @@ foreach ($query as $data) {
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../backend/logout.php">
               <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -143,7 +144,8 @@ foreach ($query as $data) {
                   <form class="forms-sample" action="../backend/edit/proses-edit-user.php" method="post">
                     <div class="form-group">
                       <label for="editUsername">Username</label>
-                      <input type="text" class="form-control" id="editUsername" name="editUsername" value="<?= $username; ?>" autocomplete="off" required>
+                      <input type="text" class="form-control" id="editUsername" name="editUsername"
+                        value="<?= $username; ?>" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                       <label>Role</label>

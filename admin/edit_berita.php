@@ -69,12 +69,13 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../backend/logout.php">
               <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
+          data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -146,33 +147,38 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <form class="forms-sample" action="../backend/edit/proses-edit-berita.php" method="post" enctype="multipart/form-data">
+                  <form class="forms-sample" action="../backend/edit/proses-edit-berita.php" method="post"
+                    enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="kategori">Nama Kategori</label>
                       <select class="form-control" id="kategori" name="kategori" required>
                         <?php foreach ($kategori as $data) { ?>
-                          <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
+                        <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
                                                                         echo "selected";
                                                                       } ?>><?= $data['nama_kategori'] ?>
-                          </option>
+                        </option>
                         <?php } ?>
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="judul">Judul</label>
-                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>" autocomplete="off" required>
+                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>"
+                        autocomplete="off" required>
                     </div>
                     <div class="form-group">
                       <label for="penulis">Penulis</label>
-                      <input type="text" class="form-control" id="penulis" name="penulis" value="<?= $penulis; ?>" autocomplete="off" required>
+                      <input type="text" class="form-control" id="penulis" name="penulis" value="<?= $penulis; ?>"
+                        autocomplete="off" required>
                     </div>
                     <div class="form-group col-2">
                       <label for="tgl_rilis">Tanggal Rilis</label>
-                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_rilis; ?>" required>
+                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_rilis; ?>"
+                        required>
                     </div>
                     <div class="form-group">
                       <label for="isi">Isi Berita</label>
-                      <textarea class="form-control" id="isi" rows="6" name="isi" required><?= $isi_berita; ?></textarea>
+                      <textarea class="form-control" id="isi" rows="6" name="isi"
+                        required><?= $isi_berita; ?></textarea>
                     </div>
                     <div class="form-group">
                       <label>Gambar Baru</label>

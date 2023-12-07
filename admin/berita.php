@@ -2,9 +2,9 @@
 //session login
 session_start();
 
-if(!isset($_SESSION["submit"])){
-	header("Location: ../login/login.php");
-	exit;
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
 }
 
 //query sql
@@ -72,7 +72,7 @@ function custom_echo($x, $length)
             </a>
           </li>
           <li class="nav-item nav-logout d-none d-lg-block">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../backend/logout.php">
               <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
             </a>
           </li>
@@ -157,13 +157,12 @@ function custom_echo($x, $length)
                   <table class="table table-bordered" id="myTable">
                     <thead>
                       <tr class="text-center align-middle">
-                        <th class="text-center" scope="col">No. </th>               
+                        <th class="text-center" scope="col">No. </th>
                         <th class="text-center" scope="col">Judul</th>
                         <th class="text-center" scope="col">Kategori</th>
                         <th class="text-center" scope="col">Penulis</th>
                         <th class="text-center" scope="col">Tanggal Rilis</th>
                         <th class="text-center" scope="col">Isi Berita</th>
-                        <th class="text-center" scope="col">Gambar</th>
                         <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
@@ -172,12 +171,11 @@ function custom_echo($x, $length)
                       <?php foreach ($query as $data) : ?>
                       <tr>
                         <td class="text-center align-middle" style="width: 8px;"><?= $i; ?></td>
-                        <td style="width: 150px;"><?php custom_echo($data["judul"], 25) ?></td>
+                        <td style="width: 100px;"><?php custom_echo($data["judul"], 15) ?></td>
                         <td><?= $data["nama_kategori"] ?></td>
                         <td><?= $data["penulis"] ?></td>
-                        <td style="width: 10px;"><?= date("d F Y", strtotime($data["tgl_rilis"])) ?></td>
-                        <td><?php custom_echo($data["isi_berita"], 40) ?></td>
-                        <td style="text-align: center;"><img src="../img/<?= $data["gambar"] ?>"></td>
+                        <td class="text-center align-middle" style="width: 10px;"><?= date("d/m/Y", strtotime($data["tgl_rilis"])) ?></td>
+                        <td><?php custom_echo($data["isi_berita"], 15) ?></td>
                         <td width="100px" class="text-center align-middle">
                           <a href="detail_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-info btn-sm"><i
                               class="bi bi-eye"></i></a>
