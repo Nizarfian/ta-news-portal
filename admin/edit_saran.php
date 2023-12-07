@@ -8,20 +8,25 @@ if (!isset($_SESSION["submit"])) {
 }
 
 //query sql
+
 include("../connection.php");
 
 $id = $_GET["idSaran"];
 
-$query = mysqli_query($conn, "SELECT * FROM `saran_berita` JOIN kategori ON saran_berita.id_kategori=kategori.id_kategori JOIN user ON saran_berita.id_user=user.id_user WHERE id_saran_berita = $id;");
+$saran = mysqli_query($conn, "SELECT * FROM `saran_berita` WHERE `id_saran_berita` = $id;");
 
-foreach ($query as $data) {
-  $kategori = $data["nama_kategori"];
-  $username = $data["username"];
+foreach ($saran as $data) {
+  $id = $data["id_saran_berita"];
+  $id_kategori = $data["id_kategori"];
   $judul = $data["judul"];
   $tgl_berita = $data["tgl_berita"];
+  $penulis = $data["id_user"];
   $isi_berita = $data["isi_berita"];
   $gambar = $data["gambar"];
 }
+
+$kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
+$user = mysqli_query($conn, "SELECT * FROM `user`");
 
 ?>
 
@@ -32,18 +37,10 @@ foreach ($query as $data) {
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin | Detail Saran Berita</title>
+  <title>Admin | Tambah Berita</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
-
-  <!-- DataTables CSS, JS, JQUERY -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -144,73 +141,94 @@ foreach ($query as $data) {
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title"> Detail Saran Berita </h3>
-            <a href="saran.php" class="btn btn-warning btn-sm mb-3">Kembali</a>
+            <h3 class="page-title"> Tambah Berita </h3>
           </div>
           <div class="row">
-            <div class="col-lg-12 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4>Kategori</h4>
-                  <p><?= $kategori; ?></p>
-                  <h4>User</h4>
-                  <p><?= $username; ?></p>
-                  <h4>Judul</h4>
-                  <p><?= $judul; ?></p>
-                  <h4>Tanggal Berita</h4>
-                  <p><?= date("d F Y", strtotime($tgl_berita)); ?></p>
-                  <h4>Isi Berita</h4>
-                  <p><?= $isi_berita; ?></p>
-                  <h4>Gambar</h4>
-                  <img src="../img/<?= $gambar; ?>">
+                  <form class="forms-sample" action="../backend/edit/proses-upload-saran.php" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label for="kategori">Nama Kategori</label>
+                      <select class="form-control" id="kategori" name="kategori" required>
+                        <?php foreach ($kategori as $data) { ?>
+                          <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
+                                                                        echo "selected";
+                                                                      } ?>><?= $data['nama_kategori'] ?>
+                          </option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="judul">Judul</label>
+                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>" autocomplete="off" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="penulis">Penulis</label>
+                      <select class="form-control" id="penulis" name="penulis" required>
+                        <?php foreach ($user as $data) { ?>
+                          <option value="<?= $data['username'] ?>" <?php if ($data['id_user'] == $penulis) {
+                                                                      echo "selected";
+                                                                    } ?>><?= $data['username'] ?>
+                          </option>
+                        <?php } ?>
+                      </select>
+                    </div>
+                    <div class="form-group col-2">
+                      <label for="tgl_rilis">Tanggal Rilis</label>
+                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_berita; ?>" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="isi">Isi Berita</label>
+                      <textarea class="form-control" id="isi" rows="6" name="isi" required><?= $isi_berita; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                      <label>Gambar Baru</label>
+                      <input type="file" name="gambarBaru" class="file-upload-default">
+                      <div class="input-group col-xs-12 mb-3">
+                        <input type="text" class="form-control file-upload-info" disabled placeholder="<?= $gambar; ?>">
+                      </div>
+                      <img src="../img/<?= $gambar; ?>" width="300">
+                      <input type="hidden" class="form-control" id="gambar" name="gambar" value="<?= $gambar; ?>">
+                    </div>
+                    <input type="hidden" name="idBerita" value="<?= $id; ?>">
+                    <div class="d-flex justify-content-between col-xs-12">
+                      <a href="saran.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i>
+                        Kembali</a>
+                      <input type="submit" name="Submit" value="Upload" class="btn btn-success btn-sm">
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
+            <!-- content-wrapper ends -->
+            <!-- partial:partials/_footer.html -->
+            <footer class="footer">
+              <div class="container-fluid d-flex justify-content-center">
+                <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright
+                  2023 © KELOMPOK 3</span>
+              </div>
+            </footer>
+            <!-- partial -->
           </div>
+          <!-- main-panel ends -->
         </div>
-        <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="container-fluid d-flex justify-content-center">
-            <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">
-              Copyright 2023 © KELOMPOK 3 </span>
-          </div>
-        </footer>
-        <!-- partial -->
+        <!-- page-body-wrapper ends -->
       </div>
-      <!-- main-panel ends -->
-    </div>
-    <!-- page-body-wrapper ends -->
-  </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="assets/vendors/js/vendor.bundle.base.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#myTable').DataTable();
-    });
-
-    function confirmDelete(idBerita) {
-      if (confirm('Yakin ingin menghapus berita ini?')) {
-        window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
-      } else {
-        console.log('Hapus dibatalkan');
-      }
-    }
-  </script>
-
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="assets/js/off-canvas.js"></script>
-  <script src="assets/js/hoverable-collapse.js"></script>
-  <script src="assets/js/misc.js"></script>
-  <!-- endinject -->
-  <!-- Custom js for this page -->
-  <!-- End custom js for this page -->
+      <!-- container-scroller -->
+      <!-- plugins:js -->
+      <script src="assets/vendors/js/vendor.bundle.base.js"></script>
+      <!-- endinject -->
+      <!-- Plugin js for this page -->
+      <!-- End plugin js for this page -->
+      <!-- inject:js -->
+      <script src="assets/js/off-canvas.js"></script>
+      <script src="assets/js/hoverable-collapse.js"></script>
+      <script src="assets/js/misc.js"></script>
+      <!-- endinject -->
+      <!-- Custom js for this page -->
+      <script src="assets/js/file-upload.js"></script>
+      <!-- End custom js for this page -->
 </body>
 
 </html>

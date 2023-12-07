@@ -40,7 +40,7 @@
               Beranda
             </a>
 
-            <a href="../saran-berita/req-news.php" class="left-topbar-item">
+            <a href="../req-news.php" class="left-topbar-item">
               Saran Berita
             </a>
 
@@ -72,63 +72,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Header Mobile -->
-      <div class="wrap-header-mobile">
-        <!-- Logo moblie -->
-        <div class="logo-mobile">
-          <a href="../index.php"><img src="../images/logo-k3l2.png" alt="IMG-LOGO"></a>
-        </div>
-
-        <!-- Button show menu -->
-        <div class="btn-show-menu-mobile hamburger hamburger--squeeze m-r--8">
-          <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-          </span>
-        </div>
-      </div>
-
-      <!-- Menu Mobile -->
-      <div class="menu-mobile">
-        <ul class="topbar-mobile">
-          <li class="left-topbar">
-            <a href="../index.php" class="left-topbar-item">
-              Beranda
-            </a>
-
-            <a href="../saran-berita/req-news.php" class="left-topbar-item">
-              Saran Berita
-            </a>
-
-            <a href="sign-up.php" class="left-topbar-item">
-              Daftar
-            </a>
-
-            <a href="login.php" class="left-topbar-item">
-              Masuk
-            </a>
-          </li>
-
-          <li class="right-topbar">
-            <a href="#">
-              <span class="fab fa-facebook-f"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-twitter"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-instagram"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-youtube"></span>
-            </a>
-          </li>
-        </ul>
-      </div>
-
     </div>
   </header>
 
@@ -161,17 +104,6 @@
               <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example2">Password</label>
                 <input type="password" id="form2Example2" class="form-control" name="password" />
-              </div>
-
-              <!-- 2 column grid layout for inline styling -->
-              <div class="row mb-4">
-                <div class="col d-flex justify-content-center">
-                  <!-- Checkbox -->
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                    <label class="form-check-label" for="form2Example31"> Ingatkan Saya </label>
-                  </div>
-                </div>
               </div>
 
               <!-- Submit button -->

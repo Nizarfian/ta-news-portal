@@ -106,16 +106,6 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
         <div class="logo">
           <a href="index.php"><img src="images/logo-k3l2.png" alt="LOGO" /></a>
         </div>
-
-        <!-- Search -->
-        <div class="banner-header">
-          <div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-            <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search" />
-            <button class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
-              <i class="zmdi zmdi-search"></i>
-            </button>
-          </div>
-        </div>
       </div>
 
       <!--  -->
@@ -128,10 +118,6 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
             </a>
 
             <ul class="main-menu">
-              <li class="">
-                <a href="index.php">Berita Terbaru</a>
-              </li>
-
               <?php foreach ($menu as $data) : ?>
                 <li class="mega-menu-item">
                   <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
@@ -277,13 +263,13 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
                         <span class="f1-s-3"><?= date("d M", strtotime($data["tgl_rilis"])); ?></span>
                       </span>
 
-                      <a href="detail.php" class="wrap-pic-w hov1 trans-03">
+                      <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="wrap-pic-w hov1 trans-03">
                         <img src="img/<?= $data['gambar']; ?>" alt="IMG" height="150">
                       </a>
 
                       <div class="p-t-10 p-b-10">
                         <h5 class="p-b-5">
-                          <a href="detail.php" class="f1-s-5 cl3 hov-cl10 trans-03">
+                          <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
                             <?= $data['judul']; ?>
                           </a>
                         </h5>
@@ -373,12 +359,12 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
   <script>
-    // Function to set the current date and time in the hidden field
+    // function untuk set tanggal dan waktu terkini
     function setCurrentDateTime() {
       var now = new Date();
       var datetimeField = document.getElementById('tglKomen');
 
-      // Format the date and time as "YYYY-MM-DD HH:mm:ss"
+      // format tanggal menjadi "YYYY-MM-DD HH:mm:ss"
       var formattedDateTime =
         now.getFullYear() +
         '-' +
@@ -392,11 +378,9 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
         ':' +
         ('0' + now.getSeconds()).slice(-2);
 
-      // Set the value of the hidden field
       datetimeField.value = formattedDateTime;
     }
 
-    // Call the function when the form is submitted
     document.getElementById('komentar').addEventListener('submit', setCurrentDateTime);
   </script>
 
