@@ -167,7 +167,7 @@ function custom_echo($x, $length)
                           <td><?php custom_echo($data["judul"], 15) ?></td>
                           <td><?= $data["username"]; ?></td>
                           <td class="text-center align-middle"><?php custom_echo($data["isi_komentar"], 30) ?></td>
-                          <td><?= date("d F Y, H:i:s", strtotime($data["tgl_komen"])); ?></td>
+                          <td><?= date("d/m/Y, H:i:s", strtotime($data["tgl_komen"])); ?></td>
                           <td width="50px" class="text-center align-middle">
                             <a href="detail_komentar.php?idKomentar=<?= $data["id_komentar"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
                             <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_komentar'] ?>)"><i class="bi bi-trash"></i></a>

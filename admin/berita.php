@@ -174,7 +174,7 @@ function custom_echo($x, $length)
                         <td style="width: 100px;"><?php custom_echo($data["judul"], 15) ?></td>
                         <td><?= $data["nama_kategori"] ?></td>
                         <td><?= $data["penulis"] ?></td>
-                        <td style="width: 10px;"><?= date("d F Y", strtotime($data["tgl_rilis"])) ?></td>
+                        <td class="text-center align-middle" style="width: 10px;"><?= date("d/m/Y", strtotime($data["tgl_rilis"])) ?></td>
                         <td><?php custom_echo($data["isi_berita"], 15) ?></td>
                         <td width="100px" class="text-center align-middle">
                           <a href="detail_berita.php?idBerita=<?= $data["id_berita"]; ?>" class="btn btn-info btn-sm"><i

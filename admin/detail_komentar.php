@@ -156,7 +156,7 @@ foreach ($query as $data) {
                   <h4>Isi Komentar</h4>
                   <p><?= $isi_komentar; ?></p>
                   <h4>Tanggal Komentar</h4>
-                  <p><?= $tgl_komen; ?></p>
+                  <p><?= date("d/m/Y, H:i:s", strtotime($data["tgl_komen"])); ?></p>
                 </div>
               </div>
             </div>

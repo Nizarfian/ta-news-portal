@@ -161,7 +161,7 @@ foreach ($berita as $data) {
                   <h4>Isi Berita</h4>
                   <p><?= $isi_berita; ?></p>
                   <h4>Tanggal Rilis</h4>
-                  <p><?= $tgl_rilis; ?></p>
+                  <p><?= date("d F Y", strtotime($data["tgl_rilis"])) ?></p>
                   <h4>Gambar</h4>
                   <img src="../img/<?= $gambar; ?>">
                 </div>

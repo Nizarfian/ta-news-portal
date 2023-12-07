@@ -5,7 +5,7 @@ $login = $_SESSION['login'] ?? null;
 
 include_once('connection.php');
 
-$records_per_page = 1;
+$records_per_page = 9;
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -131,11 +131,10 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
         </div>
 
         <!-- Search -->
-        <!-- Search -->
         <div class="banner-header">
           <form action="" method="GET">
             <div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
-              <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+              <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45" type="text" name="search" placeholder="Search" autocomplete="off" value="<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>">
               <input type="hidden" name="idKategori" value="<?= isset($_GET['idKategori']) ? $_GET['idKategori'] : ''; ?>">
               <button type="submit" class="flex-c-c size-a-1 ab-t-r fs-20 cl2 hov-cl10 trans-03">
                 <i class="zmdi zmdi-search"></i>
@@ -143,8 +142,6 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
             </div>
           </form>
         </div>
-
-
       </div>
 
       <!--  -->
