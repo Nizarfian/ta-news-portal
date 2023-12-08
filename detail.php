@@ -60,42 +60,27 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
             <a href="index.php" class="left-topbar-item">
               Beranda
             </a>
-
             <a href="req-news.php" class="left-topbar-item">
               Saran Berita
             </a>
-
-            <?php if ($login) { ?>
-              <a href="backend/logout.php" class="left-topbar-item">
-                Logout
-              </a>
-            <?php } else { ?>
-              <a href="login/sign-up.php" class="left-topbar-item">
-                Daftar
-              </a>
-
-              <a href="login/login.php" class="left-topbar-item">
-                Masuk
-              </a>
-            <?php } ?>
           </div>
 
           <div class="right-topbar">
-            <a href="#">
-              <span class="fab fa-facebook-f"></span>
+            <?php if ($login) { ?>
+            <a href="backend/logout.php" style="font-size: 12px; ">
+              Logout
             </a>
-
-            <a href="#">
-              <span class="fab fa-twitter"></span>
+            <a href="profile.php" style="font-size: 12px; ">
+              Profile
             </a>
-
-            <a href="#">
-              <span class="fab fa-instagram"></span>
+            <?php } else { ?>
+            <a href="login/sign-up.php" style="font-size: 12px; ">
+              Daftar
             </a>
-
-            <a href="#">
-              <span class="fab fa-youtube"></span>
+            <a href="login/login.php" style="font-size: 12px; padding: 0 13px;">
+              Masuk
             </a>
+            <?php } ?>
           </div>
         </div>
       </div>
@@ -119,9 +104,9 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
             <ul class="main-menu">
               <?php foreach ($menu as $data) : ?>
-                <li class="mega-menu-item">
-                  <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
-                </li>
+              <li class="mega-menu-item">
+                <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>"><?= $data['nama_kategori']; ?></a>
+              </li>
               <?php endforeach; ?>
             </ul>
           </nav>
@@ -139,11 +124,11 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
         <a href="index.php" class="breadcrumb-item f1-s-3 cl9"> Home </a>
 
         <?php foreach ($berita as $data) : ?>
-          <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="breadcrumb-item f1-s-3 cl9">
-            <?= $data['nama_kategori']; ?>
-          </a>
+        <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="breadcrumb-item f1-s-3 cl9">
+          <?= $data['nama_kategori']; ?>
+        </a>
 
-          <span class="breadcrumb-item f1-s-3 cl9"><?= $data['judul']; ?></span>
+        <span class="breadcrumb-item f1-s-3 cl9"><?= $data['judul']; ?></span>
         <?php endforeach; ?>
       </div>
     </div>
@@ -156,30 +141,30 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
         <div class="col-md-10 col-lg-9 p-b-30">
           <div class="p-r-10 p-r-0-sr991">
             <?php foreach ($berita as $data) : ?>
-              <!-- Blog Detail -->
-              <div class="p-b-30">
-                <h3 class="f1-l-3 cl2 p-b-16 respon2"><?= $data['judul']; ?></h3>
+            <!-- Blog Detail -->
+            <div class="p-b-30">
+              <h3 class="f1-l-3 cl2 p-b-16 respon2"><?= $data['judul']; ?></h3>
 
-                <div class="flex-wr-s-s p-b-20">
-                  <span class="f1-s-3 cl8 m-r-15">
-                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                      <?= $data['penulis']; ?>
-                    </a>
+              <div class="flex-wr-s-s p-b-20">
+                <span class="f1-s-3 cl8 m-r-15">
+                  <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+                    <?= $data['penulis']; ?>
+                  </a>
 
-                    <span class="m-rl-3">-</span>
+                  <span class="m-rl-3">-</span>
 
-                    <span><?= date("d F Y", strtotime($data["tgl_rilis"])); ?></span>
-                  </span>
-                </div>
-
-                <div class="wrap-pic-max-w p-b-30">
-                  <img src="img/<?= $data['gambar']; ?>" alt="IMG" width="900" height="529">
-                </div>
-
-                <p class="f1-s-11 cl6 p-b-25">
-                  <?= $data['isi_berita']; ?>
-                </p>
+                  <span><?= date("d F Y", strtotime($data["tgl_rilis"])); ?></span>
+                </span>
               </div>
+
+              <div class="wrap-pic-max-w p-b-30">
+                <img src="img/<?= $data['gambar']; ?>" alt="IMG" width="900" height="529">
+              </div>
+
+              <p class="f1-s-11 cl6 p-b-25">
+                <?= $data['isi_berita']; ?>
+              </p>
+            </div>
 
             <?php endforeach; ?>
 
@@ -198,9 +183,11 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
                 <input type="hidden" id="idBerita" name="idBerita" value="<?= $idBerita; ?>">
                 <input type="hidden" id="idUser" name="idUser" value="<?= $user; ?>">
                 <input type="hidden" id="idKategori" name="idKategori" value="<?= $idKategori; ?>">
-                <textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" id="isiKomentar" name="isiKomentar" required placeholder="Komentar..."></textarea>
+                <textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" id="isiKomentar"
+                  name="isiKomentar" required placeholder="Komentar..."></textarea>
 
-                <button type="submit" name="submit" class="size-a-17 bg2 borad-3 f1-s-11 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">
+                <button type="submit" name="submit"
+                  class="size-a-17 bg2 borad-3 f1-s-11 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">
                   Kirim Komentar
                 </button>
               </form>
@@ -211,20 +198,20 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
               <h3 class="f1-l-2 cl2 p-b-16 p-l-20 p-r-20 p-t-20 respon2">Komentar</h3>
 
               <?php foreach ($komentar as $data) : ?>
-                <div class="p-l-20 p-r-20 p-b-10">
-                  <div class="flex-wr-s-s">
-                    <span class="f1-s-3 cl8 m-r-15">
-                      <span class="f1-s-7 cl3 hov-cl10 trans-03">
-                        <?= $data['username']; ?>
-                      </span>
-                      <span class="m-rl-3">-</span>
-                      <span><?= date("d M Y | H:i:s", strtotime($data["tgl_komen"])); ?></span>
+              <div class="p-l-20 p-r-20 p-b-10">
+                <div class="flex-wr-s-s">
+                  <span class="f1-s-3 cl8 m-r-15">
+                    <span class="f1-s-7 cl3 hov-cl10 trans-03">
+                      <?= $data['username']; ?>
                     </span>
-                  </div>
-                  <p class="f1-s-11 cl6">
-                    <?= $data['isi_komentar']; ?>
-                  </p>
+                    <span class="m-rl-3">-</span>
+                    <span><?= date("d M Y | H:i:s", strtotime($data["tgl_komen"])); ?></span>
+                  </span>
                 </div>
+                <p class="f1-s-11 cl6">
+                  <?= $data['isi_komentar']; ?>
+                </p>
+              </div>
               <?php endforeach; ?>
 
             </div>
@@ -247,35 +234,37 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
                 $counter = 0;
                 ?>
                 <?php foreach ($beritaTerkait as $data) : ?>
-                  <?php if ($data['id_berita'] == $idBerita) {
+                <?php if ($data['id_berita'] == $idBerita) {
                     continue;
                   } ?>
-                  <div class="col-12">
-                    <!-- Item post -->
-                    <div>
-                      <span class="cl8">
-                        <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
-                          <?= $data['nama_kategori']; ?>
-                        </a>
-
-                        <span class="f1-s-3 m-rl-3"> - </span>
-
-                        <span class="f1-s-3"><?= date("d M", strtotime($data["tgl_rilis"])); ?></span>
-                      </span>
-
-                      <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="wrap-pic-w hov1 trans-03">
-                        <img src="img/<?= $data['gambar']; ?>" alt="IMG" height="150">
+                <div class="col-12">
+                  <!-- Item post -->
+                  <div>
+                    <span class="cl8">
+                      <a href="menu.php?idKategori=<?= $data['id_kategori']; ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
+                        <?= $data['nama_kategori']; ?>
                       </a>
 
-                      <div class="p-t-10 p-b-10">
-                        <h5 class="p-b-5">
-                          <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
-                            <?= $data['judul']; ?>
-                          </a>
-                        </h5>
-                      </div>
+                      <span class="f1-s-3 m-rl-3"> - </span>
+
+                      <span class="f1-s-3"><?= date("d M", strtotime($data["tgl_rilis"])); ?></span>
+                    </span>
+
+                    <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>"
+                      class="wrap-pic-w hov1 trans-03">
+                      <img src="img/<?= $data['gambar']; ?>" alt="IMG" height="150">
+                    </a>
+
+                    <div class="p-t-10 p-b-10">
+                      <h5 class="p-b-5">
+                        <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>"
+                          class="f1-s-5 cl3 hov-cl10 trans-03">
+                          <?= $data['judul']; ?>
+                        </a>
+                      </h5>
                     </div>
                   </div>
+                </div>
                 <?php
                   $counter++;
                   if ($counter >= $limit) {
@@ -359,29 +348,29 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
   <script>
-    // function untuk set tanggal dan waktu terkini
-    function setCurrentDateTime() {
-      var now = new Date();
-      var datetimeField = document.getElementById('tglKomen');
+  // function untuk set tanggal dan waktu terkini
+  function setCurrentDateTime() {
+    var now = new Date();
+    var datetimeField = document.getElementById('tglKomen');
 
-      // format tanggal menjadi "YYYY-MM-DD HH:mm:ss"
-      var formattedDateTime =
-        now.getFullYear() +
-        '-' +
-        ('0' + (now.getMonth() + 1)).slice(-2) +
-        '-' +
-        ('0' + now.getDate()).slice(-2) +
-        ' ' +
-        ('0' + now.getHours()).slice(-2) +
-        ':' +
-        ('0' + now.getMinutes()).slice(-2) +
-        ':' +
-        ('0' + now.getSeconds()).slice(-2);
+    // format tanggal menjadi "YYYY-MM-DD HH:mm:ss"
+    var formattedDateTime =
+      now.getFullYear() +
+      '-' +
+      ('0' + (now.getMonth() + 1)).slice(-2) +
+      '-' +
+      ('0' + now.getDate()).slice(-2) +
+      ' ' +
+      ('0' + now.getHours()).slice(-2) +
+      ':' +
+      ('0' + now.getMinutes()).slice(-2) +
+      ':' +
+      ('0' + now.getSeconds()).slice(-2);
 
-      datetimeField.value = formattedDateTime;
-    }
+    datetimeField.value = formattedDateTime;
+  }
 
-    document.getElementById('komentar').addEventListener('submit', setCurrentDateTime);
+  document.getElementById('komentar').addEventListener('submit', setCurrentDateTime);
   </script>
 
 </body>

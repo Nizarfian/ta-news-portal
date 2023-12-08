@@ -57,42 +57,27 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
             <a href="index.php" class="left-topbar-item">
               Beranda
             </a>
-
             <a href="req-news.php" class="left-topbar-item">
               Saran Berita
             </a>
-
-            <?php if ($login) { ?>
-            <a href="backend/logout.php" class="left-topbar-item">
-              Logout
-            </a>
-            <?php } else { ?>
-            <a href="login/sign-up.php" class="left-topbar-item">
-              Daftar
-            </a>
-
-            <a href="login/login.php" class="left-topbar-item">
-              Masuk
-            </a>
-            <?php } ?>
           </div>
 
           <div class="right-topbar">
-            <a href="#">
-              <span class="fab fa-facebook-f"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-twitter"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-instagram"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-youtube"></span>
-            </a>
+            <?php if ($login) { ?>
+              <a href="backend/logout.php" style="font-size: 12px; ">
+                Logout
+              </a>
+              <a href="profile.php" style="font-size: 12px; ">
+                Profile
+              </a>
+            <?php } else { ?>
+              <a href="login/sign-up.php" style="font-size: 12px; ">
+                Daftar
+              </a>
+              <a href="login/login.php" style="font-size: 12px; padding: 0 13px;">
+                Masuk
+              </a>
+            <?php } ?>
           </div>
         </div>
       </div>
@@ -120,21 +105,17 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
             <form action="backend/tambah/proses-tambah-saran-berita.php" method="post" enctype="multipart/form-data">
               <input type="hidden" name="user" value="<?= $user; ?>">
 
-              <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" id="judul"
-                name="judul" autocomplete="off" required placeholder="Judul">
+              <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" id="judul" name="judul" autocomplete="off" required placeholder="Judul">
 
-              <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="date" id="tgl_berita"
-                name="tgl_berita" autocomplete="off" required>
+              <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="date" id="tgl_berita" name="tgl_berita" autocomplete="off" required>
 
-              <select class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-14 m-b-20" id="kategori" name="kategori"
-                required>
+              <select class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-14 m-b-20" id="kategori" name="kategori" required>
                 <?php foreach ($query as $data) { ?>
-                <option value="<?= $data['id_kategori'] ?>"><?= $data['nama_kategori'] ?></option>
+                  <option value="<?= $data['id_kategori'] ?>"><?= $data['nama_kategori'] ?></option>
                 <?php } ?>
               </select>
 
-              <textarea class="bo-1-rad-1 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" id="isi" name="isi"
-                required placeholder="Deskripsi"></textarea>
+              <textarea class="bo-1-rad-1 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" id="isi" name="isi" required placeholder="Deskripsi"></textarea>
 
               <input class="f1-s-13" type="file" name="gambar">
 
