@@ -4,6 +4,7 @@ include("../../connection.php");
 $user = $_POST["user"];
 $kategori = $_POST["kategori"];
 $judul = $_POST["judul"];
+$tgl_berita = $_POST["tgl_berita"];
 $isi = $_POST["isi"];
 
 if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == UPLOAD_ERR_OK) {
@@ -45,7 +46,7 @@ if (isset($_FILES["gambar"]) && $_FILES["gambar"]["error"] == UPLOAD_ERR_OK) {
   exit();
 }
 
-$result = mysqli_query($conn, "INSERT INTO `saran_berita` (`id_saran_berita`, `id_kategori`, `id_user`, `judul`, `isi_berita`, `gambar`) VALUES (NULL, '$kategori', '$user', '$judul', '$isi', '$gambar');");
+$result = mysqli_query($conn, "INSERT INTO `saran_berita` (`id_saran_berita`, `id_kategori`, `id_user`, `judul`, `tgl_berita`, `isi_berita`, `gambar`) VALUES (NULL, '$kategori', '$user', '$judul', '$tgl_berita', '$isi', '$gambar');");
 
 header("Location:../../req-news.php");
 exit();

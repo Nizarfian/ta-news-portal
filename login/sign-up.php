@@ -39,35 +39,17 @@
             <a href="../index.php" class="left-topbar-item">
               Beranda
             </a>
-
-            <a href="../saran-berita/req-news.php" class="left-topbar-item">
+            <a href="../req-news.php" class="left-topbar-item">
               Saran Berita
-            </a>
-
-            <a href="sign-up.php" class="left-topbar-item">
-              Daftar
-            </a>
-
-            <a href="login.php" class="left-topbar-item">
-              Masuk
             </a>
           </div>
 
           <div class="right-topbar">
-            <a href="#">
-              <span class="fab fa-facebook-f"></span>
+            <a href="sign-up.php" style="font-size: 12px;">
+              Daftar
             </a>
-
-            <a href="#">
-              <span class="fab fa-twitter"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-instagram"></span>
-            </a>
-
-            <a href="#">
-              <span class="fab fa-youtube"></span>
+            <a href="login.php" style="font-size: 12px; padding: 0 13px;">
+              Masuk
             </a>
           </div>
         </div>

@@ -156,8 +156,8 @@ function custom_echo($x, $length)
                         <th class="text-center" scope="col" width="10px">No. </th>
                         <th class="text-center" scope="col">Nama</th>
                         <th class="text-center" scope="col" width="200px">Judul</th>
+                        <th class="text-center" scope="col">Tanggal Kejadian</th>
                         <th class="text-center" scope="col">Kategori</th>
-                        <th class="text-center" scope="col">Tanggal Berita</th>
                         <th class="text-center" scope="col">Isi Berita</th>
                         <th class="text-center" scope="col">Aksi</th>
                       </tr>
@@ -169,8 +169,9 @@ function custom_echo($x, $length)
                         <td class="text-center align-middle"><?= $i; ?></td>
                         <td><?= $data["username"]; ?></td>
                         <td><?= custom_echo($data["judul"], 15) ?></td>
+                        <td class="text-center align-middle" style="width: 10px;">
+                          <?= date("d/m/Y", strtotime($data["tgl_berita"])) ?></td>
                         <td><?= $data["nama_kategori"]; ?></td>
-                        <td class="text-center align-middle" style="width: 10px;"><?= date("d/m/Y", strtotime($data["tgl_rilis"])) ?></td>
                         <td><?= custom_echo($data["isi_berita"], 20) ?></td>
                         <td width="50px" class="text-center align-middle">
                           <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>"

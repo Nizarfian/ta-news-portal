@@ -230,12 +230,12 @@ a.left-topbar-item:hover {
 
 /*---------------------------------------------*/
 .right-topbar {
-  margin-left: -4px;
-  margin-right: -4px;
+  margin-left: -14px;
+  margin-right: -14px;
 }
 
 .right-topbar a {
-  font-size: 18px;
+  font-size: 5px;
   color: #ccc;
   line-height: 1.5;
   margin: 0 4px;

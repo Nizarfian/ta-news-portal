@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-$login = $_SESSION['login'] ?? null;
+$login = $_SESSION['login'];
 
-if (!isset($_SESSION["submit"])) {
-	header("Location: login/login.php");
-	exit;
+if (!isset($_SESSION["login"])) {
+  header("Location: login/login.php");
+  exit;
 }
 
-$user = $_SESSION['id_user'];
+$user = $_SESSION['id_user'] ?? null;
 
 include_once('connection.php');
 
@@ -57,42 +57,24 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
             <a href="index.php" class="left-topbar-item">
               Beranda
             </a>
-
             <a href="req-news.php" class="left-topbar-item">
               Saran Berita
             </a>
-
-            <?php if ($login) { ?>
-            <a href="backend/logout.php" class="left-topbar-item">
-              Logout
-            </a>
-            <?php } else { ?>
-            <a href="login/sign-up.php" class="left-topbar-item">
-              Daftar
-            </a>
-
-            <a href="login/login.php" class="left-topbar-item">
-              Masuk
-            </a>
-            <?php } ?>
           </div>
 
           <div class="right-topbar">
-            <a href="#">
-              <span class="fab fa-facebook-f"></span>
+            <?php if ($login) { ?>
+            <a href="backend/logout.php" style="font-size: 12px;">
+              Logout
             </a>
-
-            <a href="#">
-              <span class="fab fa-twitter"></span>
+            <?php } else { ?>
+            <a href="login/sign-up.php" style="font-size: 12px;">
+              Daftar
             </a>
-
-            <a href="#">
-              <span class="fab fa-instagram"></span>
+            <a href="login/login.php" style="font-size: 12px; padding: 0 13px;">
+              Masuk
             </a>
-
-            <a href="#">
-              <span class="fab fa-youtube"></span>
-            </a>
+            <?php } ?>
           </div>
         </div>
       </div>
@@ -122,6 +104,9 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
 
               <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" id="judul"
                 name="judul" autocomplete="off" required placeholder="Judul">
+
+              <input class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="date" id="tgl_berita"
+                name="tgl_berita" autocomplete="off" required>
 
               <select class="bo-1-rad-1 bocl13 size-a-19 f1-s-13 cl5 plh6 p-rl-14 m-b-20" id="kategori" name="kategori"
                 required>

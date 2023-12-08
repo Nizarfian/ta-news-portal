@@ -2,9 +2,9 @@
 //session login
 session_start();
 
-if(!isset($_SESSION["submit"])){
-	header("Location: ../login/login.php");
-	exit;
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
 }
 
 //query sql
@@ -19,9 +19,9 @@ foreach ($saran as $data) {
   $id = $data["id_saran_berita"];
   $id_kategori = $data["id_kategori"];
   $judul = $data["judul"];
+  $tgl_berita = $data["tgl_berita"];
   $penulis = $data["id_user"];
   $isi_berita = $data["isi_berita"];
-  $tgl_rilis = $data["tgl_rilis"];
   $gambar = $data["gambar"];
 }
 
@@ -75,8 +75,7 @@ $user = mysqli_query($conn, "SELECT * FROM `user`");
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
@@ -148,44 +147,40 @@ $user = mysqli_query($conn, "SELECT * FROM `user`");
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <form class="forms-sample" action="../backend/edit/proses-upload-saran.php" method="post"
-                    enctype="multipart/form-data">
+                  <form class="forms-sample" action="../backend/edit/proses-upload-saran.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="kategori">Nama Kategori</label>
                       <select class="form-control" id="kategori" name="kategori" required>
                         <?php foreach ($kategori as $data) { ?>
-                        <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
+                          <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
                                                                         echo "selected";
                                                                       } ?>><?= $data['nama_kategori'] ?>
-                        </option>
+                          </option>
                         <?php } ?>
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="judul">Judul</label>
-                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>"
-                        autocomplete="off" required>
+                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>" autocomplete="off" required>
                     </div>
                     <div class="form-group">
-                      <label for="penulis">Penuliss</label>
+                      <label for="penulis">Penulis</label>
                       <select class="form-control" id="penulis" name="penulis" required>
                         <?php foreach ($user as $data) { ?>
-                        <option value="<?= $data['id_user'] ?>" <?php if ($data['id_user'] == $penulis) {
-                                                                        echo "selected";
-                                                                      } ?>><?= $data['username'] ?>
-                        </option>
+                          <option value="<?= $data['username'] ?>" <?php if ($data['id_user'] == $penulis) {
+                                                                      echo "selected";
+                                                                    } ?>><?= $data['username'] ?>
+                          </option>
                         <?php } ?>
                       </select>
                     </div>
                     <div class="form-group col-2">
                       <label for="tgl_rilis">Tanggal Rilis</label>
-                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_rilis; ?>"
-                        required>
+                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_berita; ?>" required>
                     </div>
                     <div class="form-group">
                       <label for="isi">Isi Berita</label>
-                      <textarea class="form-control" id="isi" rows="6" name="isi"
-                        required><?= $isi_berita; ?></textarea>
+                      <textarea class="form-control" id="isi" rows="6" name="isi" required><?= $isi_berita; ?></textarea>
                     </div>
                     <div class="form-group">
                       <label>Gambar Baru</label>
@@ -198,7 +193,7 @@ $user = mysqli_query($conn, "SELECT * FROM `user`");
                     </div>
                     <input type="hidden" name="idBerita" value="<?= $id; ?>">
                     <div class="d-flex justify-content-between col-xs-12">
-                      <a href="berita.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i>
+                      <a href="saran.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i>
                         Kembali</a>
                       <input type="submit" name="Submit" value="Upload" class="btn btn-success btn-sm">
                     </div>

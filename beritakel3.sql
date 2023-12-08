@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 06, 2023 at 04:54 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Dec 07, 2023 at 03:21 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `berita` (
   `isi_berita` text DEFAULT NULL,
   `tgl_rilis` date DEFAULT NULL,
   `gambar` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `berita`
@@ -76,7 +76,7 @@ INSERT INTO `berita` (`id_berita`, `id_kategori`, `judul`, `penulis`, `isi_berit
 CREATE TABLE `kategori` (
   `id_kategori` int(11) NOT NULL,
   `nama_kategori` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `kategori`
@@ -104,16 +104,14 @@ CREATE TABLE `komentar` (
   `id_user` int(11) DEFAULT NULL,
   `isi_komentar` text NOT NULL,
   `tgl_komen` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `komentar`
 --
 
 INSERT INTO `komentar` (`id_komentar`, `id_berita`, `id_user`, `isi_komentar`, `tgl_komen`) VALUES
-(1, 18, 2, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '2023-11-29 07:48:31'),
-(2, 18, 3, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '2023-11-29 12:48:31'),
-(3, 19, 4, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '2023-11-30 14:50:16');
+(8, 47, 4, 'test', '2023-12-07 20:34:19');
 
 -- --------------------------------------------------------
 
@@ -126,18 +124,19 @@ CREATE TABLE `saran_berita` (
   `id_kategori` int(11) DEFAULT NULL,
   `id_user` int(11) DEFAULT NULL,
   `judul` varchar(255) NOT NULL,
+  `tgl_berita` date DEFAULT NULL,
   `isi_berita` text NOT NULL,
   `gambar` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `saran_berita`
 --
 
-INSERT INTO `saran_berita` (`id_saran_berita`, `id_kategori`, `id_user`, `judul`, `isi_berita`, `gambar`) VALUES
-(1, 10, 2, 'Berita 6', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg'),
-(2, 3, 3, 'Berita 3', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg'),
-(3, 1, 5, 'Berita 1', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg');
+INSERT INTO `saran_berita` (`id_saran_berita`, `id_kategori`, `id_user`, `judul`, `tgl_berita`, `isi_berita`, `gambar`) VALUES
+(1, 10, 2, 'Berita 6', '2023-12-02', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg'),
+(2, 3, 3, 'Berita 3', '2023-12-01', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg'),
+(3, 1, 5, 'Berita 1', '2023-12-05', 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.', '6562d3c74b3cd.jpg');
 
 -- --------------------------------------------------------
 
@@ -150,7 +149,7 @@ CREATE TABLE `user` (
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `role` enum('admin','user') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
@@ -160,7 +159,7 @@ INSERT INTO `user` (`id_user`, `username`, `password`, `role`) VALUES
 (1, 'Kelompok3', 'admin', 'admin'),
 (2, 'Aprilisa', 'user1', 'user'),
 (3, 'Rania', 'user2', 'user'),
-(4, 'Christoper', 'user3', 'user'),
+(4, 'Christopher', 'user3', 'user'),
 (5, 'Irfan', 'user4', 'user'),
 (6, 'Nizar', 'user5', 'user');
 
@@ -211,7 +210,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `berita`
 --
 ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT for table `kategori`
@@ -223,19 +222,19 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT for table `komentar`
 --
 ALTER TABLE `komentar`
-  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `saran_berita`
 --
 ALTER TABLE `saran_berita`
-  MODIFY `id_saran_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_saran_berita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables
@@ -253,13 +252,6 @@ ALTER TABLE `berita`
 ALTER TABLE `komentar`
   ADD CONSTRAINT `fk_komentar_berita` FOREIGN KEY (`id_berita`) REFERENCES `berita` (`id_berita`) ON DELETE SET NULL ON UPDATE SET NULL,
   ADD CONSTRAINT `fk_komentar_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE SET NULL;
-
---
--- Constraints for table `saran_berita`
---
-ALTER TABLE `saran_berita`
-  ADD CONSTRAINT `fk_saran_kategori` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id_kategori`) ON DELETE SET NULL ON UPDATE SET NULL,
-  ADD CONSTRAINT `fk_saran_user` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
