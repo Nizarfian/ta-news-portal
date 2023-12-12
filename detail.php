@@ -10,6 +10,16 @@ include_once('connection.php');
 $idBerita = $_GET['idBerita'];
 $idKategori = $_GET['idKategori'];
 
+$pengenal_unik = $user ? $user . '_' . $idBerita : 'guest_' . $idBerita;
+
+$sudahMelihat = isset($_SESSION['berita_dilihat'][$pengenal_unik]);
+
+if (!$sudahMelihat) {
+    mysqli_query($conn, "UPDATE `berita` SET `jmlh_dilihat` = `jmlh_dilihat` + 1 WHERE `id_berita` = $idBerita;");
+
+    $_SESSION['berita_dilihat'][$pengenal_unik] = true;
+}
+
 $menu = mysqli_query($conn, "SELECT * FROM `kategori`;");
 
 $berita = mysqli_query($conn, "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori=kategori.id_kategori WHERE `id_berita` = $idBerita;");
@@ -154,6 +164,10 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
                   <span class="m-rl-3">-</span>
 
                   <span><?= date("d F Y", strtotime($data["tgl_rilis"])); ?></span>
+
+                  <span class="m-rl-3">-</span>
+
+                  <span>&#x1F441;<?= $data['jmlh_dilihat']; ?></span>
                 </span>
               </div>
 
@@ -174,10 +188,10 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
               <form action="
               <?php if (isset($user)) {
-                echo 'backend/tambah/proses-tambah-komentar.php';
-              } else {
-                echo 'login/login.php';
-              } ?>
+                    echo 'backend/tambah/proses-tambah-komentar.php';
+                } else {
+                    echo 'login/login.php';
+                } ?>
               " method="post" id="komentar">
                 <input type="hidden" id="tglKomen" name="tglKomen">
                 <input type="hidden" id="idBerita" name="idBerita" value="<?= $idBerita; ?>">
@@ -194,7 +208,7 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
             </div>
 
             <!-- comment -->
-            <div class="bo-1-rad-1 bocl13 p-b-20" style="background-color: #dddddd;">
+            <div id="komentar-section" class="bo-1-rad-1 bocl13 p-b-20" style="background-color: #dddddd;">
               <h3 class="f1-l-2 cl2 p-b-16 p-l-20 p-r-20 p-t-20 respon2">Komentar</h3>
 
               <?php foreach ($komentar as $data) : ?>
@@ -221,7 +235,7 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
         <!-- Sidebar -->
         <div class="col-md-10 col-lg-3 p-b-30">
-          <div class="p-l-10 p-rl-0-sr991 p-t-3">
+          <div class="p-l-10 p-rl-0-sr991">
             <!-- Category -->
             <div class="p-b-60">
               <div class="how2 how2-cl4 flex-s-c">
@@ -230,13 +244,13 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
               <div class="row">
                 <?php
-                $limit = 5;
-                $counter = 0;
-                ?>
+                                $limit = 5;
+                                $counter = 0;
+                                ?>
                 <?php foreach ($beritaTerkait as $data) : ?>
                 <?php if ($data['id_berita'] == $idBerita) {
-                    continue;
-                  } ?>
+                                        continue;
+                                    } ?>
                 <div class="col-12">
                   <!-- Item post -->
                   <div>
@@ -247,7 +261,7 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
                       <span class="f1-s-3 m-rl-3"> - </span>
 
-                      <span class="f1-s-3"><?= date("d M", strtotime($data["tgl_rilis"])); ?></span>
+                      <span class="f1-s-3"><?= date("d M Y", strtotime($data["tgl_rilis"])); ?></span>
                     </span>
 
                     <a href="detail.php?idBerita=<?= $data['id_berita']; ?>&idKategori=<?= $data['id_kategori']; ?>"
@@ -266,12 +280,12 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
                   </div>
                 </div>
                 <?php
-                  $counter++;
-                  if ($counter >= $limit) {
-                    break;
-                  }
-                endforeach;
-                ?>
+                                    $counter++;
+                                    if ($counter >= $limit) {
+                                        break;
+                                    }
+                                endforeach;
+                                ?>
               </div>
             </div>
           </div>
@@ -371,6 +385,18 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
   }
 
   document.getElementById('komentar').addEventListener('submit', setCurrentDateTime);
+  </script>
+
+  <script>
+  window.location.hash = '#komentar-section';
+
+  sessionStorage.setItem('scrollToComment', 'true');
+  window.onload = function() {
+    if (sessionStorage.getItem('scrollToComment')) {
+      window.location.hash = '#komentar-section';
+      sessionStorage.removeItem('scrollToComment');
+    }
+  };
   </script>
 
 </body>

@@ -95,7 +95,7 @@
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="username">Username</label>
-                <input type="text" id="username" class="form-control" name="username" Required>
+                <input type="text" id="username" class="form-control" name="username" autocomplete="off" Required>
               </div>
 
               <!-- Password input -->

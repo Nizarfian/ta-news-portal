@@ -55,7 +55,7 @@ function custom_echo($x, $length)
 
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/navbar.php -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
@@ -83,7 +83,7 @@ function custom_echo($x, $length)
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
+      <!-- partial:partials/sidebar.php -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
@@ -159,7 +159,7 @@ function custom_echo($x, $length)
                         <th class="text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
-                    <tbody> 
+                    <tbody>
                       <?php $i = 1 ?>
                       <?php foreach ($query as $data) : ?>
                         <tr>
@@ -183,7 +183,7 @@ function custom_echo($x, $length)
           </div>
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
+        <!-- partial:partials/footer.php -->
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-center">
             <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">

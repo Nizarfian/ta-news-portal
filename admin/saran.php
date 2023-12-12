@@ -36,8 +36,7 @@ function custom_echo($x, $length)
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 
   <!-- DataTables CSS, JS, JQUERY -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
@@ -56,7 +55,7 @@ function custom_echo($x, $length)
 
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/navbar.php -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
@@ -77,15 +76,14 @@ function custom_echo($x, $length)
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
+      <!-- partial:partials/sidebar.php -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
@@ -165,24 +163,21 @@ function custom_echo($x, $length)
                     <tbody>
                       <?php $i = 1 ?>
                       <?php foreach ($query as $data) : ?>
-                      <tr>
-                        <td class="text-center align-middle"><?= $i; ?></td>
-                        <td><?= $data["username"]; ?></td>
-                        <td><?= custom_echo($data["judul"], 15) ?></td>
-                        <td class="text-center align-middle" style="width: 10px;">
-                          <?= date("d/m/Y", strtotime($data["tgl_berita"])) ?></td>
-                        <td><?= $data["nama_kategori"]; ?></td>
-                        <td><?= custom_echo($data["isi_berita"], 20) ?></td>
-                        <td width="50px" class="text-center align-middle">
-                          <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>"
-                            class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
-                          <a href="edit_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>"
-                            class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
-                          <a href="#" class="btn btn-danger btn-sm"
-                            onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
-                        </td>
-                      </tr>
-                      <?php $i++; ?>
+                        <tr>
+                          <td class="text-center align-middle"><?= $i; ?></td>
+                          <td><?= $data["username"]; ?></td>
+                          <td><?= custom_echo($data["judul"], 15) ?></td>
+                          <td class="text-center align-middle" style="width: 10px;">
+                            <?= date("d/m/Y", strtotime($data["tgl_berita"])) ?></td>
+                          <td><?= $data["nama_kategori"]; ?></td>
+                          <td><?= custom_echo($data["isi_berita"], 20) ?></td>
+                          <td width="50px" class="text-center align-middle">
+                            <a href="detail_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>" class="btn btn-info btn-sm"><i class="bi bi-eye"></i></a>
+                            <a href="edit_saran.php?idSaran=<?= $data["id_saran_berita"]; ?>" class="btn btn-warning btn-sm text-white"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm" onclick="confirmDelete(<?= $data['id_saran_berita'] ?>)"><i class="bi bi-trash"></i></a>
+                          </td>
+                        </tr>
+                        <?php $i++; ?>
                       <?php endforeach; ?>
                     </tbody>
                   </table>
@@ -192,7 +187,7 @@ function custom_echo($x, $length)
           </div>
         </div>
         <!-- content-wrapper ends -->
-        <!-- partial:partials/_footer.html -->
+        <!-- partial:partials/footer.php -->
         <footer class="footer">
           <div class="container-fluid d-flex justify-content-center">
             <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">
@@ -211,17 +206,17 @@ function custom_echo($x, $length)
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
   <script>
-  $(document).ready(function() {
-    $('#myTable').DataTable();
-  });
+    $(document).ready(function() {
+      $('#myTable').DataTable();
+    });
 
-  function confirmDelete(idSaran) {
-    if (confirm('Yakin ingin menghapus saran berita ini?')) {
-      window.location.href = '../backend/hapus/proses-hapus-saran.php?idSaran=' + idSaran;
-    } else {
-      console.log('Hapus dibatalkan');
+    function confirmDelete(idSaran) {
+      if (confirm('Yakin ingin menghapus saran berita ini?')) {
+        window.location.href = '../backend/hapus/proses-hapus-saran.php?idSaran=' + idSaran;
+      } else {
+        console.log('Hapus dibatalkan');
+      }
     }
-  }
   </script>
 
   <!-- endinject -->

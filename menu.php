@@ -5,7 +5,7 @@ $login = $_SESSION['login'] ?? null;
 
 include_once('connection.php');
 
-$records_per_page = 3;
+$records_per_page = 9;
 
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
 
@@ -275,7 +275,8 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
 
             <div>
               <p class="f1-s-1 cl11 p-b-16">
-                K3lnews adalah salah satu pionir media online yang dibuat oleh 5 orang putra/i terbaik Indonesia dan
+                K3lnews adalah salah satu pionir media online yang dibuat oleh 5 orang putra/i terbaik
+                Indonesia dan
                 pertama kali hadir di Internet pada 29 Desember 2023.
               </p>
 

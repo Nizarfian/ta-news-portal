@@ -114,7 +114,7 @@ foreach ($query as $data) {
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="password">Password</label>
-                <input type="text" id="password" class="form-control" name="editPassword" value="<?= $password; ?>">
+                <input type="password" id="password" class="form-control" name="editPassword" value="<?= $password; ?>">
               </div>
 
               <!-- Submit button -->
