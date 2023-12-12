@@ -80,7 +80,7 @@
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example1">Username</label>
-                <input type="text" id="form2Example1" class="form-control" name="username" />
+                <input type="text" id="form2Example1" class="form-control" name="username" autocomplete="off"/>
               </div>
 
               <!-- Password input -->

@@ -17,7 +17,7 @@ $berita_utama_ids = [];
 
 // Mengambil ID dari berita yang ditampilkan pada fitur utama
 foreach ($berita_utama as $data) {
-	$berita_utama_ids[] = $data['id_berita'];
+  $berita_utama_ids[] = $data['id_berita'];
 }
 
 // Query untuk berita terbaru dengan menghindari data yang sudah ditampilkan pada fitur utama
@@ -25,7 +25,7 @@ $latest_news_query = "SELECT * FROM `berita` JOIN kategori ON berita.id_kategori
                       WHERE judul LIKE '%$searchKeyword%'";
 
 if (!empty($berita_utama_ids)) {
-	$latest_news_query .= " AND id_berita NOT IN (" . implode(",", $berita_utama_ids) . ")";
+  $latest_news_query .= " AND id_berita NOT IN (" . implode(",", $berita_utama_ids) . ")";
 }
 
 $latest_news_query .= " ORDER BY tgl_rilis DESC LIMIT $start_from, $records_per_page";
@@ -45,12 +45,12 @@ $menu = mysqli_query($conn, "SELECT * FROM `kategori` LIMIT 8;"); //maksimal kat
 
 function custom_echo($x, $length)
 {
-	if (strlen($x) <= $length) {
-		echo $x;
-	} else {
-		$y = substr($x, 0, $length) . '...';
-		echo $y;
-	}
+  if (strlen($x) <= $length) {
+    echo $x;
+  } else {
+    $y = substr($x, 0, $length) . '...';
+    echo $y;
+  }
 }
 ?>
 
@@ -96,13 +96,16 @@ function custom_echo($x, $length)
             </a>
             <a href="req-news.php" class="left-topbar-item">
               Saran Berita
-            </a>  
+            </a>
           </div>
 
           <div class="right-topbar">
             <?php if ($login) { ?>
             <a href="backend/logout.php" style="font-size: 12px; ">
               Logout
+            </a>
+            <a href="profile.php" style="font-size: 12px; ">
+              Profile
             </a>
             <?php } else { ?>
             <a href="login/sign-up.php" style="font-size: 12px; ">
@@ -248,10 +251,10 @@ function custom_echo($x, $length)
           <!-- Pagination -->
           <div class="flex-wr-s-c m-rl--7 p-t-10">
             <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
-              <a href="index.php?page=<?= $i ?>&search=<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>"
-                class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 <?= $i == $current_page ? 'pagi-active' : ''; ?>">
-                <?= $i ?>
-              </a>
+            <a href="index.php?page=<?= $i ?>&search=<?= isset($_GET['search']) ? $_GET['search'] : ''; ?>"
+              class="flex-c-c pagi-item hov-btn1 trans-03 m-all-7 <?= $i == $current_page ? 'pagi-active' : ''; ?>">
+              <?= $i ?>
+            </a>
             <?php endfor; ?>
           </div>
 
