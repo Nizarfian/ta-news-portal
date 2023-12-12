@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+    header("Location: ../login/login.php");
+    exit;
+}
+
+include_once('../connection.php');
+$jumlah1 = mysqli_query($conn, "SELECT * FROM berita");
+$count1 = mysqli_num_rows($jumlah1);
+
+$jumlah2 = mysqli_query($conn, "SELECT * FROM kategori");
+$count2 = mysqli_num_rows($jumlah2);
+
+$jumlah3 = mysqli_query($conn, "SELECT * FROM komentar");
+$count3 = mysqli_num_rows($jumlah3);
+
+$jumlah4 = mysqli_query($conn, "SELECT * FROM saran_berita");
+$count4 = mysqli_num_rows($jumlah4);
+
+$jumlah5 = mysqli_query($conn, "SELECT * FROM user");
+$count5 = mysqli_num_rows($jumlah5);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,11 +43,11 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="assets/images/k.ico" />
 </head>
 
 <body>
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/navbar.php -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
             <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
@@ -37,8 +63,8 @@
                     </a>
                 </li>
                 <li class="nav-item nav-logout d-none d-lg-block">
-                    <a class="nav-link" href="#">
-                        <i class="mdi mdi-logout me-2 text-success"></i>Logout
+                    <a class="nav-link" href="../backend/logout.php">
+                        <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
                     </a>
                 </li>
             </ul>
@@ -49,7 +75,7 @@
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
+        <!-- partial:partials/sidebar.php -->
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                 <li class="nav-item nav-profile">
@@ -114,27 +140,26 @@
                         </span> Dashboard
                     </h3>
                 </div>
+
                 <div class="row">
-                    <div class="col-md-4 stretch-card grid-margin">
-                        <div class="card bg-gradient-danger card-img-holder text-white">
-                            <a href="kategori.php" style="text-decoration: none; color: white">
-                                <div class="card-body">
-                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">List Kategori</h2>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                     <div class="col-md-4 stretch-card grid-margin">
                         <div class="card bg-gradient-info card-img-holder text-white">
                             <a href="berita.php" style="text-decoration: none; color: white">
                                 <div class="card-body">
                                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">List Berita</h2>
+                                    <h1 class="mb-4"><?= $count1 ?></h1>
+                                    <h3>Data Berita</h3>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-danger card-img-holder text-white">
+                            <a href="kategori.php" style="text-decoration: none; color: white">
+                                <div class="card-body">
+                                    <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                                    <h1 class="mb-4"><?= $count2 ?></h1>
+                                    <h3>Data Kategori</h3>
                                 </div>
                             </a>
                         </div>
@@ -144,9 +169,8 @@
                             <a href="komentar.php" style="text-decoration: none; color: white">
                                 <div class="card-body">
                                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">List Komentar</h2>
+                                    <h1 class="mb-4"><?= $count3 ?></h1>
+                                    <h3>Data Komentar</h3>
                                 </div>
                             </a>
                         </div>
@@ -156,9 +180,8 @@
                             <a href="saran.php" style="text-decoration: none; color: white">
                                 <div class="card-body">
                                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">Saran Berita</h2>
+                                    <h1 class="mb-4"><?= $count4 ?></h1>
+                                    <h3>Saran Berita</h3>
                                 </div>
                             </a>
                         </div>
@@ -168,9 +191,8 @@
                             <a href="user.php" style="text-decoration: none; color: white">
                                 <div class="card-body">
                                     <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                                    <h4 class="font-weight-normal mb-3"><i class="mdi mdi-format-align-justify mdi-24px float-right"></i>
-                                    </h4>
-                                    <h2 class="mb-5">List User</h2>
+                                    <h1 class="mb-4"><?= $count5 ?></h1>
+                                    <h3>Data User</h3>
                                 </div>
                             </a>
                         </div>
@@ -178,7 +200,7 @@
                 </div>
 
                 <!-- content-wrapper ends -->
-                <!-- partial:partials/_footer.html -->
+                <!-- partial:partials/footer.php -->
                 <footer class="footer">
                     <div class="container-fluid d-flex justify-content-center">
                         <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright 2023 ©

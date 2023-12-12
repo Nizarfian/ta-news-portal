@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+    header("Location: ../login/login.php");
+    exit;
+}
+
+//query sql
 include("../connection.php");
 
 $id = $_GET["idKomentar"];
@@ -41,7 +50,7 @@ foreach ($query as $data) {
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="assets/images/k.ico" />
 </head>
 
 <body>
@@ -49,7 +58,7 @@ foreach ($query as $data) {
         <!-- partial:partials/navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo"></a>
+                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -62,8 +71,8 @@ foreach ($query as $data) {
                         </a>
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
-                        <a class="nav-link" href="#">
-                            <i class="mdi mdi-logout me-2 text-success"></i>Logout
+                        <a class="nav-link" href="../backend/logout.php">
+                            <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
                         </a>
                     </li>
                 </ul>
@@ -147,7 +156,7 @@ foreach ($query as $data) {
                                     <h4>Isi Komentar</h4>
                                     <p><?= $isi_komentar; ?></p>
                                     <h4>Tanggal Komentar</h4>
-                                    <p><?= $tgl_komen; ?></p>
+                                    <p><?= date("d/m/Y, H:i:s", strtotime($data["tgl_komen"])); ?></p>
                                 </div>
                             </div>
                         </div>
@@ -173,6 +182,10 @@ foreach ($query as $data) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+
         function confirmDelete(idBerita) {
             if (confirm('Yakin ingin menghapus berita ini?')) {
                 window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;

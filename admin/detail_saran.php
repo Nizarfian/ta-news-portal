@@ -1,4 +1,13 @@
 <?php
+//session login
+session_start();
+
+if (!isset($_SESSION["submit"])) {
+    header("Location: ../login/login.php");
+    exit;
+}
+
+//query sql
 include("../connection.php");
 
 $id = $_GET["idSaran"];
@@ -9,6 +18,7 @@ foreach ($query as $data) {
     $kategori = $data["nama_kategori"];
     $username = $data["username"];
     $judul = $data["judul"];
+    $tgl_berita = $data["tgl_berita"];
     $isi_berita = $data["isi_berita"];
     $gambar = $data["gambar"];
 }
@@ -28,8 +38,7 @@ foreach ($query as $data) {
     <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
 
     <!-- DataTables CSS, JS, JQUERY -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
@@ -43,7 +52,7 @@ foreach ($query as $data) {
     <!-- Layout styles -->
     <link rel="stylesheet" href="assets/css/style.css">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="assets/images/k.ico" />
 </head>
 
 <body>
@@ -51,8 +60,7 @@ foreach ($query as $data) {
         <!-- partial:partials/navbar.php -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png"
-                        alt="logo"></a>
+                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-stretch">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -65,13 +73,12 @@ foreach ($query as $data) {
                         </a>
                     </li>
                     <li class="nav-item nav-logout d-none d-lg-block">
-                        <a class="nav-link" href="#">
-                            <i class="mdi mdi-logout me-2 text-success"></i>Logout
+                        <a class="nav-link" href="../backend/logout.php">
+                            <i class="mdi mdi-logout me-2 text-success"></i> Logout </a>
                         </a>
                     </li>
                 </ul>
-                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-                    data-toggle="offcanvas">
+                <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
                 </button>
             </div>
@@ -146,10 +153,12 @@ foreach ($query as $data) {
                                 <div class="card-body">
                                     <h4>Kategori</h4>
                                     <p><?= $kategori; ?></p>
-                                    <h4>user</h4>
+                                    <h4>User</h4>
                                     <p><?= $username; ?></p>
                                     <h4>Judul</h4>
                                     <p><?= $judul; ?></p>
+                                    <h4>Tanggal Berita</h4>
+                                    <p><?= date("d F Y", strtotime($tgl_berita)); ?></p>
                                     <h4>Isi Berita</h4>
                                     <p><?= $isi_berita; ?></p>
                                     <h4>Gambar</h4>
@@ -179,13 +188,17 @@ foreach ($query as $data) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
     <script>
-    function confirmDelete(idBerita) {
-        if (confirm('Yakin ingin menghapus berita ini?')) {
-            window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
-        } else {
-            console.log('Hapus dibatalkan');
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+
+        function confirmDelete(idBerita) {
+            if (confirm('Yakin ingin menghapus berita ini?')) {
+                window.location.href = '../backend/hapus/proses-hapus-berita.php?idBerita=' + idBerita;
+            } else {
+                console.log('Hapus dibatalkan');
+            }
         }
-    }
     </script>
 
     <!-- endinject -->
