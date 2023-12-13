@@ -25,6 +25,8 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="../css/main.css">
   <!--===============================================================================================-->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body class="animsition">
@@ -80,22 +82,31 @@
               <!-- Email input -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example1">Username</label>
-                <input type="text" id="form2Example1" class="form-control" name="username" autocomplete="off"/>
+                <input type="text" id="form2Example1" class="form-control" name="username" autocomplete="off" required>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example2">Password</label>
-                <input type="password" id="form2Example2" class="form-control" name="password" />
+                <input type="password" id="form2Example2" class="form-control" name="password" required>
+              </div>
+
+              <div class="row">
+                <div style="display: block; margin: auto;">
+                  <div class="g-recaptcha mb-1" data-sitekey="6LexSi8pAAAAAAEVK_dq4Ej2pIsk2yghpRPrr1Qg"></div>
+                  <?php if (isset($_GET['pesan']) && $_GET['pesan'] === 'captcha_gagal') : ?>
+                  <p style="color: red;">Verifikasi Captcha gagal. Silahkan coba lagi.</p>
+                  <?php endif; ?>
+                </div>
               </div>
 
               <!-- Submit button -->
-              <button type="submit" name="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+              <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block mt-4 mb-4">Sign
+                in</button>
 
               <!-- Register buttons -->
               <div class="text-center">
                 <p>Tidak Punya Akun? <a href="sign-up.php">Daftar</a></p>
-
               </div>
             </form>
           </div>

@@ -9,6 +9,16 @@ include '../connection.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 
+$recaptcha_secret_key = "6LexSi8pAAAAAB4iOAoT3vKl8NjcRW-iCFo7qOfv";
+$recaptcha_response = $_POST['g-recaptcha-response'];
+$recaptcha_url = "https://www.google.com/recaptcha/api/siteverify?secret=$recaptcha_secret_key&response=$recaptcha_response";
+$recaptcha_data = json_decode(file_get_contents($recaptcha_url));
+
+if (!$recaptcha_data->success) {
+	header("location:../login/login.php?pesan=captcha_gagal");
+	exit();
+}
+
 
 // menyeleksi data user dengan username dan password yang sesuai
 $login = mysqli_query($conn, "select * from user where username='$username' and password='$password'");
@@ -45,8 +55,8 @@ if ($cek > 0) {
 	} else {
 
 		// alihkan ke halaman login kembali
-		header("location:index.php?pesan=gagal");
+		header("location:../login/login.php?");
 	}
 } else {
-	header("location:index.php?pesan=gagal");
+	header("location:../login/login.php?");
 }

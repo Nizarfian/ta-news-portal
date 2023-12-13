@@ -2,9 +2,9 @@
 //session login
 session_start();
 
-if(!isset($_SESSION["submit"])){
-	header("Location: ../login/login.php");
-	exit;
+if (!isset($_SESSION["submit"])) {
+  header("Location: ../login/login.php");
+  exit;
 }
 
 //query sql
@@ -36,7 +36,7 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin | Tambah Berita</title>
+  <title>Admin | Edit Berita</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="assets/vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="assets/vendors/css/vendor.bundle.base.css">
@@ -53,7 +53,7 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
 
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/navbar.php -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
@@ -74,15 +74,14 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
             </a>
           </li>
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
-          data-toggle="offcanvas">
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="mdi mdi-menu"></span>
         </button>
       </div>
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
+      <!-- partial:partials/sidebar.php -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
@@ -141,44 +140,39 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
       <div class="main-panel">
         <div class="content-wrapper">
           <div class="page-header">
-            <h3 class="page-title"> Tambah Berita </h3>
+            <h3 class="page-title"> Edit Berita </h3>
           </div>
           <div class="row">
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <form class="forms-sample" action="../backend/edit/proses-edit-berita.php" method="post"
-                    enctype="multipart/form-data">
+                  <form class="forms-sample" action="../backend/edit/proses-edit-berita.php" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="kategori">Nama Kategori</label>
                       <select class="form-control" id="kategori" name="kategori" required>
                         <?php foreach ($kategori as $data) { ?>
-                        <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
+                          <option value="<?= $data['id_kategori'] ?>" <?php if ($data['id_kategori'] == $id_kategori) {
                                                                         echo "selected";
                                                                       } ?>><?= $data['nama_kategori'] ?>
-                        </option>
+                          </option>
                         <?php } ?>
                       </select>
                     </div>
                     <div class="form-group">
                       <label for="judul">Judul</label>
-                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>"
-                        autocomplete="off" required>
+                      <input type="text" class="form-control" id="judul" name="judul" value="<?= $judul; ?>" autocomplete="off" required>
                     </div>
                     <div class="form-group">
                       <label for="penulis">Penulis</label>
-                      <input type="text" class="form-control" id="penulis" name="penulis" value="<?= $penulis; ?>"
-                        autocomplete="off" required>
+                      <input type="text" class="form-control" id="penulis" name="penulis" value="<?= $penulis; ?>" autocomplete="off" required>
                     </div>
                     <div class="form-group col-2">
                       <label for="tgl_rilis">Tanggal Rilis</label>
-                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_rilis; ?>"
-                        required>
+                      <input type="date" class="form-control" id="tgl_rilis" name="tgl_rilis" value="<?= $tgl_rilis; ?>" required>
                     </div>
                     <div class="form-group">
                       <label for="isi">Isi Berita</label>
-                      <textarea class="form-control" id="isi" rows="6" name="isi"
-                        required><?= $isi_berita; ?></textarea>
+                      <textarea class="form-control" id="isi" rows="6" name="isi" required><?= $isi_berita; ?></textarea>
                     </div>
                     <div class="form-group">
                       <label>Gambar Baru</label>
@@ -196,14 +190,14 @@ $kategori = mysqli_query($conn, "SELECT * FROM `kategori`");
                     <div class="d-flex justify-content-between col-xs-12">
                       <a href="berita.php" class="btn btn-danger btn-sm"><i class="bi bi-chevron-left"></i>
                         Kembali</a>
-                      <input type="submit" name="Submit" value="Submit" class="btn btn-success btn-sm">
+                      <input type="submit" name="Submit" value="Submit" class="btn btn-warning btn-sm">
                     </div>
                   </form>
                 </div>
               </div>
             </div>
             <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html -->
+            <!-- partial:partials/footer.php -->
             <footer class="footer">
               <div class="container-fluid d-flex justify-content-center">
                 <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright

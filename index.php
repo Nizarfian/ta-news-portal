@@ -241,6 +241,8 @@ function custom_echo($x, $length)
                     <span class="f1-s-3">
                       <?= date("d F Y", strtotime($data["tgl_rilis"])); ?>
                     </span>
+
+                    <span class="f1-s-3 m-l-10">&#x1F441; <?= $data['jmlh_dilihat']; ?></span>
                   </span>
                 </div>
               </div>

@@ -38,7 +38,7 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
 
 <body>
   <div class="container-scroller">
-    <!-- partial:partials/_navbar.html -->
+    <!-- partial:partials/navbar.php -->
     <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/logo-k3l2.png" alt="logo" /></a>
@@ -66,7 +66,7 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
     </nav>
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
-      <!-- partial:partials/_sidebar.html -->
+      <!-- partial:partials/sidebar.php -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item nav-profile">
@@ -176,7 +176,7 @@ $query = mysqli_query($conn, "SELECT * FROM kategori");
               </div>
             </div>
             <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html -->
+            <!-- partial:partials/footer.php -->
             <footer class="footer">
               <div class="container-fluid d-flex justify-content-center">
                 <span class="text-muted d-block text-center text-sm-start d-sm-inline-block">Copyright
