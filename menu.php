@@ -211,6 +211,10 @@ $berita_utama = mysqli_query($conn, "SELECT * FROM `berita` WHERE `id_kategori` 
                       <span class="f1-s-3">
                         <?= date("d F Y", strtotime($data["tgl_rilis"])); ?>
                       </span>
+
+                      <span class="m-rl-3">-</span>
+
+                      <span class="f1-s-3">&#x1F441;<?= $data['jmlh_dilihat']; ?></span>
                     </span>
                   </div>
                 </div>

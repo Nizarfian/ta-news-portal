@@ -88,8 +88,16 @@
               <!-- Password input -->
               <div class="form-outline mb-4">
                 <label class="form-label" for="form2Example2">Password</label>
-                <input type="password" id="form2Example2" class="form-control" name="password" required>
+                <div class="input-group">
+                  <input type="password" id="form2Example2" class="form-control" name="password" required>
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    onclick="tampilPassword('#form2Example2')">
+                    <span class="fa fa-fw fa-eye field-icon" id="tampil-password-icon"></span>
+                  </button>
+                </div>
+                <a href="lupa-password.php">Lupa Password?</a>
               </div>
+
 
               <div class="row">
                 <div style="display: block; margin: auto;">
@@ -187,6 +195,16 @@
   <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--===============================================================================================-->
   <script src="../js/main.js"></script>
+  <script>
+  function tampilPassword(targetId) {
+    var passwordField = $(targetId);
+    var passwordFieldType = passwordField.attr("type");
+    passwordField.attr("type", passwordFieldType === "password" ? "text" : "password");
+
+    var eyeIcon = $("#tampil-password-icon");
+    eyeIcon.toggleClass("fa-eye fa-eye-slash");
+  }
+  </script>
 
 </body>
 
