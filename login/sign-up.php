@@ -25,6 +25,7 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="../css/main.css">
   <!--===============================================================================================-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body class="animsition">
@@ -94,14 +95,24 @@
             <form action="../backend/tambah/proses-tambah-user.php" method="post">
               <!-- Email input -->
               <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="email" autocomplete="off" Required>
+              </div>
+
+              <div class="form-outline mb-4">
                 <label class="form-label" for="username">Username</label>
                 <input type="text" id="username" class="form-control" name="username" autocomplete="off" Required>
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" class="form-control" name="password" Required>
+                <label class="form-label" for="form2Example2">Password</label>
+                <div class="input-group">
+                  <input type="password" id="form2Example2" class="form-control" name="password" required>
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="tampilPassword('#form2Example2')">
+                    <span class="fa fa-fw fa-eye field-icon" id="tampil-password-icon"></span>
+                  </button>
+                </div>
               </div>
 
               <!-- Submit button -->
@@ -192,6 +203,16 @@
   <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--===============================================================================================-->
   <script src="../js/main.js"></script>
+  <script>
+    function tampilPassword(targetId) {
+      var passwordField = $(targetId);
+      var passwordFieldType = passwordField.attr("type");
+      passwordField.attr("type", passwordFieldType === "password" ? "text" : "password");
+
+      var eyeIcon = $("#tampil-password-icon");
+      eyeIcon.toggleClass("fa-eye fa-eye-slash");
+    }
+  </script>
 
 </body>
 

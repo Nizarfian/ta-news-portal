@@ -10,6 +10,7 @@ include_once('connection.php');
 $query = mysqli_query($conn, "SELECT * FROM user WHERE id_user = $user");
 
 foreach ($query as $data) {
+  $email = $data['email'];
   $username = $data['username'];
   $password = $data['password'];
 }
@@ -107,14 +108,26 @@ foreach ($query as $data) {
               <input type="hidden" name="idUser" value="<?= $user; ?>">
               <!-- Email input -->
               <div class="form-outline mb-4">
+                <label class="form-label" for="email">Email</label>
+                <input type="email" id="email" class="form-control" name="editEmail" value="<?= $email; ?>">
+              </div>
+
+              <div class="form-outline mb-4">
                 <label class="form-label" for="username">Username</label>
                 <input type="text" id="username" class="form-control" name="editUsername" value="<?= $username; ?>">
               </div>
 
               <!-- Password input -->
               <div class="form-outline mb-4">
-                <label class="form-label" for="password">Password</label>
-                <input type="password" id="password" class="form-control" name="editPassword" value="<?= $password; ?>">
+                <label class="form-label" for="form2Example2">Password</label>
+                <div class="input-group">
+                  <input type="password" id="form2Example2" class="form-control" name="editPassword"
+                    value="<?= $password; ?>" required>
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2"
+                    onclick="tampilPassword('#form2Example2')">
+                    <span class="fa fa-fw fa-eye field-icon" id="tampil-password-icon"></span>
+                  </button>
+                </div>
               </div>
 
               <!-- Submit button -->
@@ -198,6 +211,16 @@ foreach ($query as $data) {
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
   <!--===============================================================================================-->
   <script src="js/main.js"></script>
+  <script>
+  function tampilPassword(targetId) {
+    var passwordField = $(targetId);
+    var passwordFieldType = passwordField.attr("type");
+    passwordField.attr("type", passwordFieldType === "password" ? "text" : "password");
+
+    var eyeIcon = $("#tampil-password-icon");
+    eyeIcon.toggleClass("fa-eye fa-eye-slash");
+  }
+  </script>
 
 </body>
 

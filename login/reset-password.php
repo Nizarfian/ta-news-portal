@@ -1,8 +1,29 @@
+<?php
+include '../connection.php';
+
+$token = $_GET['token'];
+$idUser = $_GET['idUser'];
+$query = mysqli_query($conn, "select * from reset_password where token = '$token'");
+
+$token_kedaluwarsa = 900;
+$row = mysqli_fetch_assoc($query);
+
+if (time() - $row['timestamp'] > $token_kedaluwarsa) {
+  echo "
+    <script>
+    alert('Token sudah kedaluwarsa. Silahkan minta reset password baru.');
+    document.location.href = '../login/login.php';
+    </script>
+  ";
+} else {
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title>Login</title>
+  <title>Reset Password</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
@@ -75,47 +96,25 @@
       <div class="row justify-content-center">
         <div class="col-md-5 col-lg-6 p-b-80">
           <h2 class="f1-l-1 cl2 m-b-20" style="text-align: center;">
-            LOGIN
+            Reset Password
           </h2>
           <div class="p-r-10 p-r-0-sr991">
-            <form action="../backend/cek_login.php" method="post">
-              <!-- Email input -->
-              <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example1">Username</label>
-                <input type="text" id="form2Example1" class="form-control" name="username" autocomplete="off" required>
-              </div>
+            <form action="../backend/proses_reset_password.php" method="post">
+              <input type="hidden" name="idUser" value="<?= $idUser; ?>">
 
-              <!-- Password input -->
               <div class="form-outline mb-4">
-                <label class="form-label" for="form2Example2">Password</label>
+                <label class="form-label" for="form2Example2">Password Baru</label>
                 <div class="input-group">
-                  <input type="password" id="form2Example2" class="form-control" name="password" required>
+                  <input type="password" id="form2Example2" class="form-control" name="passwordBaru" required>
                   <button class="btn btn-outline-secondary" type="button" id="button-addon2"
                     onclick="tampilPassword('#form2Example2')">
                     <span class="fa fa-fw fa-eye field-icon" id="tampil-password-icon"></span>
                   </button>
                 </div>
-                <a href="lupa-password.php">Lupa Password?</a>
               </div>
 
-
-              <div class="row">
-                <div style="display: block; margin: auto;">
-                  <div class="g-recaptcha mb-1" data-sitekey="6LexSi8pAAAAAAEVK_dq4Ej2pIsk2yghpRPrr1Qg"></div>
-                  <?php if (isset($_GET['pesan']) && $_GET['pesan'] === 'captcha_gagal') : ?>
-                  <p style="color: red;">Verifikasi Captcha gagal. Silahkan coba lagi.</p>
-                  <?php endif; ?>
-                </div>
-              </div>
-
-              <!-- Submit button -->
-              <button type="submit" name="submit" id="submit" class="btn btn-primary btn-block mt-4 mb-4">Sign
-                in</button>
-
-              <!-- Register buttons -->
-              <div class="text-center">
-                <p>Tidak Punya Akun? <a href="sign-up.php">Daftar</a></p>
-              </div>
+              <button type="submit" name="reset_password" id="reset_password"
+                class="btn btn-primary btn-block mt-4 mb-4">Reset Password</button>
             </form>
           </div>
         </div>
@@ -209,3 +208,5 @@
 </body>
 
 </html>
+
+<?php } ?>

@@ -15,9 +15,9 @@ $pengenal_unik = $user ? $user . '_' . $idBerita : 'guest_' . $idBerita;
 $sudahMelihat = isset($_SESSION['berita_dilihat'][$pengenal_unik]);
 
 if (!$sudahMelihat) {
-    mysqli_query($conn, "UPDATE `berita` SET `jmlh_dilihat` = `jmlh_dilihat` + 1 WHERE `id_berita` = $idBerita;");
+  mysqli_query($conn, "UPDATE `berita` SET `jmlh_dilihat` = `jmlh_dilihat` + 1 WHERE `id_berita` = $idBerita;");
 
-    $_SESSION['berita_dilihat'][$pengenal_unik] = true;
+  $_SESSION['berita_dilihat'][$pengenal_unik] = true;
 }
 
 $menu = mysqli_query($conn, "SELECT * FROM `kategori`;");
@@ -167,7 +167,7 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
                   <span class="m-rl-3">-</span>
 
-                  <span>&#x1F441;<?= $data['jmlh_dilihat']; ?></span>
+                  <span>&#x1F441; <?= $data['jmlh_dilihat']; ?></span>
                 </span>
               </div>
 
@@ -188,10 +188,10 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
               <form action="
               <?php if (isset($user)) {
-                    echo 'backend/tambah/proses-tambah-komentar.php';
-                } else {
-                    echo 'login/login.php';
-                } ?>
+                echo 'backend/tambah/proses-tambah-komentar.php';
+              } else {
+                echo 'login/login.php';
+              } ?>
               " method="post" id="komentar">
                 <input type="hidden" id="tglKomen" name="tglKomen">
                 <input type="hidden" id="idBerita" name="idBerita" value="<?= $idBerita; ?>">
@@ -208,7 +208,7 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
             </div>
 
             <!-- comment -->
-            <div id="komentar-section" class="bo-1-rad-1 bocl13 p-b-20" style="background-color: #dddddd;">
+            <div class="bo-1-rad-1 bocl13 p-b-20" style="background-color: #dddddd;">
               <h3 class="f1-l-2 cl2 p-b-16 p-l-20 p-r-20 p-t-20 respon2">Komentar</h3>
 
               <?php foreach ($komentar as $data) : ?>
@@ -244,13 +244,13 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
 
               <div class="row">
                 <?php
-                                $limit = 5;
-                                $counter = 0;
-                                ?>
+                $limit = 5;
+                $counter = 0;
+                ?>
                 <?php foreach ($beritaTerkait as $data) : ?>
                 <?php if ($data['id_berita'] == $idBerita) {
-                                        continue;
-                                    } ?>
+                    continue;
+                  } ?>
                 <div class="col-12">
                   <!-- Item post -->
                   <div>
@@ -280,12 +280,12 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
                   </div>
                 </div>
                 <?php
-                                    $counter++;
-                                    if ($counter >= $limit) {
-                                        break;
-                                    }
-                                endforeach;
-                                ?>
+                  $counter++;
+                  if ($counter >= $limit) {
+                    break;
+                  }
+                endforeach;
+                ?>
               </div>
             </div>
           </div>
@@ -385,18 +385,6 @@ $komentar = mysqli_query($conn, "SELECT * FROM `komentar` JOIN user ON komentar.
   }
 
   document.getElementById('komentar').addEventListener('submit', setCurrentDateTime);
-  </script>
-
-  <script>
-  window.location.hash = '#komentar-section';
-
-  sessionStorage.setItem('scrollToComment', 'true');
-  window.onload = function() {
-    if (sessionStorage.getItem('scrollToComment')) {
-      window.location.hash = '#komentar-section';
-      sessionStorage.removeItem('scrollToComment');
-    }
-  };
   </script>
 
 </body>
